@@ -1,1 +1,1 @@
-# icp
+# RISC-V
