@@ -2,6 +2,7 @@
 
 32-bit 5-stage RISC-V processor for FPGA implementation based on the book Computer Organization and Design: (https://www.amazon.se/-/en/David-Patterson/dp/0128122757)
 
+![alt text](image.png)
 # Checklist
 ## Shifts
 - [ ] SLL
