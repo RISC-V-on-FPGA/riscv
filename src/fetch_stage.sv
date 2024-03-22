@@ -1,4 +1,4 @@
-//import common::*;
+`include "common.sv"
 
 module fetch_stage (
     input clk,
