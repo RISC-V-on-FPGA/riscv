@@ -11,7 +11,7 @@ module execute_stage (
     input logic [31:0] data2,
 
     output control_type control_out,
-    output        ZeroFlag,
+    output logic  ZeroFlag,
     output [31:0] alu_data,
     output [31:0] memory_data
 );
@@ -21,7 +21,7 @@ module execute_stage (
       .left_operand(left_operand),
       .right_operand(right_operand),
       .ZeroFlag(ZeroFlag),
-      .result(alu_result)
+      .result(alu_data)
   );
 
   logic [31:0] right_operand;
@@ -33,9 +33,9 @@ module execute_stage (
     if (control_in.alu_src) begin
       right_operand = immediate_data;
     end
-
-
   end
+
+  // Implement Forwarding
 
   assign control_out = control_in;
   assign memory_data = data2;
