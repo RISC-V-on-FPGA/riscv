@@ -19,17 +19,25 @@ package common;
     ALU_SLTU = 4'b1101   // Set < Unsigned
   } alu_op_type;
 
+  typedef enum logic [2:0]
+    {
+        R_TYPE,
+        I_TYPE,
+        S_TYPE,
+        B_TYPE,
+        U_TYPE,
+        J_TYPE
+    } encoding_type;
+
   typedef struct packed {
         alu_op_type alu_op;
         encoding_type encoding;
         logic ALUSrc;
-
-        // From massuds code
-        // logic mem_read;
-        // logic mem_write;
-        // logic reg_write;
-        // logic mem_to_reg;
-        // logic is_branch;
+        logic MemRead;
+        logic MemWrite;
+        logic RegWrite;
+        logic MemtoReg;
+        logic is_branch; // What is this?
   } control_type;
 
   typedef struct packed {
