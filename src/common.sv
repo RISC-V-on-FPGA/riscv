@@ -20,6 +20,19 @@ package common;
   } alu_op_type;
 
   typedef struct packed {
+        alu_op_type alu_op;
+        encoding_type encoding;
+        logic ALUSrc;
+
+        // From massuds code
+        // logic mem_read;
+        // logic mem_write;
+        // logic reg_write;
+        // logic mem_to_reg;
+        // logic is_branch;
+  } control_type;
+
+  typedef struct packed {
     logic [6:0] funct7;
     logic [4:0] rs2;
     logic [4:0] rs1;
