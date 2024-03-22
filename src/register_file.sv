@@ -24,17 +24,9 @@ module register_file (
 
   always_comb begin : Comb
     // x0 is always zero
-    if (read1_id == 0) begin
-      read1_data = 0;
-    end else begin
-      read1_data = registers[read1_id];
-    end
+    read1_data = read1_id == 0 ? 0 : registers[read1_id];
     // x0 is always zero
-    if (read2_id == 0) begin
-      read2_data = 0;
-    end else begin
-      read2_data = register[read2_id]
-    end
+    read2_data = read2_id == 0 ? 0 : registers[read2_id];
   end
 
 endmodule
