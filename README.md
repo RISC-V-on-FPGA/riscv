@@ -3,45 +3,45 @@
 32-bit 5-stage RISC-V processor for FPGA implementation based on the book Computer Organization and Design: (https://www.amazon.se/-/en/David-Patterson/dp/0128122757)
 
 # Checklist
-## Shifts
+**Shifts**
 - [ ] SLL
 - [ ] SLLI
 - [ ] SRL
 - [ ] SRLI
 - [ ] SRA
 - [ ] SRAI
-## Arithmetic
+**Arithmetic**
 - [ ] ADD
 - [ ] ADDI
 - [ ] SUB
 - [ ] LUI
-## Logical
+**Logical**
 - [ ] XOR
 - [ ] XORI
 - [ ] OR
 - [ ] ORI
 - [ ] AND
 - [ ] ANDI
-## Compare
+**Compare**
 - [ ] SLT
 - [ ] SLTI
 - [ ] SLTU
 - [ ] SLTIU
-## Branches
+**Branches**
 - [ ] BEQ
 - [ ] BNE
 - [ ] BLT
 - [ ] BGE
 - [ ] BLTU
 - [ ] BGEU
-## Loads and Stores
+**Loads and Stores**
 - [ ] LW
 - [ ] SW
-### Compressed (16-bit) Instruction Extension
-## Loads and Stores
+## Compressed (16-bit) Instruction Extension
+**Loads and Stores**
 - [ ] C.LW
 - [ ] C.SW
-## Arithmetic
+**Arithmetic**
 - [ ] C.ADD
 - [ ] C.ADDI
 - [ ] C.SUB
@@ -52,10 +52,10 @@
 - [ ] C.MV
 - [ ] C.LI
 - [ ] C.LUI
-## Shifts
+**Shifts**
 - [ ] C.SLLI
 - [ ] C.SRAI
 - [ ] C.SRLI
-## Branches
+**Branches**
 - [ ] C.BEQZ
 - [ ] C.BNEZ
