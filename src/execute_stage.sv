@@ -35,7 +35,7 @@ module execute_stage (
     end
   end
 
-  // Implement Forwarding
+  // Forwarding: To be implemented
 
   assign control_out = control_in;
   assign memory_data = data2;
