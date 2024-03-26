@@ -21,7 +21,7 @@ module alu (
       // Logical
       ALU_AND: result = left_operand & right_operand;
       ALU_OR:  result = left_operand | right_operand;
-      //XOR (To be added)
+      ALU_XOR: result = left_operand ^ right_operand;
 
       // Compare (To be added)
 
