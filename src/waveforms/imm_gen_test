@@ -1,0 +1,170 @@
+#! /usr/bin/vvp
+:ivl_version "11.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2009.vpi";
+S_0x558a226a4010 .scope package, "$unit" "$unit" 2 1;
+ .timescale 0 0;
+S_0x558a226a41a0 .scope package, "common" "common" 3 1;
+ .timescale -12 -12;
+enum0x558a22669b80 .enum4 (3)
+   "R_TYPE" 3'b000,
+   "I_TYPE" 3'b001,
+   "S_TYPE" 3'b010,
+   "B_TYPE" 3'b011,
+   "U_TYPE" 3'b100,
+   "J_TYPE" 3'b101
+ ;
+enum0x558a2266a4e0 .enum4 (4)
+   "ALU_SLL" 4'b0000,
+   "ALU_SRL" 4'b0001,
+   "ALU_SRA" 4'b0010,
+   "ALU_ADD" 4'b0100,
+   "ALU_SUB" 4'b0101,
+   "ALU_LUI" 4'b0110,
+   "ALU_XOR" 4'b1000,
+   "ALU_OR" 4'b1001,
+   "ALU_AND" 4'b1010,
+   "ALU_SLT" 4'b1100,
+   "ALU_SLTU" 4'b1101
+ ;
+S_0x558a226ae660 .scope module, "imm_gen" "imm_gen" 4 6;
+ .timescale -12 -12;
+    .port_info 0 /INPUT 32 "instruction";
+    .port_info 1 /INPUT 3 "encoding";
+    .port_info 2 /OUTPUT 32 "imm_gen_output";
+o0x7fa0f1cae018 .functor BUFZ 3, C4<zzz>; HiZ drive
+v0x558a2266a7b0_0 .net "encoding", 2 0, o0x7fa0f1cae018;  0 drivers
+v0x558a2266aba0_0 .var "imm_gen_output", 31 0;
+o0x7fa0f1cae078 .functor BUFZ 32, C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>; HiZ drive
+v0x558a226ce5d0_0 .net "instruction", 31 0, o0x7fa0f1cae078;  0 drivers
+E_0x558a226a4e50/0 .event edge, v0x558a2266a7b0_0, v0x558a226ce5d0_0, v0x558a226ce5d0_0, v0x558a226ce5d0_0;
+E_0x558a226a4e50/1 .event edge, v0x558a226ce5d0_0, v0x558a226ce5d0_0, v0x558a226ce5d0_0, v0x558a226ce5d0_0;
+E_0x558a226a4e50/2 .event edge, v0x558a226ce5d0_0, v0x558a226ce5d0_0;
+E_0x558a226a4e50 .event/or E_0x558a226a4e50/0, E_0x558a226a4e50/1, E_0x558a226a4e50/2;
+    .scope S_0x558a226ae660;
+T_0 ;
+Ewait_0 .event/or E_0x558a226a4e50, E_0x0;
+    %wait Ewait_0;
+    %load/vec4 v0x558a2266a7b0_0;
+    %dup/vec4;
+    %pushi/vec4 1, 0, 3;
+    %cmp/u;
+    %jmp/1 T_0.0, 6;
+    %dup/vec4;
+    %pushi/vec4 4, 0, 3;
+    %cmp/u;
+    %jmp/1 T_0.1, 6;
+    %dup/vec4;
+    %pushi/vec4 2, 0, 3;
+    %cmp/u;
+    %jmp/1 T_0.2, 6;
+    %dup/vec4;
+    %pushi/vec4 3, 0, 3;
+    %cmp/u;
+    %jmp/1 T_0.3, 6;
+    %load/vec4 v0x558a226ce5d0_0;
+    %store/vec4 v0x558a2266aba0_0, 0, 32;
+    %jmp T_0.5;
+T_0.0 ;
+    %load/vec4 v0x558a226ce5d0_0;
+    %parti/s 12, 20, 6;
+    %ix/load 4, 0, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v0x558a2266aba0_0, 4, 12;
+    %load/vec4 v0x558a226ce5d0_0;
+    %parti/s 1, 31, 6;
+    %pad/u 32;
+    %cmpi/e 0, 0, 32;
+    %jmp/0xz  T_0.6, 4;
+    %pushi/vec4 0, 0, 20;
+    %ix/load 4, 12, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v0x558a2266aba0_0, 4, 20;
+    %jmp T_0.7;
+T_0.6 ;
+    %pushi/vec4 1048575, 0, 20;
+    %ix/load 4, 12, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v0x558a2266aba0_0, 4, 20;
+T_0.7 ;
+    %jmp T_0.5;
+T_0.1 ;
+    %pushi/vec4 0, 0, 12;
+    %ix/load 4, 0, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v0x558a2266aba0_0, 4, 12;
+    %load/vec4 v0x558a226ce5d0_0;
+    %parti/s 20, 12, 5;
+    %ix/load 4, 12, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v0x558a2266aba0_0, 4, 20;
+    %jmp T_0.5;
+T_0.2 ;
+    %load/vec4 v0x558a226ce5d0_0;
+    %parti/s 7, 25, 6;
+    %ix/load 4, 5, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v0x558a2266aba0_0, 4, 7;
+    %load/vec4 v0x558a226ce5d0_0;
+    %parti/s 6, 7, 4;
+    %pad/u 5;
+    %ix/load 4, 0, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v0x558a2266aba0_0, 4, 5;
+    %load/vec4 v0x558a226ce5d0_0;
+    %parti/s 1, 31, 6;
+    %pad/u 32;
+    %cmpi/e 0, 0, 32;
+    %jmp/0xz  T_0.8, 4;
+    %pushi/vec4 0, 0, 20;
+    %ix/load 4, 12, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v0x558a2266aba0_0, 4, 20;
+    %jmp T_0.9;
+T_0.8 ;
+    %pushi/vec4 1048575, 0, 20;
+    %ix/load 4, 12, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v0x558a2266aba0_0, 4, 20;
+T_0.9 ;
+    %jmp T_0.5;
+T_0.3 ;
+    %load/vec4 v0x558a226ce5d0_0;
+    %parti/s 1, 31, 6;
+    %ix/load 4, 12, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v0x558a2266aba0_0, 4, 1;
+    %load/vec4 v0x558a226ce5d0_0;
+    %parti/s 1, 7, 4;
+    %ix/load 4, 11, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v0x558a2266aba0_0, 4, 1;
+    %load/vec4 v0x558a226ce5d0_0;
+    %parti/s 6, 25, 6;
+    %ix/load 4, 5, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v0x558a2266aba0_0, 4, 6;
+    %load/vec4 v0x558a226ce5d0_0;
+    %parti/s 4, 8, 5;
+    %pad/u 5;
+    %ix/load 4, 0, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v0x558a2266aba0_0, 4, 5;
+    %jmp T_0.5;
+T_0.5 ;
+    %pop/vec4 1;
+    %jmp T_0;
+    .thread T_0, $push;
+# The file index is used to find the file name in the following table.
+:file_names 5;
+    "N/A";
+    "<interactive>";
+    "-";
+    "./common.sv";
+    "imm_gen.sv";
