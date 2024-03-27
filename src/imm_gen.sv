@@ -12,7 +12,7 @@ module imm_gen (
 always_comb begin
   case (encoding)
     I_TYPE: begin
-      imm_gen_output[11:0] = instruction[31:20];
+      //imm_gen_output[11:0] = instruction[31:20];
       if (instruction[31] == 0) begin
         imm_gen_output[31:12] = 0;
       end else begin

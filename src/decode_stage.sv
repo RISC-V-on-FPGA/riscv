@@ -10,10 +10,10 @@ module decode_stage (
     input clk,
     input instruction_type instruction,  // From program_memory
     input encoding_type encoding,
-    input logic [31:0] pc,
+    input [31:0] pc,
     input RegWrite,
-    input logic [31:0] write_data,  // Input from write back stage
-    input logic [4:0] write_id,
+    input [31:0] write_data,  // Input from write back stage
+    input [4:0] write_id,
     // Register destination input from execute missing, implement later for hazard detection
     output logic [31:0] data1,  // Output from register file
     output logic [31:0] data2,

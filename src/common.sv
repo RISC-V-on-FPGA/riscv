@@ -19,6 +19,14 @@ package common;
     ALU_SLTU = 4'b1101   // Set < Unsigned
   } alu_op_type;
 
+  typedef enum logic [2:0] {
+    FUNCT3_ADDI = 3'b000
+  } funct3_type;
+
+  typedef enum logic [6:0] {
+    OPCODE_I_TYPE = 7'b0010011
+  } opcode_type;
+
   typedef enum logic [2:0]
     {
         R_TYPE,
