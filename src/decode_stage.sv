@@ -1,7 +1,9 @@
 `include "common.sv"
-`include "register_file.sv"
-`include "control.sv"
-`include "imm_gen.sv"
+// `include "register_file.sv"
+// `include "control.sv"
+// `include "imm_gen.sv"
+
+import common::*;
 
 module decode_stage (
     input rst,

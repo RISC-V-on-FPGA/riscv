@@ -1,4 +1,3 @@
-`timescale 1ps / 1ps
 `include "common.sv"
 
 import common::*;
