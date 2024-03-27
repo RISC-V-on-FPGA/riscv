@@ -9,24 +9,25 @@ module decode_stage (
     input rst,
     input clk,
     input instruction_type instruction,  // From program_memory
-    input [31:0] pc,
+    input encoding_type encoding,
+    input logic [31:0] pc,
     input RegWrite,
-    input [31:0] write_data,  // Input from write back stage
-    input [4:0] write_id,
+    input logic [31:0] write_data,  // Input from write back stage
+    input logic [4:0] write_id,
     // Register destination input from execute missing, implement later for hazard detection
-    output [31:0] data1,  // Output from register file
-    output [31:0] data2,
-    output [63:0] imm,
-    output [5:0] rd,
-    output [31:0] rs1,
-    output [31:0] rs2,
+    output logic [31:0] data1,  // Output from register file
+    output logic [31:0] data2,
+    output logic [31:0] imm,
+    output logic [5:0] rd,
+    output logic [31:0] rs1,
+    output logic [31:0] rs2,
     output control_type control,  // Implement mux here later for hazard detection
-    output [31:0] pc_branch
+    output logic [31:0] pc_branch
 );
 
-  wire [63:0] imm_shifted;
+  logic [63:0] imm_shifted;
 
-  control control (
+  control controller (
       .clk(clk),
       .rst(rst),
       .instruction(instruction),
@@ -35,12 +36,13 @@ module decode_stage (
 
   imm_gen imm_gen (
       .instruction(instruction),
+      .encoding(encoding),
       //Imm gen before left shift
-      .imm(imm)
+      .imm_gen_output(imm)
   );
 
-  wire [4:0] read1_id;
-  wire [4:0] read2_id;
+  logic [4:0] read1_id;
+  logic [4:0] read2_id;
 
   register_file register_file (
       .clk(clk),
@@ -56,12 +58,8 @@ module decode_stage (
 
   always_ff @(posedge clk) begin : Seq
     if (rst == 1) begin
-      data1   <= 0;
-      data2   <= 0;
-      imm     <= 0;
       rs1     <= 0;
       rs2     <= 0;
-      control <= 0;
       rd      <= 0;
     end else begin
       rs1 <= instruction.rs1;
