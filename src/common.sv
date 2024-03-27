@@ -30,7 +30,7 @@ package common;
     } encoding_type;
 
   typedef struct packed {
-        alu_op_type alu_op;
+        alu_op_type ALUOp;
         encoding_type encoding;
         logic ALUSrc;
         logic MemRead;
