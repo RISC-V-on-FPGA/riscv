@@ -1,4 +1,6 @@
 `timescale 1ps / 1ps
+// `include "common.sv"
+import common::*;
 
 module fetch_stage_tb;
 
@@ -6,6 +8,7 @@ module fetch_stage_tb;
   logic PCSrc, PCWrite;
   logic [31:0] pc_branch;
   wire  [31:0] pc;
+  wire instruction_type instruction;
 
   fetch_stage uut (
       .clk(clk),
@@ -13,7 +16,8 @@ module fetch_stage_tb;
       .pc_branch(pc_branch),
       .PCSrc(PCSrc),
       .PCWrite(PCWrite),
-      .pc(pc)
+      .pc(pc),
+      .instruction(instruction)
   );
 
   parameter period = 2;

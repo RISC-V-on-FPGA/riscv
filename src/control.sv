@@ -1,4 +1,5 @@
 `include "common.sv"
+import common::*;
 
 module control (
     input clk,
