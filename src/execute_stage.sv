@@ -4,11 +4,12 @@ import common::*;
 
 module execute_stage (
     input              clk,
-    input              rst,
+    //input              rst, Might not be needed due to execute stage being comb
     input              ALUSrc,
     input control_type control_in,
     input logic [31:0] data1,
     input logic [31:0] data2,
+    input logic [31:0] immediate_data,
 
     output control_type control_out,
     output logic  ZeroFlag,

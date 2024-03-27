@@ -1,15 +1,17 @@
 `timescale 1ps / 1ps
+`include "common.sv"
 
 import common::*;
 
 module imm_gen (
   input instruction_type instruction,
+  input encoding_type encoding,
 
-  output [31:0] imm_gen_output
+  output logic [31:0] imm_gen_output
 );
 
 always_comb begin
-  case (encoding_type)
+  case (encoding)
     I_TYPE: begin
       imm_gen_output[11:0] = instruction[31:20];
       if (instruction[31] == 0) begin
