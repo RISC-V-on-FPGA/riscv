@@ -1,0 +1,30 @@
+[*]
+[*] GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
+[*] Wed Mar 27 08:27:35 2024
+[*]
+[dumpfile] "/home/modica/riscv/src/waveform.vcd"
+[dumpfile_mtime] "Wed Mar 27 08:24:13 2024"
+[dumpfile_size] 4349
+[savefile] "/home/modica/riscv/src/waveforms/fetch_stage_tb.gtkw"
+[timestart] 0
+[size] 1920 1116
+[pos] -46 -46
+*-1.943969 5 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] fetch_stage_tb.
+[treeopen] fetch_stage_tb.uut.
+[sst_width] 229
+[signals_width] 236
+[sst_expanded] 1
+[sst_vpaned_height] 334
+@28
+fetch_stage_tb.rst
+fetch_stage_tb.clk
+fetch_stage_tb.PCSrc
+fetch_stage_tb.PCWrite
+fetch_stage_tb.instruction[31:0]
+@24
+fetch_stage_tb.pc[31:0]
+@25
+fetch_stage_tb.pc_branch[31:0]
+[pattern_trace] 1
+[pattern_trace] 0

@@ -1,4 +1,7 @@
 `include "common.sv"
+`include "program_memory.sv"
+
+import common::*;
 
 module fetch_stage (
     input clk,
