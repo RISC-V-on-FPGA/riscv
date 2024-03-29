@@ -5,7 +5,7 @@
 ![alt text](image.png)
 
 # Short term plan
-- [ ] Make ADDI work
+- [x] Make ADDI work
 - [ ] Make ADD work
 - [ ] Implement Forwarding
 - [ ] Make LD work
@@ -21,7 +21,7 @@
 - [ ] SRAI
 ## Arithmetic
 - [ ] ADD
-- [ ] ADDI
+- [x] ADDI
 - [ ] SUB
 - [ ] LUI
 ## Logical
