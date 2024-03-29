@@ -3,7 +3,7 @@
 import common::*;
 
 module alu (
-    input wire [2:0] control,
+    input wire [3:0] control,
     input wire [31:0] left_operand,
     input wire [31:0] right_operand,
     output logic ZeroFlag,

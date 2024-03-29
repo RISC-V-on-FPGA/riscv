@@ -18,8 +18,8 @@ module decode_stage (
     output logic [31:0] data2,
     output logic [31:0] imm,
     output logic [4:0] rd,
-    output logic [31:0] rs1,
-    output logic [31:0] rs2,
+    output logic [4:0] rs1,
+    output logic [4:0] rs2,
     output control_type control,  // Implement mux here later for hazard detection
     output logic [31:0] pc_branch
 );

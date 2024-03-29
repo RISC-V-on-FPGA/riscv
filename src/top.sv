@@ -12,8 +12,8 @@ module top (
   logic            [31:0] ID_EX_DATA1;
   logic            [31:0] ID_EX_DATA2;
   logic            [31:0] ID_EX_IMM;
-  logic            [31:0] ID_EX_RS1;
-  logic            [31:0] ID_EX_RS2;
+  logic            [ 4:0] ID_EX_RS1;
+  logic            [ 4:0] ID_EX_RS2;
   logic            [ 4:0] ID_EX_RD;
 
   //EX_MEM Registers
@@ -28,6 +28,34 @@ module top (
   logic            [31:0] MEM_WB_MEM_OUTPUT;
   logic            [31:0] MEM_WB_MEM_BYPASS;
   logic            [ 4:0] MEM_WB_RD;
+
+  // Signals that does not go through the pipeline registers
+  wire             [31:0] pc_branch;
+  logic            [31:0] wb_data;
+  logic            [31:0] fetch_pc;
+  instruction_type        fetch_instruction;
+  control_type            decode_control;
+  logic            [31:0] decode_data1;
+  logic            [31:0] decode_data2;
+  logic            [31:0] decode_imm;
+  logic            [ 4:0] decode_rs1;
+  logic            [ 4:0] decode_rs2;
+  logic            [ 4:0] decode_rd;
+  control_type            execute_control_out;
+  logic            [ 4:0] execute_rd_out;
+  logic            [31:0] execute_memory_data;
+  logic            [31:0] execute_alu_data;
+  logic                   execute_zero_flag;
+  control_type            memory_control_out;
+  logic            [31:0] memory_memory_output;
+  logic            [31:0] memory_bypass_output;
+  logic            [ 4:0] memory_rd;
+
+
+  always_comb begin : Comb
+    // TODO: Make this depend on MemToReg control signal
+    wb_data = MEM_WB_MEM_BYPASS;
+  end
 
   always_ff @(posedge clk) begin : Seq
     if (rst == 1) begin
@@ -75,15 +103,6 @@ module top (
       MEM_WB_MEM_BYPASS  <= memory_bypass_output;
       MEM_WB_RD          <= memory_rd;
     end
-  end
-
-  // Signals that does not go through the pipeline registers
-  wire  [31:0] pc_branch;
-  logic [31:0] wb_data;
-
-  always_comb begin : Comb
-    // TODO: Make this depend on MemToReg control signal
-    wb_data = MEM_WB_MEM_BYPASS;
   end
 
   fetch_stage fetch_stage (
@@ -138,8 +157,8 @@ module top (
       .MemRead(1'b0),
       .control_in(EX_MEM_CONTROL),
       .control_out(memory_control_out),
-      .memory_bypass(memory_bypass),
-      .memory_output(memory_memory),
+      .memory_bypass(memory_bypass_output),
+      .memory_output(memory_memory_output),
       .rd_in(EX_MEM_RD),
       .rd_out(memory_rd)
   );

@@ -20,6 +20,7 @@ module memory_stage (
   always_comb begin
     memory_bypass = alu_result;
     rd_out = rd_in;
+    control_out = control_in;
   end
 
   // Save to memory: To be implemented

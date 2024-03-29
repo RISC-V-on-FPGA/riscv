@@ -19,21 +19,21 @@ module execute_stage (
     output logic [4:0] rd_out
 );
 
+  logic [31:0] right_operand;
+  logic [31:0] left_operand;
+
   alu alu (
-      .control(ALUControl),
+      .control(control_in.ALUOp),
       .left_operand(left_operand),
       .right_operand(right_operand),
       .ZeroFlag(ZeroFlag),
       .result(alu_data)
   );
 
-  logic [31:0] right_operand;
-  logic [31:0] left_operand;
-
   always_comb begin : operand_selector
     left_operand  = data1;
     right_operand = data2;
-    if (control_in.alu_src) begin
+    if (control_in.ALUSrc) begin
       right_operand = immediate_data;
     end
   end
