@@ -17,7 +17,7 @@ module decode_stage (
     output logic [31:0] data1,  // Output from register file
     output logic [31:0] data2,
     output logic [31:0] imm,
-    output logic [5:0] rd,
+    output logic [4:0] rd,
     output logic [31:0] rs1,
     output logic [31:0] rs2,
     output control_type control,  // Implement mux here later for hazard detection

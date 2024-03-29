@@ -10,11 +10,13 @@ module execute_stage (
     input logic [31:0] data1,
     input logic [31:0] data2,
     input logic [31:0] immediate_data,
+    input [4:0] rd_in,
 
     output control_type control_out,
     output logic  ZeroFlag,
     output [31:0] alu_data,
-    output [31:0] memory_data
+    output [31:0] memory_data,
+    output logic [4:0] rd_out
 );
 
   alu alu (
@@ -40,5 +42,6 @@ module execute_stage (
 
   assign control_out = control_in;
   assign memory_data = data2;
+  assign rd_out = rd_in;
 
 endmodule
