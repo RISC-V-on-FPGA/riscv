@@ -4,15 +4,15 @@ import common::*;
 
 module imm_gen (
   input instruction_type instruction,
-  input encoding_type encoding,
+  input control_type control,
 
   output logic [31:0] imm_gen_output
 );
 
 always_comb begin
-  case (encoding)
+  case (control.encoding)
     I_TYPE: begin
-      //imm_gen_output[11:0] = instruction[31:20];
+      imm_gen_output[11:0] = instruction[31:20];
       if (instruction[31] == 0) begin
         imm_gen_output[31:12] = 0;
       end else begin

@@ -43,6 +43,8 @@ module decode_stage_tb;
 
   initial begin
     // Test reset
+    instruction = 0;
+    write_data = 0;
     rst = 0;
     RegWrite = 0;
     pc = 0;
@@ -59,12 +61,11 @@ module decode_stage_tb;
     #(period);
     // Set the instruction to match ADDI
     instruction.funct7 = 7'b0000000;
-    instruction.rs2 = 5'b00011; // Value 4
+    instruction.rs2 = 5'b00011; // Value 3
     instruction.rs1 = 5'b00010; // Add with register 2
     instruction.funct3 = FUNCT3_ADDI;
     instruction.rd = 5'b00011; // Save to register 3
     instruction.opcode = OPCODE_I_TYPE;
-
     pc = 0;
     write_data = 0;
     write_id = 0;

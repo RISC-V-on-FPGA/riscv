@@ -9,7 +9,6 @@ module decode_stage (
     input rst,
     input clk,
     input instruction_type instruction,  // From program_memory
-    input encoding_type encoding,
     input [31:0] pc,
     input RegWrite,
     input [31:0] write_data,  // Input from write back stage
@@ -36,7 +35,7 @@ module decode_stage (
 
   imm_gen imm_gen (
       .instruction(instruction),
-      .encoding(encoding),
+      .control(control),
       //Imm gen before left shift
       .imm_gen_output(imm)
   );

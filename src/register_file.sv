@@ -14,7 +14,7 @@ module register_file (
 
   always_ff @(posedge clk) begin : Seq
     if (rst == 1) begin
-      for (int i = 31; i < 32 ; i++) begin
+      for (int i = 0; i < 32 ; i++) begin
         registers[i] <= 0;
       end
     end else begin
