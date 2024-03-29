@@ -55,19 +55,19 @@ module decode_stage (
       .read2_data(data2)
   );
 
-  always_ff @(posedge clk) begin : Seq
-    if (rst == 1) begin
-      rs1     <= 0;
-      rs2     <= 0;
-      rd      <= 0;
-    end else begin
-      rs1 <= instruction.rs1;
-      rs2 <= instruction.rs2;
-      rd  <= instruction.rd;
-    end
-  end
+  // always_ff @(posedge clk) begin : Seq
+  //   if (rst == 1) begin
+  //     rs1 <= 0;
+  //     rs2 <= 0;
+  //     rd  <= 0;
+  //   end
+  // end
 
   always_comb begin : Comb
+    rs1 = instruction.rs1;
+    rs2 = instruction.rs2;
+    rd = instruction.rd;
+    
     imm_shifted = imm << 1;
     pc_branch = imm_shifted[31:0] + pc;
     read1_id = instruction.rs1;
