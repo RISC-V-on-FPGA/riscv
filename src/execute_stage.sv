@@ -69,8 +69,8 @@ module execute_stage (
 
     // Forwarding right operand (B)
     case (mux_ctrl_right)
-      Forward_mem: right_operand = forward_mem;
-      Forward_wb: right_operand = forward_wb;
+      Forward_ex_mem: right_operand = forward_ex_mem;
+      Forward_mem_wb: right_operand = forward_mem_wb;
       default: ;
     endcase
   end

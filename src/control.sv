@@ -14,6 +14,8 @@ module control (
   localparam logic [9:0] LW_INSTRUCTION = {3'b010, 7'b0000011};
   localparam logic [9:0] SW_INSTRUCTION = {3'b010, 7'b0100011};
   localparam logic [9:0] BEQ_INSTRUCTION = {3'b000, 7'b1100011};
+  localparam logic [16:0] SLL_INSTRUCTION = {7'b0000000, 3'b001, 7'b0110011};
+  localparam logic [16:0]
 
   always_comb begin
     control = 0;
@@ -36,6 +38,11 @@ module control (
     end
     else if ({instruction.funct7, instruction.funct3, instruction.opcode} == ADD_INSTRUCTION) begin
       control.ALUOp = ALU_ADD;
+    end
+    else if ({instruction.funct7, instruction.funct3, instruction.opcode} == SUB_INSTRUCTION) begin
+      control.ALUOp = ALU_SUB;
+    end else if ({instruction.funct7, instruction.funct3, instruction.opcode} == SLL_INSTRUCTION) begin
+      control.ALUOp = ALU_SLL;
     end
 
   end

@@ -45,7 +45,7 @@ module forwarding_unit (
     // and (EX/MEM.RegisterRd = ID/EX.RegisterRs1)) ForwardA = 10
     if (ex_mem_RegWrite
         && (ex_mem_rd != 0)
-        && (ex_mem_rd = rs1)) begin
+        && (ex_mem_rd == rs1)) begin
             mux_ctrl_left = Forward_ex_mem;
         end
 
@@ -54,7 +54,7 @@ module forwarding_unit (
     // and (EX/MEM.RegisterRd = ID/EX.RegisterRs2)) ForwardB = 10
     if (ex_mem_RegWrite
         && (ex_mem_rd != 0)
-        && (ex_mem_rd = rs2)) begin
+        && (ex_mem_rd == rs2)) begin
             mux_ctrl_right = Forward_ex_mem;
         end
 
