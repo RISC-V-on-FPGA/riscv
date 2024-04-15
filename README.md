@@ -7,9 +7,12 @@
 # Short term plan
 - [x] Make ADDI work
 - [x] Make ADD work
-- [ ] Implement Forwarding
+- [x] Implement Forwarding
+- [ ] Make SUB work
+- [ ] Make SHIFTS work
 - [ ] Make LD work
 - [ ] Implement Data Hazard Detection
+- [ ] Implement register file forwarding (If we have data hazard after 4 cycles, it does not work)
 
 # Checklist
 ## Shifts
