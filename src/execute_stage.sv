@@ -1,3 +1,4 @@
+`include "common.sv"
 import common::*;
 
 module execute_stage (
@@ -27,8 +28,8 @@ module execute_stage (
   logic [31:0] right_operand;
   logic [31:0] left_operand;
 
-  logic [ 1:0] mux_ctrl_left;
-  logic [ 1:0] mux_ctrl_right;
+  mux_control_type mux_ctrl_left;
+  mux_control_type mux_ctrl_right;
 
   alu alu (
       .control(control_in.ALUOp),

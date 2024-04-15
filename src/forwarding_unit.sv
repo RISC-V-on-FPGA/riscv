@@ -9,8 +9,8 @@ module forwarding_unit (
     input [4:0] mem_wb_rd,
     input mem_wb_RegWrite,
     input ex_mem_RegWrite,
-    output logic [1:0] mux_ctrl_left,
-    output logic [1:0] mux_ctrl_right
+    output mux_control_type mux_ctrl_left,
+    output mux_control_type mux_ctrl_right
 );
 
   always_comb begin : Combinational
@@ -42,7 +42,7 @@ module forwarding_unit (
     end else if (ex_mem_RegWrite && (ex_mem_rd != 0) && (ex_mem_rd == rs1)) begin
       mux_ctrl_left = Forward_ex_mem;
     end else begin
-      mux_ctrl_left = 0;
+      mux_ctrl_left = Forward_def;
     end
 
     if (mem_wb_RegWrite
@@ -53,7 +53,7 @@ module forwarding_unit (
     end else if (ex_mem_RegWrite && (ex_mem_rd != 0) && (ex_mem_rd == rs2)) begin
       mux_ctrl_right = Forward_ex_mem;
     end else begin
-      mux_ctrl_right = 0;
+      mux_ctrl_right = Forward_def;
     end
 
   end
