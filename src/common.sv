@@ -20,13 +20,9 @@ package common;
   } alu_op_type;
 
   typedef enum logic [1:0] {
-    ForwardA = 2'b00,    // The first ALU operand comes from the register file
-    ForwardA = 2'b10,    // The first ALU operand is forwarded from the prior ALU result
-    ForwardA = 2'b01,    // The first ALU operand is forwarded from data memory or earlier ALU result
-
-    ForwardB = 2'b00,    // The second ALU operand comes from the register file
-    ForwardB = 2'b10,    // The second ALU operand is forwarded from the prior ALU result
-    ForwardB = 2'b01     // The second ALU operand is forwarded from data memory or earlier ALU result
+    Forward_def = 2'b00,    // The first ALU operand comes from the register file
+    Forward_ex_mem = 2'b10,    // The first ALU operand is forwarded from the prior ALU result
+    Forward_mem_wb = 2'b01    // The first ALU operand is forwarded from data memory or earlier ALU result
   } mux_control_type;
 
   typedef enum logic [2:0] {
