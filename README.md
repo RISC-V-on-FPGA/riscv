@@ -20,7 +20,7 @@
 - [ ] SRA
 - [ ] SRAI
 ## Arithmetic
-- [ ] ADD
+- [x] ADD
 - [x] ADDI
 - [ ] SUB
 - [ ] LUI
