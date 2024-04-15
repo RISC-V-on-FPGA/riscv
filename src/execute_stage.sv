@@ -11,11 +11,11 @@ module execute_stage (
     input              [ 4:0] rs1,
     input              [ 4:0] rs2,
     input              [ 4:0] ex_mem_rd,
-    input [4:0] mem_wb_rd,
-    input ex_mem_RegWrite,
-    input mem_wb_RegWrite,
-    input              [31:0] forward_ex_mem,  // Value forwarded from mem stage, better name?
-    input              [31:0] forward_mem_wb,  // Value from write back stage
+    input              [ 4:0] mem_wb_rd,
+    input                     ex_mem_RegWrite,
+    input                     mem_wb_RegWrite,
+    input              [31:0] forward_ex_mem,   // Value forwarded from mem stage, better name?
+    input              [31:0] forward_mem_wb,   // Value from write back stage
 
     output control_type control_out,
     output logic ZeroFlag,
@@ -27,8 +27,8 @@ module execute_stage (
   logic [31:0] right_operand;
   logic [31:0] left_operand;
 
-  logic [1:0] mux_ctrl_left;
-  logic [1:0] mux_ctrl_right;
+  logic [ 1:0] mux_ctrl_left;
+  logic [ 1:0] mux_ctrl_right;
 
   alu alu (
       .control(control_in.ALUOp),
@@ -62,16 +62,16 @@ module execute_stage (
 
     // Forwarding left operand (A)
     case (mux_ctrl_left)
-      mux_control_type.Forward_ex_mem: left_operand = forward_mem;
-      mux_control_type.Forward_mem_wb: left_operand = forward_wb;
-      default: left_operand = data1;  // Ta bort?
+      Forward_ex_mem: left_operand = Forward_ex_mem;
+      Forward_mem_wb: left_operand = Forward_mem_wb;
+      default: ;
     endcase
 
     // Forwarding right operand (B)
     case (mux_ctrl_right)
-      mux_control_type.Forward_mem: right_operand = forward_mem;
-      mux_control_type.Forward_wb: right_operand = forward_wb;
-      default: right_operand = data2;  // Ta bort?
+      Forward_mem: right_operand = forward_mem;
+      Forward_wb: right_operand = forward_wb;
+      default: ;
     endcase
   end
 
