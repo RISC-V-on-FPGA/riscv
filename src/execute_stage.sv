@@ -55,24 +55,24 @@ module execute_stage (
     left_operand  = data1;
     right_operand = data2;
 
-    // Loading immidiate value
-    if (control_in.ALUSrc) begin
-      right_operand = immediate_data;
-    end
-
     // Forwarding left operand (A)
     case (mux_ctrl_left)
-      Forward_ex_mem: left_operand = Forward_ex_mem;
-      Forward_mem_wb: left_operand = Forward_mem_wb;
+      Forward_ex_mem: left_operand = forward_ex_mem;
+      Forward_mem_wb: left_operand = forward_mem_wb;
       default: ;
     endcase
 
     // Forwarding right operand (B)
     case (mux_ctrl_right)
-      Forward_mem: right_operand = forward_mem;
-      Forward_wb: right_operand = forward_wb;
+      Forward_ex_mem: right_operand = forward_ex_mem;
+      Forward_mem_wb: right_operand = forward_mem_wb;
       default: ;
     endcase
+
+    // Loading immidiate value
+    if (control_in.ALUSrc) begin
+      right_operand = immediate_data;
+    end
   end
 
   // Forwarding: To be implemented

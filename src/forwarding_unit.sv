@@ -19,44 +19,42 @@ module forwarding_unit (
     // and not(EX/MEM.RegWrite and (EX/MEM.RegisterRd ≠ 0)
     //      and (EX/MEM.RegisterRd = ID/EX.RegisterRs1))
     // and (MEM/WB.RegisterRd = ID/EX.RegisterRs1)) ForwardA = 01
-    if (mem_wb_RegWrite
-        && (mem_wb_rd != 0)
-        // Added line for writing to same registers multiple times
-        && !(ex_mem_RegWrite && (ex_mem_rd != 0) && ex_mem_rd == rs1)
-        && (mem_wb_rd == rs1)) begin
-      mux_ctrl_left = Forward_mem_wb;
-    end
 
     // if (MEM/WB.RegWrite
     // and (MEM/WB.RegisterRd ≠ 0)
     // and not(EX/MEM.RegWrite and (EX/MEM.RegisterRd ≠ 0)
     //      and (EX/MEM.RegisterRd = ID/EX.RegisterRs2))
     // and (MEM/WB.RegisterRd = ID/EX.RegisterRs2)) ForwardB = 01
-    if (mem_wb_RegWrite
-        && (mem_wb_rd != 0)
-        // Added line for writing to same registers multiple times
-        && !(ex_mem_RegWrite && (ex_mem_rd != 0) && ex_mem_rd == rs2)
-        && (mem_wb_rd == rs2)) begin
-      mux_ctrl_right = Forward_mem_wb;
-    end
 
     // if (EX/MEM.RegWrite
     // and (EX/MEM.RegisterRd ≠ 0)
     // and (EX/MEM.RegisterRd = ID/EX.RegisterRs1)) ForwardA = 10
-    if (ex_mem_RegWrite
-        && (ex_mem_rd != 0)
-        && (ex_mem_rd = rs1)) begin
-            mux_ctrl_left = Forward_ex_mem;
-        end
 
     // if (EX/MEM.RegWrite
     // and (EX/MEM.RegisterRd ≠ 0)
     // and (EX/MEM.RegisterRd = ID/EX.RegisterRs2)) ForwardB = 10
-    if (ex_mem_RegWrite
-        && (ex_mem_rd != 0)
-        && (ex_mem_rd = rs2)) begin
-            mux_ctrl_right = Forward_ex_mem;
-        end
+
+    if (mem_wb_RegWrite
+        && (mem_wb_rd != 0)
+        && !(ex_mem_RegWrite && (ex_mem_rd != 0) && ex_mem_rd == rs1)
+        && (mem_wb_rd == rs1)) begin
+      mux_ctrl_left = Forward_mem_wb;
+    end else if (ex_mem_RegWrite && (ex_mem_rd != 0) && (ex_mem_rd == rs1)) begin
+      mux_ctrl_left = Forward_ex_mem;
+    end else begin
+      mux_ctrl_left = 0;
+    end
+
+    if (mem_wb_RegWrite
+        && (mem_wb_rd != 0)
+        && !(ex_mem_RegWrite && (ex_mem_rd != 0) && ex_mem_rd == rs2)
+        && (mem_wb_rd == rs2)) begin
+      mux_ctrl_right = Forward_mem_wb;
+    end else if (ex_mem_RegWrite && (ex_mem_rd != 0) && (ex_mem_rd == rs2)) begin
+      mux_ctrl_right = Forward_ex_mem;
+    end else begin
+      mux_ctrl_right = 0;
+    end
 
   end
 
