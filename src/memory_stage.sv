@@ -1,5 +1,3 @@
-`timescale 1ps / 1ps
-
 import common::*;
 
 module memory_stage (

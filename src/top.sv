@@ -136,7 +136,6 @@ module top (
 
   execute_stage execute_stage (
       .clk(rst),
-      .ALUSrc(ID_EX_CONTROL.ALUSrc),
       .control_in(ID_EX_CONTROL),
       .data1(ID_EX_DATA1),
       .data2(ID_EX_DATA2),

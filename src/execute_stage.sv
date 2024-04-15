@@ -1,11 +1,8 @@
-`timescale 1ps / 1ps
-
 import common::*;
 
 module execute_stage (
     input              clk,
     //input              rst, Might not be needed due to execute stage being comb
-    input              ALUSrc,
     input control_type control_in,
     input logic [31:0] data1,
     input logic [31:0] data2,
