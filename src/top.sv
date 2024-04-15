@@ -127,9 +127,9 @@ module top (
       .data1(decode_data1),
       .data2(decode_data2),
       .imm(decode_imm),
-      .rd(decode_rs1),
-      .rs1(decode_rs2),
-      .rs2(decode_rd),
+      .rd(decode_rd),
+      .rs1(decode_rs1),
+      .rs2(decode_rs2),
       .control(decode_control),
       .pc_branch(pc_branch)
   );

@@ -25,15 +25,19 @@ module control (
         control.RegWrite = 1'b1;
         control.ALUSrc   = 1'b1;
       end
+      7'b0110011: begin
+        control.encoding = R_TYPE;
+        control.RegWrite = 1'b1;
+        control.ALUSrc   = 1'b0;
+      end
     endcase
 
-    // Here we pretend that NOP intructions dont exist
     if ({instruction.funct3, instruction.opcode} == ADDI_INSTRUCTION) begin
       control.ALUOp = ALU_ADD;
     end
-    // else if ({instruction.funct7, instruction.funct3, instruction.opcode} == NOP_INSTRUCTION) begin
-    //   control = 0;  // Set all control signals to 0 to implement a NOP instruction
-    // end
+    else if ({instruction.funct7, instruction.funct3, instruction.opcode} == ADD_INSTRUCTION) begin
+      control.ALUOp = ALU_ADD;
+    end
 
   end
 
