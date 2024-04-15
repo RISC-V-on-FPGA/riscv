@@ -143,6 +143,10 @@ module top (
       .control_out(execute_control_out),
       .ZeroFlag(execute_zero_flag),
       .alu_data(execute_alu_data),
+      .forward_ex_mem(forward_ex_mem),
+      .forward_mem_wb(forward_mem_wb),
+      .mux_ctrl_left(mux_ctrl_left),
+      .mux_ctrl_right(mux_ctrl_right),
       .rd_in(ID_EX_RD),
       .rd_out(execute_rd_out),
       .memory_data(execute_memory_data)
