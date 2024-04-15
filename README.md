@@ -12,7 +12,7 @@
 - [ ] Make SHIFTS work
 - [ ] Make LD work
 - [ ] Implement Data Hazard Detection
-- [ ] Implement register file forwarding (If we have data hazard after 4 cycles, it does not work)
+- [ ] Implement register file forwarding (If we have data hazard after 3 cycles, it does not work)
 - [ ] Add so PC carries through all stages to make debugging easier
 
 # Checklist
