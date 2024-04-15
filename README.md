@@ -6,7 +6,7 @@
 
 # Short term plan
 - [x] Make ADDI work
-- [ ] Make ADD work
+- [x] Make ADD work
 - [ ] Implement Forwarding
 - [ ] Make LD work
 - [ ] Implement Data Hazard Detection
