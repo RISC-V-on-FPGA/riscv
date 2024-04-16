@@ -20,6 +20,14 @@ module control (
   localparam logic [16:0] SRA_INSTRUCTION = {7'b0100000, 3'b101, 7'b0110011};
   localparam logic [16:0] SRAI_INSTRUCTION = {7'b0100000, 3'b101, 7'b0010011};
 
+  // Logical
+  localparam logic [16:0] XOR_INSTRUCTION = {7'b0000000, 3'b100, 7'b0110011};
+  localparam logic [16:0] XORI_INSTRUCTION = {3'b100, 7'b0010011};
+  localparam logic [16:0] OR_INSTRUCTION = {7'b0000000, 3'b110, 7'b0110011};
+  localparam logic [16:0] ORI_INSTRUCTION = {3'b110, 7'b0010011};
+  localparam logic [16:0] AND_INSTRUCTION = {7'b0000000, 3'b111, 7'b0110011};
+  localparam logic [16:0] ANDI_INSTRUCTION = {3'b111, 7'b0010011};
+
   // Load and store
   localparam logic [9:0] LW_INSTRUCTION = {3'b010, 7'b0000011};
   localparam logic [9:0] SW_INSTRUCTION = {3'b010, 7'b0100011};
@@ -59,6 +67,18 @@ module control (
       control.ALUOp = ALU_SRA;
     end else if ({instruction.funct7, instruction.funct3, instruction.opcode} == SRAI_INSTRUCTION) begin
       control.ALUOp = ALU_SRA;
+    end else if ({instruction.funct7, instruction.funct3, instruction.opcode} == XOR_INSTRUCTION) begin
+      control.ALUOp = ALU_XOR;
+    end else if ({instruction.funct3, instruction.opcode} == XORI_INSTRUCTION) begin
+      control.ALUOp = ALU_XOR;
+    end else if ({instruction.funct7, instruction.funct3, instruction.opcode} == OR_INSTRUCTION) begin
+      control.ALUOp = ALU_OR;
+    end else if ({instruction.funct3, instruction.opcode} == ORI_INSTRUCTION) begin
+      control.ALUOp = ALU_OR;
+    end else if ({instruction.funct7, instruction.funct3, instruction.opcode} == AND_INSTRUCTION) begin
+      control.ALUOp = ALU_AND;
+    end else if ({instruction.funct3, instruction.opcode} == ANDI_INSTRUCTION) begin
+      control.ALUOp = ALU_AND;
     end
 
   end
