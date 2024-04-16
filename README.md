@@ -29,7 +29,7 @@
 - [x] ADD
 - [x] ADDI
 - [x] SUB
-- [ ] LUI
+- [x] LUI
 ## Logical
 - [x] XOR
 - [x] XORI

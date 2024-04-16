@@ -78,8 +78,6 @@ module execute_stage (
     end
   end
 
-  // Forwarding: To be implemented
-
   assign control_out = control_in;
   assign memory_data = data2;
   assign rd_out = rd_in;

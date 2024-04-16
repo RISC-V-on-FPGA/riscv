@@ -11,6 +11,7 @@ module control (
   localparam logic [16:0] ADD_INSTRUCTION = {7'b0000000, 3'b000, 7'b0110011};
   localparam logic [16:0] SUB_INSTRUCTION = {7'b0100000, 3'b000, 7'b0110011};
   localparam logic [9:0] ADDI_INSTRUCTION = {3'b000, 7'b0010011};
+  localparam logic [16:0] LUI_INSTRUCTION = {7'b0110111};
 
   // Shifts
   localparam logic [16:0] SLL_INSTRUCTION = {7'b0000000, 3'b001, 7'b0110011};
@@ -47,6 +48,11 @@ module control (
         control.RegWrite = 1'b1;
         control.ALUSrc   = 1'b0;
       end
+      7'b0110111: begin
+        control.encoding = U_TYPE;
+        control.RegWrite = 1'b1;
+        control.ALUSrc   = 1'b1;
+      end
     endcase
 
     if ({instruction.funct3, instruction.opcode} == ADDI_INSTRUCTION) begin
@@ -55,6 +61,8 @@ module control (
       control.ALUOp = ALU_ADD;
     end else if ({instruction.funct7, instruction.funct3, instruction.opcode} == SUB_INSTRUCTION) begin
       control.ALUOp = ALU_SUB;
+    end else if (instruction.opcode == LUI_INSTRUCTION) begin
+      control.ALUOp = ALU_LUI;
     end else if ({instruction.funct7, instruction.funct3, instruction.opcode} == SLL_INSTRUCTION) begin
       control.ALUOp = ALU_SLL;
     end else if ({instruction.funct7, instruction.funct3, instruction.opcode} == SLLI_INSTRUCTION) begin

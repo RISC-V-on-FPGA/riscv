@@ -18,6 +18,7 @@ module alu (
       // Arithmetic
       ALU_ADD: result = left_operand + right_operand;
       ALU_SUB: result = left_operand - right_operand;
+      ALU_LUI: result = right_operand;
 
       // Logical
       ALU_AND: result = left_operand & right_operand;
