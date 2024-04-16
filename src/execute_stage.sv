@@ -45,8 +45,8 @@ module execute_stage (
       .rd(rd_in),
       .ex_mem_rd(ex_mem_rd),
       .mem_wb_rd(mem_wb_rd),
-      .mem_wb_RegWrite(ex_mem_RegWrite),
-      .ex_mem_RegWrite(mem_wb_RegWrite),
+      .mem_wb_RegWrite(mem_wb_RegWrite),
+      .ex_mem_RegWrite(ex_mem_RegWrite),
       .mux_ctrl_left(mux_ctrl_left),
       .mux_ctrl_right(mux_ctrl_right)
   );
