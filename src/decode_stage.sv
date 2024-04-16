@@ -26,6 +26,9 @@ module decode_stage (
 
   logic [63:0] imm_shifted;
 
+  logic [31:0] data1_temp;
+  logic [31:0] data2_temp;
+
   control controller (
       .clk(clk),
       .rst(rst),
@@ -51,8 +54,8 @@ module decode_stage (
       .read2_id(read2_id),
       .write_id(write_id),
       .write_data(write_data),
-      .read1_data(data1),
-      .read2_data(data2)
+      .read1_data(data1_temp),
+      .read2_data(data2_temp)
   );
 
   // always_ff @(posedge clk) begin : Seq
@@ -67,11 +70,27 @@ module decode_stage (
     rs1 = instruction.rs1;
     rs2 = instruction.rs2;
     rd = instruction.rd;
-    
+
     imm_shifted = imm << 1;
     pc_branch = imm_shifted[31:0] + pc;
     read1_id = instruction.rs1;
     read2_id = instruction.rs2;
+
+    if (RegWrite && (rs1 == write_id)) begin
+      data1 = write_data;
+    end else begin
+      data1 = data1_temp;
+    end
+
+    if (RegWrite && (rs2 == write_id)) begin
+      data2 = write_data;
+    end else begin
+      data2 = data2_temp;
+    end
+
+    // data1 = data1_temp;
+    // data2 = data2_temp;
+
   end
 
 endmodule
