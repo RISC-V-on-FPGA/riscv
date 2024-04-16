@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2024-04-16T07:55:41.938Z" agent="Mozilla/5.0 (X11; Linux x86_64; rv:123.0) Gecko/20100101 Firefox/123.0" etag="K2xNkt8qYbOdcdbEUBfF" version="24.2.5" type="github">
+<mxfile host="app.diagrams.net" modified="2024-04-16T07:59:04.481Z" agent="Mozilla/5.0 (X11; Linux x86_64; rv:123.0) Gecko/20100101 Firefox/123.0" etag="CFcrpf74hRo7zoTiRrTt" version="24.2.5" type="github">
   <diagram name="Page-1" id="IpCxHiP5fQjlRUhZVsv_">
-    <mxGraphModel dx="819" dy="515" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1700" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="989" dy="622" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1700" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -1041,6 +1041,18 @@
         </mxCell>
         <mxCell id="2nhumJkl5wTfImcDvtph-8" value="alu_result" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" vertex="1" parent="1">
           <mxGeometry x="1250" y="585" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2nhumJkl5wTfImcDvtph-11" value="memory_bypass" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1390" y="690" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2nhumJkl5wTfImcDvtph-12" value="memory_output" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1400" y="585" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2nhumJkl5wTfImcDvtph-16" value="forward_ex_mem" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="900" y="670" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2nhumJkl5wTfImcDvtph-17" value="forward_mem_wb" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="930" y="695" width="60" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
