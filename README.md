@@ -10,31 +10,33 @@
 - [x] Implement Forwarding
 - [x] Implement register file forwarding (If we have data hazard after 3 cycles, it does not work)
 - [x] Make SUB work
-- [ ] Make SHIFTS work
+- [x] Make SHIFTS work
+- [x] Make logic work
+- [ ] Make LUI work
 - [ ] Make LD work
 - [ ] Implement Hazard Detection Unit
 - [ ] Add so PC carries through all stages to make debugging easier
 
 # Checklist
 ## Shifts
-- [ ] SLL
-- [ ] SLLI
-- [ ] SRL
-- [ ] SRLI
-- [ ] SRA
-- [ ] SRAI
+- [x] SLL
+- [x] SLLI
+- [x] SRL
+- [x] SRLI
+- [x] SRA
+- [x] SRAI
 ## Arithmetic
 - [x] ADD
 - [x] ADDI
-- [ ] SUB
-- [ ] LUI
+- [x] SUB
+- [x] LUI
 ## Logical
-- [ ] XOR
-- [ ] XORI
-- [ ] OR
-- [ ] ORI
-- [ ] AND
-- [ ] ANDI
+- [x] XOR
+- [x] XORI
+- [x] OR
+- [x] ORI
+- [x] AND
+- [x] ANDI
 ## Compare
 - [ ] SLT
 - [ ] SLTI
