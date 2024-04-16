@@ -12,7 +12,7 @@
 - [x] Make SUB work
 - [x] Make SHIFTS work
 - [x] Make logic work
-- [ ] Make LUI work
+- [x] Make LUI work
 - [ ] Make LD work
 - [ ] Implement Hazard Detection Unit
 - [ ] Add so PC carries through all stages to make debugging easier

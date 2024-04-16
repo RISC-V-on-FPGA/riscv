@@ -29,6 +29,12 @@ module control (
   localparam logic [16:0] AND_INSTRUCTION = {7'b0000000, 3'b111, 7'b0110011};
   localparam logic [16:0] ANDI_INSTRUCTION = {3'b111, 7'b0010011};
 
+  // Compare
+  localparam logic [16:0] SLT_INSTRUCTION = {7'b0000000, 3'b010, 7'b0110011};
+  localparam logic [16:0] SLTI_INSTRUCTION = {3'b010, 7'b0010011};
+  localparam logic [9:0] SLTU_INSTRUCTION = {7'b0000000, 3'b011, 7'b0110011};
+  localparam logic [9:0] SLTIU_INSTRUCTION = {3'b011, 7'b0010011};
+
   // Load and store
   localparam logic [9:0] LW_INSTRUCTION = {3'b010, 7'b0000011};
   localparam logic [9:0] SW_INSTRUCTION = {3'b010, 7'b0100011};
@@ -51,7 +57,7 @@ module control (
       7'b0110111: begin
         control.encoding = U_TYPE;
         control.RegWrite = 1'b1;
-        control.ALUSrc   = 1'b1;
+        control.ALUSrc   = 1'b0;
       end
     endcase
 
@@ -87,6 +93,14 @@ module control (
       control.ALUOp = ALU_AND;
     end else if ({instruction.funct3, instruction.opcode} == ANDI_INSTRUCTION) begin
       control.ALUOp = ALU_AND;
+    end else if ({instruction.funct7, instruction.funct3, instruction.opcode} == SLT_INSTRUCTION) begin
+      control.ALUOp = ALU_SLT;
+    end else if ({instruction.funct3, instruction.opcode} == SLTI_INSTRUCTION) begin
+      control.ALUOp = ALU_SLT;
+    end else if ({instruction.funct7, instruction.funct3, instruction.opcode} == SLTU_INSTRUCTION) begin
+      control.ALUOp = ALU_SLTU;
+    end else if ({instruction.funct3, instruction.opcode} == SLTIU_INSTRUCTION) begin
+      control.ALUOp = ALU_SLTU;
     end
 
   end
