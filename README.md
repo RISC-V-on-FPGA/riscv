@@ -13,10 +13,14 @@
 - [x] Make SHIFTS work
 - [x] Make logic work
 - [x] Make LUI work
-- [ ] Make compare work
-- [ ] Make LD work
-- [ ] Implement Hazard Detection Unit
 - [x] Add so PC carries through all stages to make debugging easier
+- [ ] Make compare work (needs to be tested) - Sakke
+- [ ] Make branch work - Sakke
+- [ ] Implement program memory - Benjamin
+- [ ] Make LD work - Benjamin
+- [ ] Implement Hazard Detection Unit - Benjamin (sakke)
+- [ ] Implement support for compressed instructions
+- [ ] UART
 
 # Checklist
 ## Shifts
