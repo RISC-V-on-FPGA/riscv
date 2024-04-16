@@ -15,6 +15,7 @@ module top (
   logic            [ 4:0] ID_EX_RS1;
   logic            [ 4:0] ID_EX_RS2;
   logic            [ 4:0] ID_EX_RD;
+  logic            [31:0] ID_EX_PC;
 
   //EX_MEM Registers
   control_type            EX_MEM_CONTROL;
@@ -22,14 +23,16 @@ module top (
   logic            [31:0] EX_MEM_MEMORY_DATA;
   logic            [31:0] EX_MEM_ALU_DATA;
   logic                   EX_MEM_ZERO_FLAG;
+  logic            [31:0] EX_MEM_PC;
 
   //MEM_WB Registers
   control_type            MEM_WB_CONTROL;
   logic            [31:0] MEM_WB_MEM_OUTPUT;
   logic            [31:0] MEM_WB_MEM_BYPASS;
   logic            [ 4:0] MEM_WB_RD;
+  logic            [31:0] MEM_WB_PC;
 
-  // Signals that does not go through the pipeline registers
+  // Signals
   wire             [31:0] pc_branch;
   logic            [31:0] wb_data;
   logic            [31:0] fetch_pc;
@@ -41,15 +44,18 @@ module top (
   logic            [ 4:0] decode_rs1;
   logic            [ 4:0] decode_rs2;
   logic            [ 4:0] decode_rd;
+  logic            [31:0] decode_pc;
   control_type            execute_control_out;
   logic            [ 4:0] execute_rd_out;
   logic            [31:0] execute_memory_data;
   logic            [31:0] execute_alu_data;
   logic                   execute_zero_flag;
+  logic            [31:0] execute_pc;
   control_type            memory_control_out;
   logic            [31:0] memory_memory_output;
   logic            [31:0] memory_bypass_output;
   logic            [ 4:0] memory_rd;
+  logic            [31:0] memory_pc;
 
 
   always_comb begin : Comb
@@ -69,17 +75,20 @@ module top (
       ID_EX_RS1          <= 0;
       ID_EX_RS2          <= 0;
       ID_EX_RD           <= 0;
+      ID_EX_PC           <= 0;
 
       EX_MEM_CONTROL     <= 0;
       EX_MEM_RD          <= 0;
       EX_MEM_MEMORY_DATA <= 0;
       EX_MEM_ALU_DATA    <= 0;
       EX_MEM_ZERO_FLAG   <= 0;
+      EX_MEM_PC          <= 0;
 
       MEM_WB_CONTROL     <= 0;
       MEM_WB_MEM_OUTPUT  <= 0;
       MEM_WB_MEM_BYPASS  <= 0;
       MEM_WB_RD          <= 0;
+      MEM_WB_PC          <= 0;
     end else begin
       IF_ID_PC           <= fetch_pc;
       IF_ID_INSTRUCTION  <= fetch_instruction;
@@ -91,17 +100,20 @@ module top (
       ID_EX_RS1          <= decode_rs1;
       ID_EX_RS2          <= decode_rs2;
       ID_EX_RD           <= decode_rd;
+      ID_EX_PC           <= decode_pc;
 
       EX_MEM_CONTROL     <= execute_control_out;
       EX_MEM_RD          <= execute_rd_out;
       EX_MEM_MEMORY_DATA <= execute_memory_data;
       EX_MEM_ALU_DATA    <= execute_alu_data;
       EX_MEM_ZERO_FLAG   <= execute_zero_flag;
+      EX_MEM_PC          <= execute_pc;
 
       MEM_WB_CONTROL     <= memory_control_out;
       MEM_WB_MEM_OUTPUT  <= memory_memory_output;
       MEM_WB_MEM_BYPASS  <= memory_bypass_output;
       MEM_WB_RD          <= memory_rd;
+      MEM_WB_PC          <= memory_pc;
     end
   end
 
@@ -131,7 +143,8 @@ module top (
       .rs1(decode_rs1),
       .rs2(decode_rs2),
       .control(decode_control),
-      .pc_branch(pc_branch)
+      .pc_branch(pc_branch),
+      .pc_out(decode_pc)
   );
 
   execute_stage execute_stage (
@@ -153,7 +166,9 @@ module top (
       .ex_mem_RegWrite(EX_MEM_CONTROL.RegWrite),
       .mem_wb_RegWrite(MEM_WB_CONTROL.RegWrite),
       .rd_out(execute_rd_out),
-      .memory_data(execute_memory_data)
+      .memory_data(execute_memory_data),
+      .pc(ID_EX_PC),
+      .pc_out(execute_pc)
   );
 
   memory_stage memory_stage (
@@ -167,7 +182,9 @@ module top (
       .memory_bypass(memory_bypass_output),
       .memory_output(memory_memory_output),
       .rd_in(EX_MEM_RD),
-      .rd_out(memory_rd)
+      .rd_out(memory_rd),
+      .pc(EX_MEM_PC),
+      .pc_out(memory_pc)
   );
 
 endmodule

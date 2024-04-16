@@ -3,6 +3,7 @@ import common::*;
 
 module execute_stage (
     input                     clk,
+    input              [31:0] pc,
     //input              rst, Might not be needed due to execute stage being comb
     input control_type        control_in,
     input logic        [31:0] data1,
@@ -22,7 +23,8 @@ module execute_stage (
     output logic ZeroFlag,
     output [31:0] alu_data,
     output [31:0] memory_data,
-    output logic [4:0] rd_out
+    output logic [4:0] rd_out,
+    output [31:0] pc_out
 );
 
   logic [31:0] right_operand;
@@ -81,5 +83,6 @@ module execute_stage (
   assign control_out = control_in;
   assign memory_data = data2;
   assign rd_out = rd_in;
+  assign pc_out = pc;
 
 endmodule

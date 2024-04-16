@@ -21,7 +21,8 @@ module decode_stage (
     output logic [4:0] rs1,
     output logic [4:0] rs2,
     output control_type control,  // Implement mux here later for hazard detection
-    output logic [31:0] pc_branch
+    output logic [31:0] pc_branch,
+    output logic [31:0] pc_out
 );
 
   logic [63:0] imm_shifted;
@@ -75,6 +76,8 @@ module decode_stage (
     pc_branch = imm_shifted[31:0] + pc;
     read1_id = instruction.rs1;
     read2_id = instruction.rs2;
+
+    pc_out = pc;
 
     if (RegWrite && (rs1 == write_id)) begin
       data1 = write_data;
