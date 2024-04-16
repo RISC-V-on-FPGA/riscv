@@ -17,8 +17,8 @@ module control (
   localparam logic [16:0] SLLI_INSTRUCTION = {7'b0000000, 3'b001, 7'b0010011};
   localparam logic [16:0] SRL_INSTRUCTION = {7'b0000000, 3'b101, 7'b0110011};
   localparam logic [16:0] SRLI_INSTRUCTION = {7'b0000000, 3'b101, 7'b0010011};
-  localparam logic [16:0] SRA_INSTRUCTION = {7'b0000000, 3'b101, 7'b0110011};
-  localparam logic [16:0] SRAI_INSTRUCTION = {7'b0000000, 3'b101, 7'b0010011};
+  localparam logic [16:0] SRA_INSTRUCTION = {7'b0100000, 3'b101, 7'b0110011};
+  localparam logic [16:0] SRAI_INSTRUCTION = {7'b0100000, 3'b101, 7'b0010011};
 
   // Load and store
   localparam logic [9:0] LW_INSTRUCTION = {3'b010, 7'b0000011};
@@ -58,7 +58,7 @@ module control (
     end else if ({instruction.funct7, instruction.funct3, instruction.opcode} == SRA_INSTRUCTION) begin
       control.ALUOp = ALU_SRA;
     end else if ({instruction.funct7, instruction.funct3, instruction.opcode} == SRAI_INSTRUCTION) begin
-      control.ALUOp = ALU_SRL;
+      control.ALUOp = ALU_SRA;
     end
 
   end
