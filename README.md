@@ -8,11 +8,11 @@
 - [x] Make ADDI work
 - [x] Make ADD work
 - [x] Implement Forwarding
-- [ ] Make SUB work
+- [x] Implement register file forwarding (If we have data hazard after 3 cycles, it does not work)
+- [x] Make SUB work
 - [ ] Make SHIFTS work
 - [ ] Make LD work
-- [ ] Implement Data Hazard Detection
-- [ ] Implement register file forwarding (If we have data hazard after 3 cycles, it does not work)
+- [ ] Implement Hazard Detection Unit
 - [ ] Add so PC carries through all stages to make debugging easier
 
 # Checklist
