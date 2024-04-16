@@ -13,9 +13,10 @@
 - [x] Make SHIFTS work
 - [x] Make logic work
 - [x] Make LUI work
+- [ ] Make compare work
 - [ ] Make LD work
 - [ ] Implement Hazard Detection Unit
-- [ ] Add so PC carries through all stages to make debugging easier
+- [x] Add so PC carries through all stages to make debugging easier
 
 # Checklist
 ## Shifts
@@ -38,10 +39,10 @@
 - [x] AND
 - [x] ANDI
 ## Compare
-- [ ] SLT
-- [ ] SLTI
-- [ ] SLTU
-- [ ] SLTIU
+- [x] SLT
+- [ ] SLTI (Implemented but not tested, not in Masimulator)
+- [x] SLTU
+- [ ] SLTIU (Implemeted but not tested, not in Masimulator)
 ## Branches
 - [ ] BEQ
 - [ ] BNE
