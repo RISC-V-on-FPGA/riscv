@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2024-04-16T08:01:00.807Z" agent="Mozilla/5.0 (X11; Linux x86_64; rv:123.0) Gecko/20100101 Firefox/123.0" etag="6fu-ojfvu3ESR0Ee5Nvk" version="24.2.5" type="github">
+<mxfile host="app.diagrams.net" modified="2024-04-16T08:16:34.024Z" agent="Mozilla/5.0 (X11; Linux x86_64; rv:123.0) Gecko/20100101 Firefox/123.0" etag="vkqV5m1HJp4L6fwDYDZ5" version="24.2.5" type="github">
   <diagram name="Page-1" id="IpCxHiP5fQjlRUhZVsv_">
-    <mxGraphModel dx="989" dy="622" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1700" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1687" dy="1061" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1700" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -1063,6 +1063,18 @@
         </mxCell>
         <mxCell id="2nhumJkl5wTfImcDvtph-23" value="mem_wb_rd" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="1130" y="905" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2nhumJkl5wTfImcDvtph-25" value="IF_ID_PC&lt;br&gt;IF_ID_INSTRUCTION" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="410" y="880" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2nhumJkl5wTfImcDvtph-26" value="ID_EX_CONTROL&#xa;ID_EX_DATA1&#xa;ID_EX_DATA2&#xa;ID_EX_IMM&#xa;ID_EX_RS1&#xa;ID_EX_RS2&#xa;ID_EX_RD&#xa;ID_EX_PC" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="830" y="1070" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2nhumJkl5wTfImcDvtph-29" value="EX_MEM_CONTROL&#xa;EX_MEM_RD&#xa;EX_MEM_MEMORY_DATA&#xa;EX_MEM_ALU_DATA&#xa;EX_MEM_ZERO_FLAG&#xa;EX_MEM_PC" style="text;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="1180" y="1030" width="180" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="2nhumJkl5wTfImcDvtph-31" value="MEM_WB_CONTROL&#xa;MEM_WB_MEM_OUTPUT&#xa;MEM_WB_MEM_BYPASS&#xa;MEM_WB_RD&#xa;MEM_WB_PC" style="text;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="1450" y="1010" width="180" height="100" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
