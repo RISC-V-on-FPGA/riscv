@@ -11,9 +11,9 @@ module alu (
   always_comb begin
     case (control)
       // Shifts (To be added)
-      ALU_SLL: result = left_operand << right_operand;
-      ALU_SRL: result = left_operand >> right_operand;
-      ALU_SRA: result = left_operand >>> right_operand;
+      ALU_SLL: result = left_operand << (right_operand % 32);
+      ALU_SRL: result = left_operand >> (right_operand % 32);
+      ALU_SRA: result = left_operand >>> (right_operand % 32);
 
       // Arithmetic
       ALU_ADD: result = left_operand + right_operand;
