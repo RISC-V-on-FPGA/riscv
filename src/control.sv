@@ -35,10 +35,17 @@ module control (
   localparam logic [9:0] SLTU_INSTRUCTION = {7'b0000000, 3'b011, 7'b0110011};
   localparam logic [9:0] SLTIU_INSTRUCTION = {3'b011, 7'b0010011};
 
+  // Branches
+  localparam logic [9:0] BEQ_INSTRUCTION = {3'b000, 7'b1100011};
+  localparam logic [9:0] BNE_INSTRUCTION = {3'b001, 7'b1100011};
+  localparam logic [9:0] BLT_INSTRUCTION = {3'b100, 7'b1100011};
+  localparam logic [9:0] BGE_INSTRUCTION = {3'b101, 7'b1100011};
+  localparam logic [9:0] BLTU_INSTRUCTION = {3'b110, 7'b1100011};
+  localparam logic [9:0] BGEU_INSTRUCTION = {3'b111, 7'b1100011};
+
   // Load and store
   localparam logic [9:0] LW_INSTRUCTION = {3'b010, 7'b0000011};
   localparam logic [9:0] SW_INSTRUCTION = {3'b010, 7'b0100011};
-  localparam logic [9:0] BEQ_INSTRUCTION = {3'b000, 7'b1100011};
 
   always_comb begin
     control = 0;
@@ -102,6 +109,11 @@ module control (
     end else if ({instruction.funct3, instruction.opcode} == SLTIU_INSTRUCTION) begin
       control.ALUOp = ALU_SLTU;
     end
+
+    /* else if ({instruction.funct3, instruction.opcode} == BEQ_INSTRUCTION) begin
+      control.ALUOp = ALU_SLTU;
+    end */
+
 
   end
 
