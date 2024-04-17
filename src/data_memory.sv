@@ -5,7 +5,7 @@ module data_memory (
     input [31:0] write_data,  //From alu bypass
     input MemWrite,
     input MemRead,
-    output [31:0] output_data
+    output logic [31:0] output_data
 );
 
   logic [31:0] ram[256];
@@ -23,9 +23,10 @@ module data_memory (
     end
   end
 
+  assign word_address = byte_address[9:2];
+
   always_comb begin : Comb
-    word_address = byte_address[9:2];
-    output_data  = ram[word_address];
+    output_data = ram[word_address];
   end
 
 endmodule
