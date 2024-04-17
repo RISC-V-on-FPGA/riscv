@@ -18,7 +18,6 @@
 - [ ] Make branch work - Sakke
 - [x] Implement program memory - Benjamin
 - [x] Make LD work - Benjamin
-- [ ] Test LD more - Benjamin
 - [ ] Implement Hazard Detection Unit - Benjamin (Sakke)
 - [ ] Implement support for compressed instructions - Sakke
 - [ ] UART - ???
