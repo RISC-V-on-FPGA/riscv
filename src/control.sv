@@ -66,6 +66,19 @@ module control (
         control.RegWrite = 1'b1;
         control.ALUSrc   = 1'b0;
       end
+      7'b0000011: begin
+        control.encoding = I_TYPE;
+        control.RegWrite = 1'b1;
+        control.ALUSrc = 1'b1;
+        control.MemRead = 1'b1;
+        control.MemtoReg = 1'b1;
+      end
+      7'b0100011: begin
+        control.encoding = S_TYPE;
+        control.RegWrite = 1'b0;
+        control.ALUSrc = 1'b1;
+        control.MemWrite = 1'b1;
+      end
       7'b1100011: begin
         control.encoding = B_TYPE;
         control.RegWrite = 1'b0;
@@ -113,6 +126,10 @@ module control (
       control.ALUOp = ALU_SLTU;
     end else if ({instruction.funct3, instruction.opcode} == SLTIU_INSTRUCTION) begin
       control.ALUOp = ALU_SLTU;
+    end else if ({instruction.funct3, instruction.opcode} == SW_INSTRUCTION) begin
+      control.ALUOp = ALU_ADD;
+    end else if ({instruction.funct3, instruction.opcode} == LW_INSTRUCTION) begin
+      control.ALUOp = ALU_ADD;
     end else if ({instruction.funct3, instruction.opcode} == BEQ_INSTRUCTION) begin
       control.ALUOp = ALU_SUB;
     end

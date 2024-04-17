@@ -59,8 +59,11 @@ module top (
 
 
   always_comb begin : Comb
-    // TODO: Make this depend on MemToReg control signal
-    wb_data = MEM_WB_MEM_BYPASS;
+    if (MEM_WB_CONTROL.MemtoReg == 1) begin
+      wb_data = MEM_WB_MEM_OUTPUT;
+    end else begin
+      wb_data = MEM_WB_MEM_BYPASS;
+    end
   end
 
   always_ff @(posedge clk) begin : Seq
@@ -175,8 +178,8 @@ module top (
       .clk(clk),
       .rst(rst),
       .alu_result(EX_MEM_ALU_DATA),
-      .MemWrite(1'b0),
-      .MemRead(1'b0),
+      .MemWrite(EX_MEM_CONTROL.MemWrite),
+      .MemRead(EX_MEM_CONTROL.MemRead),
       .control_in(EX_MEM_CONTROL),
       .control_out(memory_control_out),
       .memory_bypass(memory_bypass_output),

@@ -21,10 +21,10 @@ module execute_stage (
 
     output control_type control_out,
     output logic ZeroFlag,
-    output [31:0] alu_data,
-    output [31:0] memory_data,
+    output logic [31:0] alu_data,
+    output logic [31:0] memory_data,
     output logic [4:0] rd_out,
-    output [31:0] pc_out
+    output logic [31:0] pc_out
 );
 
   logic [31:0] right_operand;
@@ -57,6 +57,7 @@ module execute_stage (
     // Deafult
     left_operand  = data1;
     right_operand = data2;
+    memory_data = data2;
 
     // Forwarding left operand (A)
     case (mux_ctrl_left)
@@ -67,8 +68,14 @@ module execute_stage (
 
     // Forwarding right operand (B)
     case (mux_ctrl_right)
-      Forward_ex_mem: right_operand = forward_ex_mem;
-      Forward_mem_wb: right_operand = forward_mem_wb;
+      Forward_ex_mem: begin
+        right_operand = forward_ex_mem;
+        memory_data = forward_ex_mem;
+      end
+      Forward_mem_wb: begin
+        right_operand = forward_mem_wb;
+        memory_data = forward_mem_wb;
+      end
       default: ;
     endcase
 
@@ -107,7 +114,6 @@ module execute_stage (
   end
 
   assign control_out = control_in;
-  assign memory_data = data2;
   assign rd_out = rd_in;
   assign pc_out = pc;
 

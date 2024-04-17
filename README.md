@@ -17,7 +17,8 @@
 - [ ] Make compare work (needs to be tested) - Sakke
 - [ ] Make branch work - Sakke
 - [x] Implement program memory - Benjamin
-- [ ] Make LD work - Benjamin
+- [x] Make LD work - Benjamin
+- [ ] Test LD more - Benjamin
 - [ ] Implement Hazard Detection Unit - Benjamin (Sakke)
 - [ ] Implement support for compressed instructions - Sakke
 - [ ] UART - ???
@@ -55,8 +56,8 @@
 - [ ] BLTU
 - [ ] BGEU
 ## Loads and Stores
-- [ ] LW
-- [ ] SW
+- [x] LW
+- [x] SW
 ### Compressed (16-bit) Instruction Extension
 ## Loads and Stores
 - [ ] C.LW
