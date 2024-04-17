@@ -15,6 +15,8 @@ module decode_stage (
     input [4:0] write_id,
     input id_ex_MemRead,
     input [4:0] id_ex_rd,
+    input mem_wb_RegWrite,
+    input ex_mem_RegWrite,
     // Register destination input from execute missing, implement later for hazard detection
     output logic [31:0] data1,  // Output from register file
     output logic [31:0] data2,
@@ -75,6 +77,18 @@ module decode_stage (
       .FetchWrite(FetchWrite),
       .MakeBubble(MakeBubble)
   );
+
+  forwarding_unit forwarding_unit (
+    .rs1(rs1),
+    .rs2(rs2),
+    .rd(rd_in),
+    .ex_mem_rd(ex_mem_rd),
+    .mem_wb_rd(mem_wb_rd),
+    .mem_wb_RegWrite(mem_wb_RegWrite),
+    .ex_mem_RegWrite(ex_mem_RegWrite),
+    .mux_ctrl_left(mux_ctrl_left),
+    .mux_ctrl_right(mux_ctrl_right)
+);
 
   // always_ff @(posedge clk) begin : Seq
   //   if (rst == 1) begin
