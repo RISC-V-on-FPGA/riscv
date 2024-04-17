@@ -15,7 +15,7 @@
 - [x] Make LUI work
 - [x] Add so PC carries through all stages to make debugging easier
 - [ ] Make compare work (needs to be tested) - Sakke
-- [ ] Make branch work - Sakke
+- [ ] Make branch work - Sakke (Add Flush, through hazard detection)
 - [x] Implement program memory - Benjamin
 - [x] Make LD work - Benjamin
 - [ ] Implement Hazard Detection Unit - Benjamin (Sakke)
