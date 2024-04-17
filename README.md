@@ -18,7 +18,10 @@
 - [ ] Make branch work - Sakke
 - [x] Implement program memory - Benjamin
 - [x] Make LD work - Benjamin
-- [ ] Implement Hazard Detection Unit - Benjamin (Sakke)
+- [x] Implement Hazard Detection Unit - Benjamin (Sakke)
+- [ ] Draw new forwarding unit for branches in architecture with muxes before equality test
+- [ ] Add hazard detection for branches
+- [ ] Add forwarding for branches and muxes before decode equality test
 - [ ] Implement support for compressed instructions - Sakke
 - [ ] UART - ???
 
