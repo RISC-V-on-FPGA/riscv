@@ -71,7 +71,7 @@ module control (
         control.RegWrite = 1'b1;
         control.ALUSrc = 1'b1;
         control.MemRead = 1'b1;
-        control.MemToReg = 1'b1;
+        control.MemtoReg = 1'b1;
       end
       7'b0100011: begin
         control.encoding = S_TYPE;

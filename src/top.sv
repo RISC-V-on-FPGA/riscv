@@ -59,7 +59,7 @@ module top (
 
 
   always_comb begin : Comb
-    if (MEM_WB_CONTROL.MemToReg == 1) begin
+    if (MEM_WB_CONTROL.MemtoReg == 1) begin
       wb_data = MEM_WB_MEM_OUTPUT;
     end else begin
       wb_data = MEM_WB_MEM_BYPASS;
