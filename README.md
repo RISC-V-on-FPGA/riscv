@@ -16,7 +16,7 @@
 - [x] Add so PC carries through all stages to make debugging easier
 - [ ] Make compare work (needs to be tested) - Sakke
 - [ ] Make branch work - Sakke
-- [ ] Implement program memory - Benjamin
+- [x] Implement program memory - Benjamin
 - [ ] Make LD work - Benjamin
 - [ ] Implement Hazard Detection Unit - Benjamin (Sakke)
 - [ ] Implement support for compressed instructions - Sakke
