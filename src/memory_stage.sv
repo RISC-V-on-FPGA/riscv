@@ -9,6 +9,7 @@ module memory_stage (
     input control_type control_in,
     input [4:0] rd_in,
     input [31:0] pc,
+    input [31:0] memory_data,
 
     output logic [31:0] memory_bypass,
     output logic [31:0] memory_output,
@@ -16,6 +17,16 @@ module memory_stage (
     output logic [4:0] rd_out,
     output logic [31:0] pc_out
 );
+
+  data_memory data_memory (
+      .clk(clk),
+      .rst(rst),
+      .byte_address(alu_result),  //From alu result
+      .write_data(memory_data),  //From alu bypass
+      .MemWrite(MemWrite),
+      .MemRead(MemRead),
+      .output_data(memory_output)
+  );
 
   always_comb begin
     memory_bypass = alu_result;
