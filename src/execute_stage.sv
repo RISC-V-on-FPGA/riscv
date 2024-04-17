@@ -57,7 +57,7 @@ module execute_stage (
     // Deafult
     left_operand  = data1;
     right_operand = data2;
-    data_memory = data2;
+    memory_data = data2;
 
     // Forwarding left operand (A)
     case (mux_ctrl_left)
@@ -70,11 +70,11 @@ module execute_stage (
     case (mux_ctrl_right)
       Forward_ex_mem: begin
         right_operand = forward_ex_mem;
-        data_memory = forward_ex_mem;
+        memory_data = forward_ex_mem;
       end
       Forward_mem_wb: begin
         right_operand = forward_mem_wb;
-        data_memory = forward_mem_wb;
+        memory_data = forward_mem_wb;
       end
       default: ;
     endcase
