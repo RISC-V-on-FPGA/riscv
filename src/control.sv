@@ -78,6 +78,7 @@ module control (
         control.RegWrite = 1'b0;
         control.ALUSrc = 1'b1;
         control.MemWrite = 1'b1;
+      end
       7'b1100011: begin
         control.encoding = B_TYPE;
         control.RegWrite = 1'b0;
