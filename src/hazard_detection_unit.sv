@@ -3,7 +3,7 @@ import common::*;
 
 module hazard_detection_unit (
     input id_ex_MemRead,
-    input id_ex_rd,
+    input [4:0] id_ex_rd,
     input instruction_type instruction,
     output logic PCWrite,
     output logic FetchWrite,

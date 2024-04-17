@@ -14,7 +14,7 @@ module decode_stage (
     input [31:0] write_data,  // Input from write back stage
     input [4:0] write_id,
     input id_ex_MemRead,
-    input id_ex_rd,
+    input [4:0] id_ex_rd,
     // Register destination input from execute missing, implement later for hazard detection
     output logic [31:0] data1,  // Output from register file
     output logic [31:0] data2,

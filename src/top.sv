@@ -95,7 +95,6 @@ module top (
       MEM_WB_RD          <= 0;
       MEM_WB_PC          <= 0;
     end else begin
-
       if (decode_FetchWrite == 1) begin
         IF_ID_PC          <= fetch_pc;
         IF_ID_INSTRUCTION <= fetch_instruction;
