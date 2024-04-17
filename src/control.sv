@@ -66,6 +66,11 @@ module control (
         control.RegWrite = 1'b1;
         control.ALUSrc   = 1'b0;
       end
+      7'b1100011: begin
+        control.encoding = B_TYPE;
+        control.RegWrite = 1'b0;
+        control.ALUSrc   = 1'b0;
+      end
     endcase
 
     if ({instruction.funct3, instruction.opcode} == ADDI_INSTRUCTION) begin
@@ -108,12 +113,9 @@ module control (
       control.ALUOp = ALU_SLTU;
     end else if ({instruction.funct3, instruction.opcode} == SLTIU_INSTRUCTION) begin
       control.ALUOp = ALU_SLTU;
+    end else if ({instruction.funct3, instruction.opcode} == BEQ_INSTRUCTION) begin
+      control.ALUOp = ALU_SUB;
     end
-
-    /* else if ({instruction.funct3, instruction.opcode} == BEQ_INSTRUCTION) begin
-      control.ALUOp = ALU_SLTU;
-    end */
-
 
   end
 
