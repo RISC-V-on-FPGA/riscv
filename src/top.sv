@@ -56,7 +56,7 @@ module top (
   logic            [31:0] memory_bypass_output;
   logic            [ 4:0] memory_rd;
   logic            [31:0] memory_pc;
-
+  logic                   PCSrc;
 
   always_comb begin : Comb
     if (MEM_WB_CONTROL.MemtoReg == 1) begin
@@ -124,7 +124,7 @@ module top (
       .clk(clk),
       .rst(rst),
       .pc_branch(pc_branch),
-      .PCSrc(1'b0),
+      .PCSrc(PCSrc),
       .PCWrite(1'b0),
       .uart_data(0),
       .pc(fetch_pc),
@@ -147,7 +147,8 @@ module top (
       .rs2(decode_rs2),
       .control(decode_control),
       .pc_branch(pc_branch),
-      .pc_out(decode_pc)
+      .pc_out(decode_pc),
+      .PCSrc(PCSrc)
   );
 
   execute_stage execute_stage (

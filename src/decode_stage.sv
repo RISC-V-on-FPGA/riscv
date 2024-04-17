@@ -22,7 +22,8 @@ module decode_stage (
     output logic [4:0] rs2,
     output control_type control,  // Implement mux here later for hazard detection
     output logic [31:0] pc_branch,
-    output logic [31:0] pc_out
+    output logic [31:0] pc_out,
+    output logic PCSrc
 );
 
   logic [63:0] imm_shifted;
@@ -90,6 +91,47 @@ module decode_stage (
     end else begin
       data2 = data2_temp;
     end
+
+    // // Branches
+    // if (control.encoding == B_TYPE && control.BranchType == BRANCH_BEQ) begin
+    //   if (data1 == data2 ) begin
+    //     PCSrc = 1'b1;
+    //   end
+    // end else begin
+    //   PCSrc = 0'b0;
+    // end
+
+    // Branches
+    if (control.encoding == B_TYPE) begin
+      case (control.BranchType)
+        BRANCH_BEQ: begin
+          if (data1 == data2) begin
+            PCSrc = 1'b1;
+          end
+        end
+        BRANCH_BNE: begin
+          if (data1 ^ data2 != 0) begin
+            PCSrc = 1'b1;
+          end
+        end
+        BRANCH_BLT: begin
+
+        end
+        BRANCH_BGE: begin
+
+        end
+        BRANCH_BLTU: begin
+
+        end
+        BRANCH_BGEU: begin
+
+        end
+        default: PCSrc = 1'b0;
+      endcase
+    end else begin
+      PCSrc = 1'b0;
+    end
+
 
     // data1 = data1_temp;
     // data2 = data2_temp;

@@ -1,4 +1,3 @@
-`include "common.sv"
 import common::*;
 
 module memory_stage (
@@ -34,34 +33,6 @@ module memory_stage (
     rd_out = rd_in;
     control_out = control_in;
     pc_out = pc;
-
-    if (control_in.encoding_type == B_TYPE) begin
-      case (instruction_type.funct3)
-        FUNCT3_BEQ: begin
-          if (!alu_result) begin
-            // We want to branch
-          end
-        end
-        FUNCT3_BNE: begin
-          if (alu_result != 0) begin
-            pc_out = 1;
-          end
-        end
-        FUNCT3_BLT: begin
-
-        end
-        FUNCT3_BGE: begin
-
-        end
-        FUNCT3_BLTU: begin
-
-        end
-        FUNCT3_BGEU: begin
-
-        end
-        default: ;
-      endcase
-    end
   end
 
   // Save to memory: To be implemented

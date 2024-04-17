@@ -83,6 +83,7 @@ module control (
         control.encoding = B_TYPE;
         control.RegWrite = 1'b0;
         control.ALUSrc   = 1'b0;
+        control.is_branch = 1'b1;
       end
     endcase
 
@@ -131,7 +132,9 @@ module control (
     end else if ({instruction.funct3, instruction.opcode} == LW_INSTRUCTION) begin
       control.ALUOp = ALU_ADD;
     end else if ({instruction.funct3, instruction.opcode} == BEQ_INSTRUCTION) begin
-      control.ALUOp = ALU_SUB;
+      control.BranchType = BRANCH_BEQ;
+    end else if ({instruction.funct3, instruction.opcode} == BNE_INSTRUCTION) begin
+      control.BranchType = BRANCH_BNE;
     end
 
   end

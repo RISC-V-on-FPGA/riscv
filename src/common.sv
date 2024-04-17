@@ -26,14 +26,17 @@ package common;
   } mux_control_type;
 
   typedef enum logic [2:0] {
-    FUNCT3_ADDI = 3'b000,
-    FUNCT3_BEQ  = 3'b000,
-    FUNCT3_BNE  = 3'b001,
-    FUNCT3_BLT  = 3'b100,
-    FUNCT3_BGE  = 3'b101,
-    FUNCT3_BLTU = 3'b110,
-    FUNCT3_BGEU = 3'b111
+    FUNCT3_ADDI = 3'b000
   } funct3_type;
+
+  typedef enum logic [2:0] {
+    BRANCH_BEQ  = 3'b000,
+    BRANCH_BNE  = 3'b001,
+    BRANCH_BLT  = 3'b100,
+    BRANCH_BGE  = 3'b101,
+    BRANCH_BLTU = 3'b110,
+    BRANCH_BGEU = 3'b111
+  } branch_type;
 
   typedef enum logic [6:0] {OPCODE_I_TYPE = 7'b0010011} opcode_type;
 
@@ -54,7 +57,8 @@ package common;
     logic MemWrite;
     logic RegWrite;
     logic MemtoReg;
-    logic is_branch;  // What is this?
+    logic is_branch;
+    branch_type BranchType;
   } control_type;
 
   typedef struct packed {
