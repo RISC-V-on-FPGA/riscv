@@ -21,10 +21,10 @@ module execute_stage (
 
     output control_type control_out,
     output logic ZeroFlag,
-    output [31:0] alu_data,
-    output [31:0] memory_data,
+    output logic [31:0] alu_data,
+    output logic [31:0] memory_data,
     output logic [4:0] rd_out,
-    output [31:0] pc_out
+    output logic [31:0] pc_out
 );
 
   logic [31:0] right_operand;
