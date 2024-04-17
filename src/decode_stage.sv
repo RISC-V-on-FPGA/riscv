@@ -13,6 +13,8 @@ module decode_stage (
     input RegWrite,
     input [31:0] write_data,  // Input from write back stage
     input [4:0] write_id,
+    input id_ex_MemRead,
+    input id_ex_rd,
     // Register destination input from execute missing, implement later for hazard detection
     output logic [31:0] data1,  // Output from register file
     output logic [31:0] data2,
@@ -22,7 +24,9 @@ module decode_stage (
     output logic [4:0] rs2,
     output control_type control,  // Implement mux here later for hazard detection
     output logic [31:0] pc_branch,
-    output logic [31:0] pc_out
+    output logic [31:0] pc_out,
+    output logic PCWrite,
+    output logic FetchWrite
 );
 
   logic [63:0] imm_shifted;
@@ -30,11 +34,14 @@ module decode_stage (
   logic [31:0] data1_temp;
   logic [31:0] data2_temp;
 
+  logic MakeBubble;
+  control_type control_temp;
+
   control controller (
       .clk(clk),
       .rst(rst),
       .instruction(instruction),
-      .control(control)
+      .control(control_temp)
   );
 
   imm_gen imm_gen (
@@ -59,6 +66,15 @@ module decode_stage (
       .read2_data(data2_temp)
   );
 
+  hazard_detection_unit hazard_detection_unit (
+      .id_ex_MemRead(id_ex_MemRead),
+      .id_ex_rd(id_ex_rd),
+      .instruction(instruction),
+      .PCWrite(PCWrite),
+      .FetchWrite(FetchWrite),
+      .MakeBubble(MakeBubble)
+  );
+
   // always_ff @(posedge clk) begin : Seq
   //   if (rst == 1) begin
   //     rs1 <= 0;
@@ -78,6 +94,12 @@ module decode_stage (
     read2_id = instruction.rs2;
 
     pc_out = pc;
+
+    if (MakeBubble == 1) begin
+      control = 0;
+    end else begin
+      control = control_temp;
+    end
 
     if (RegWrite && (rs1 == write_id)) begin
       data1 = write_data;

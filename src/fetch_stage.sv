@@ -32,9 +32,9 @@ module fetch_stage (
       pc <= 0;
       // pc_next <= 0;
     end else begin
-      // if (PCWrite == 1) begin
+      if (PCWrite == 1) begin
         pc <= pc_next;
-      // end
+      end
     end
   end
 

@@ -56,7 +56,8 @@ module top (
   logic            [31:0] memory_bypass_output;
   logic            [ 4:0] memory_rd;
   logic            [31:0] memory_pc;
-
+  logic                   decode_PCWrite;
+  logic                   decode_FetchWrite;
 
   always_comb begin : Comb
     if (MEM_WB_CONTROL.MemtoReg == 1) begin
@@ -93,8 +94,11 @@ module top (
       MEM_WB_RD          <= 0;
       MEM_WB_PC          <= 0;
     end else begin
-      IF_ID_PC           <= fetch_pc;
-      IF_ID_INSTRUCTION  <= fetch_instruction;
+
+      if (decode_FetchWrite == 1) begin
+        IF_ID_PC          <= fetch_pc;
+        IF_ID_INSTRUCTION <= fetch_instruction;
+      end
 
       ID_EX_CONTROL      <= decode_control;
       ID_EX_DATA1        <= decode_data1;
@@ -125,7 +129,7 @@ module top (
       .rst(rst),
       .pc_branch(pc_branch),
       .PCSrc(1'b0),
-      .PCWrite(1'b0),
+      .PCWrite(decode_PCWrite),
       .uart_data(0),
       .pc(fetch_pc),
       .instruction(fetch_instruction)
@@ -139,6 +143,8 @@ module top (
       .RegWrite(MEM_WB_CONTROL.RegWrite),
       .write_data(wb_data),
       .write_id(MEM_WB_RD),
+      .id_ex_MemRead(ID_EX_CONTROL.MemRead),
+      .id_ex_rd(ID_EX_RD),
       .data1(decode_data1),
       .data2(decode_data2),
       .imm(decode_imm),
@@ -147,7 +153,9 @@ module top (
       .rs2(decode_rs2),
       .control(decode_control),
       .pc_branch(pc_branch),
-      .pc_out(decode_pc)
+      .pc_out(decode_pc),
+      .PCWrite(decode_PCWrite),
+      .FetchWrite(decode_FetchWrite),
   );
 
   execute_stage execute_stage (
