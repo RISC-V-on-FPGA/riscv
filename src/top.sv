@@ -184,7 +184,8 @@ module top (
       .rd_in(EX_MEM_RD),
       .rd_out(memory_rd),
       .pc(EX_MEM_PC),
-      .pc_out(memory_pc)
+      .pc_out(memory_pc),
+      .memory_data(EX_MEM_MEMORY_DATA)
   );
 
 endmodule
