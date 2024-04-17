@@ -78,6 +78,34 @@ module execute_stage (
     end
   end
 
+  if (control_in.encoding_type == B_TYPE) begin
+    case (instruction_type.funct3)
+      FUNCT3_BEQ: begin
+        if (!alu_result) begin
+          // We want to branch
+        end
+      end
+      FUNCT3_BNE: begin
+        if (alu_result != 0) begin
+
+        end
+      end
+      FUNCT3_BLT: begin
+
+      end
+      FUNCT3_BGE: begin
+
+      end
+      FUNCT3_BLTU: begin
+
+      end
+      FUNCT3_BGEU: begin
+
+      end
+      default: ;
+    endcase
+  end
+
   assign control_out = control_in;
   assign memory_data = data2;
   assign rd_out = rd_in;
