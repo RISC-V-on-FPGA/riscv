@@ -57,7 +57,7 @@ module execute_stage (
     // Deafult
     left_operand  = data1;
     right_operand = data2;
-    memory_data = data2;
+    memory_data   = data2;
 
     // Forwarding left operand (A)
     case (mux_ctrl_left)
@@ -70,11 +70,11 @@ module execute_stage (
     case (mux_ctrl_right)
       Forward_ex_mem: begin
         right_operand = forward_ex_mem;
-        memory_data = forward_ex_mem;
+        memory_data   = forward_ex_mem;
       end
       Forward_mem_wb: begin
         right_operand = forward_mem_wb;
-        memory_data = forward_mem_wb;
+        memory_data   = forward_mem_wb;
       end
       default: ;
     endcase
@@ -83,34 +83,7 @@ module execute_stage (
     if (control_in.ALUSrc) begin
       right_operand = immediate_data;
     end
-  end
 
-  if (control_in.encoding_type == B_TYPE) begin
-    case (instruction_type.funct3)
-      FUNCT3_BEQ: begin
-        if (!alu_result) begin
-          // We want to branch
-        end
-      end
-      FUNCT3_BNE: begin
-        if (alu_result != 0) begin
-
-        end
-      end
-      FUNCT3_BLT: begin
-
-      end
-      FUNCT3_BGE: begin
-
-      end
-      FUNCT3_BLTU: begin
-
-      end
-      FUNCT3_BGEU: begin
-
-      end
-      default: ;
-    endcase
   end
 
   assign control_out = control_in;
