@@ -17,6 +17,8 @@ module decode_stage (
     input [4:0] id_ex_rd,
     input mem_wb_RegWrite,
     input ex_mem_RegWrite,
+    input [4:0] ex_mem_rd,
+    input [4:0] mem_wb_rd,
     input [31:0] forward_ex_mem,
     input [31:0] forward_mem_wb,
     // Register destination input from execute missing, implement later for hazard detection
@@ -41,6 +43,9 @@ module decode_stage (
 
   logic [31:0] data1_temp;
   logic [31:0] data2_temp;
+
+  mux_control_type mux_ctrl_left;
+  mux_control_type mux_ctrl_right;
 
   logic MakeBubble;
   control_type control_temp;
@@ -134,18 +139,20 @@ module decode_stage (
       data2 = data2_temp;
     end
 
-    // // Branches
-    // if (control.encoding == B_TYPE && control.BranchType == BRANCH_BEQ) begin
-    //   if (data1 == data2 ) begin
-    //     PCSrc = 1'b1;
-    //   end
-    // end else begin
-    //   PCSrc = 0'b0;
-    // end
-
     // Branches
     left_operand  = data1;
     right_operand = data2;
+
+    case (mux_ctrl_left)
+      Forward_ex_mem: begin
+        left_operand = forward_ex_mem;
+      end
+      Forward_mem_wb: begin
+        left_operand = forward_mem_wb;
+      end
+      default: ;
+    endcase
+
 
     case (mux_ctrl_right)
       Forward_ex_mem: begin

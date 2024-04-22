@@ -59,6 +59,7 @@ module top (
   logic                   decode_PCWrite;
   logic                   decode_FetchWrite;
   logic                   PCSrc;
+  logic                   IF_Flush;
 
   always_comb begin : Comb
     if (MEM_WB_CONTROL.MemtoReg == 1) begin
@@ -143,9 +144,13 @@ module top (
       .RegWrite(MEM_WB_CONTROL.RegWrite),
       .write_data(wb_data),
       .write_id(MEM_WB_RD),
+      .ex_mem_rd(EX_MEM_RD),
+      .mem_wb_rd(MEM_WB_RD),
+      .forward_ex_mem(EX_MEM_ALU_DATA),
+      .forward_mem_wb(wb_data),
       .id_ex_MemRead(ID_EX_CONTROL.MemRead),
-      .mem_wb_RegWrite(mem_wb_RegWrite),
-      .ex_mem_RegWrite(ex_mem_RegWrite),
+      .ex_mem_RegWrite(EX_MEM_CONTROL.RegWrite),
+      .mem_wb_RegWrite(MEM_WB_CONTROL.RegWrite),
       .id_ex_rd(ID_EX_RD),
       .data1(decode_data1),
       .data2(decode_data2),
