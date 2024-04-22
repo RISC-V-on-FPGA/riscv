@@ -17,6 +17,8 @@ module decode_stage (
     input [4:0] id_ex_rd,
     input mem_wb_RegWrite,
     input ex_mem_RegWrite,
+    input [31:0] forward_ex_mem,
+    input [31:0] forward_mem_wb,
     // Register destination input from execute missing, implement later for hazard detection
     output logic [31:0] data1,  // Output from register file
     output logic [31:0] data2,
@@ -31,6 +33,9 @@ module decode_stage (
     output logic FetchWrite,
     output logic PCSrc
 );
+
+  logic [31:0] right_operand;
+  logic [31:0] left_operand;
 
   logic [63:0] imm_shifted;
 
@@ -80,16 +85,16 @@ module decode_stage (
   );
 
   forwarding_unit forwarding_unit (
-    .rs1(rs1),
-    .rs2(rs2),
-    .rd(rd_in),
-    .ex_mem_rd(ex_mem_rd),
-    .mem_wb_rd(mem_wb_rd),
-    .mem_wb_RegWrite(mem_wb_RegWrite),
-    .ex_mem_RegWrite(ex_mem_RegWrite),
-    .mux_ctrl_left(mux_ctrl_left),
-    .mux_ctrl_right(mux_ctrl_right)
-);
+      .rs1(rs1),
+      .rs2(rs2),
+      .rd(rd),
+      .ex_mem_rd(ex_mem_rd),
+      .mem_wb_rd(mem_wb_rd),
+      .mem_wb_RegWrite(mem_wb_RegWrite),
+      .ex_mem_RegWrite(ex_mem_RegWrite),
+      .mux_ctrl_left(mux_ctrl_left),
+      .mux_ctrl_right(mux_ctrl_right)
+  );
 
   // always_ff @(posedge clk) begin : Seq
   //   if (rst == 1) begin
@@ -139,15 +144,28 @@ module decode_stage (
     // end
 
     // Branches
+    left_operand  = data1;
+    right_operand = data2;
+
+    case (mux_ctrl_right)
+      Forward_ex_mem: begin
+        right_operand = forward_ex_mem;
+      end
+      Forward_mem_wb: begin
+        right_operand = forward_mem_wb;
+      end
+      default: ;
+    endcase
+
     if (control.encoding == B_TYPE) begin
       case (control.BranchType)
         BRANCH_BEQ: begin
-          if (data1 == data2) begin
+          if (left_operand == right_operand) begin
             PCSrc = 1'b1;
           end
         end
         BRANCH_BNE: begin
-          if (data1 ^ data2 != 0) begin
+          if (right_operand ^ left_operand != 0) begin
             PCSrc = 1'b1;
           end
         end
