@@ -14,16 +14,17 @@
 - [x] Make logic work
 - [x] Make LUI work
 - [x] Add so PC carries through all stages to make debugging easier
-- [ ] Make compare work (needs to be tested) - Sakke
-- [ ] Make branch work - Sakke (Add Flush, through hazard detection)
 - [x] Implement program memory - Benjamin
 - [x] Make LD work - Benjamin
 - [x] Implement Hazard Detection Unit - Benjamin (Sakke)
 - [x] Draw new forwarding unit for branches in architecture with muxes before decode equality test
 - [x] Add hazard detection for branches
-- [ ] Add forwarding for branches and muxes before decode equality test
+- [ ] Make compare work (needs to be tested) - Benjamin
+- [ ] Make branch work - Sakke (Add Flush, through hazard detection)
+- [ ] Add forwarding for branches and muxes before decode equality test - Sakke
 - [ ] Implement support for compressed instructions - Sakke
-- [ ] UART - ???
+- [ ] UART - Benjamin
+- [ ] UART Testbench - Benjamin
 
 # Checklist
 ## Shifts
