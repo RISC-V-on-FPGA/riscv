@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2024-04-22T07:53:22.138Z" agent="Mozilla/5.0 (X11; Linux x86_64; rv:123.0) Gecko/20100101 Firefox/123.0" etag="s2-c3Yw7HBqRctrUVWgG" version="24.2.5" type="github">
+<mxfile host="app.diagrams.net" modified="2024-04-22T07:53:54.252Z" agent="Mozilla/5.0 (X11; Linux x86_64; rv:123.0) Gecko/20100101 Firefox/123.0" etag="njWmYAZSCHJdgsmkAtEX" version="24.2.5" type="github">
   <diagram name="Page-1" id="IpCxHiP5fQjlRUhZVsv_">
-    <mxGraphModel dx="755" dy="475" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1700" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1509" dy="949" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1700" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -1043,7 +1043,7 @@
           <mxGeometry x="400" y="880" width="120" height="30" as="geometry" />
         </mxCell>
         <mxCell id="2nhumJkl5wTfImcDvtph-26" value="&lt;div align=&quot;left&quot;&gt;ID_EX_CONTROL&lt;br&gt;ID_EX_DATA1&lt;br&gt;ID_EX_DATA2&lt;br&gt;ID_EX_IMM&lt;br&gt;ID_EX_RS1&lt;br&gt;ID_EX_RS2&lt;br&gt;ID_EX_RD&lt;br&gt;ID_EX_PC&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-          <mxGeometry x="820" y="1010" width="110" height="150" as="geometry" />
+          <mxGeometry x="900" y="1010" width="110" height="150" as="geometry" />
         </mxCell>
         <mxCell id="2nhumJkl5wTfImcDvtph-29" value="EX_MEM_CONTROL&#xa;EX_MEM_RD&#xa;EX_MEM_MEMORY_DATA&#xa;EX_MEM_ALU_DATA&#xa;EX_MEM_ZERO_FLAG&#xa;EX_MEM_PC" style="text;whiteSpace=wrap;" parent="1" vertex="1">
           <mxGeometry x="1270" y="1020" width="180" height="110" as="geometry" />
