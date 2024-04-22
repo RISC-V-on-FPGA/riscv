@@ -19,7 +19,7 @@
 - [x] Implement program memory - Benjamin
 - [x] Make LD work - Benjamin
 - [x] Implement Hazard Detection Unit - Benjamin (Sakke)
-- [ ] Draw new forwarding unit for branches in architecture with muxes before equality test
+- [x] Draw new forwarding unit for branches in architecture with muxes before decode equality test
 - [ ] Add hazard detection for branches
 - [ ] Add forwarding for branches and muxes before decode equality test
 - [ ] Implement support for compressed instructions - Sakke
