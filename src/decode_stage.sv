@@ -75,7 +75,8 @@ module decode_stage (
       .instruction(instruction),
       .PCWrite(PCWrite),
       .FetchWrite(FetchWrite),
-      .MakeBubble(MakeBubble)
+      .MakeBubble(MakeBubble),
+      .control(control_temp)
   );
 
   forwarding_unit forwarding_unit (
