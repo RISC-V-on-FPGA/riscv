@@ -18,8 +18,6 @@ module execute_stage (
     input                     mem_wb_RegWrite,
     input              [31:0] forward_ex_mem,   // Value forwarded from mem stage, better name?
     input              [31:0] forward_mem_wb,   // Value from write back stage
-    input                     mem_wb_RegWrite,
-    input                     ex_mem_RegWrite,
 
     output control_type control_out,
     output logic ZeroFlag,
