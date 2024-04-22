@@ -144,6 +144,8 @@ module top (
       .write_data(wb_data),
       .write_id(MEM_WB_RD),
       .id_ex_MemRead(ID_EX_CONTROL.MemRead),
+      .mem_wb_RegWrite(mem_wb_RegWrite),
+      .ex_mem_RegWrite(ex_mem_RegWrite),
       .id_ex_rd(ID_EX_RD),
       .data1(decode_data1),
       .data2(decode_data2),
