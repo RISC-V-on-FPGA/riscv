@@ -58,8 +58,8 @@ module top (
   logic            [31:0] memory_pc;
   logic                   decode_PCWrite;
   logic                   decode_FetchWrite;
-  logic                   PCSrc;
-  logic                   IF_Flush;
+  logic                   decode_PCSrc;
+  logic                   decode_IF_Flush;
 
   always_comb begin : Comb
     if (MEM_WB_CONTROL.MemtoReg == 1) begin
@@ -130,7 +130,7 @@ module top (
       .rst(rst),
       .pc_branch(pc_branch),
       .PCWrite(decode_PCWrite),
-      .PCSrc(PCSrc),
+      .PCSrc(decode_PCSrc),
       .uart_data(0),
       .pc(fetch_pc),
       .instruction(fetch_instruction)
@@ -163,7 +163,8 @@ module top (
       .pc_out(decode_pc),
       .PCWrite(decode_PCWrite),
       .FetchWrite(decode_FetchWrite),
-      .PCSrc(PCSrc)
+      .PCSrc(decode_PCSrc),
+      .IF_Flush(decode_IF_Flush)
   );
 
   execute_stage execute_stage (

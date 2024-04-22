@@ -33,14 +33,14 @@ module decode_stage (
     output logic [31:0] pc_out,
     output logic PCWrite,
     output logic FetchWrite,
-    output logic PCSrc
+    output logic PCSrc,
+    output logic IF_Flush
 );
-
+  logic [4:0] read1_id;
+  logic [4:0] read2_id;
   logic [31:0] right_operand;
   logic [31:0] left_operand;
-
   logic [63:0] imm_shifted;
-
   logic [31:0] data1_temp;
   logic [31:0] data2_temp;
 
@@ -63,9 +63,6 @@ module decode_stage (
       //Imm gen before left shift
       .imm_gen_output(imm)
   );
-
-  logic [4:0] read1_id;
-  logic [4:0] read2_id;
 
   register_file register_file (
       .clk(clk),
@@ -100,14 +97,6 @@ module decode_stage (
       .mux_ctrl_left(mux_ctrl_left),
       .mux_ctrl_right(mux_ctrl_right)
   );
-
-  // always_ff @(posedge clk) begin : Seq
-  //   if (rst == 1) begin
-  //     rs1 <= 0;
-  //     rs2 <= 0;
-  //     rd  <= 0;
-  //   end
-  // end
 
   always_comb begin : Comb
     rs1 = instruction.rs1;
@@ -153,7 +142,6 @@ module decode_stage (
       default: ;
     endcase
 
-
     case (mux_ctrl_right)
       Forward_ex_mem: begin
         right_operand = forward_ex_mem;
@@ -169,35 +157,86 @@ module decode_stage (
         BRANCH_BEQ: begin
           if (left_operand == right_operand) begin
             PCSrc = 1'b1;
+            IF_Flush = 1'b1;
           end
         end
         BRANCH_BNE: begin
           if (right_operand ^ left_operand != 0) begin
             PCSrc = 1'b1;
+            IF_Flush = 1'b1;
           end
         end
         BRANCH_BLT: begin
-
+          if (left_operand[31] == 1 && right_operand[31] == 1) begin
+            if(((~left_operand) + 1) > ((~right_operand) + 1)) begin
+              PCSrc = 1'b1;
+              IF_Flush = 1'b1;
+            end else begin
+              PCSrc = 1'b0;
+              IF_Flush = 1'b0;
+            end
+          end else if (left_operand[31] == 1 && right_operand[31] == 0) begin
+            PCSrc = 1'b1;
+            IF_Flush = 1'b1;
+          end else if (left_operand[31] == 0 && right_operand[31] == 1) begin
+            PCSrc = 1'b0;
+            IF_Flush = 1'b0;
+          end else begin
+            if (left_operand < right_operand) begin
+              PCSrc = 1'b1;
+              IF_Flush = 1'b1;
+            end else begin
+              PCSrc = 1'b0;
+              IF_Flush = 1'b0;
+            end
+          end
         end
         BRANCH_BGE: begin
-
+          if (left_operand[31] == 1 && right_operand[31] == 1) begin
+            if(((~left_operand) + 1) < ((~right_operand) + 1)) begin
+              PCSrc = 1'b1;
+              IF_Flush = 1'b1;
+            end else begin
+              PCSrc = 1'b0;
+              IF_Flush = 1'b0;
+            end
+          end else if (left_operand[31] == 1 && right_operand[31] == 0) begin
+            PCSrc = 1'b0;
+            IF_Flush = 1'b0;
+          end else if (left_operand[31] == 0 && right_operand[31] == 1) begin
+            PCSrc = 1'b1;
+            IF_Flush = 1'b1;
+          end else begin
+            if (left_operand > right_operand) begin
+              PCSrc = 1'b1;
+              IF_Flush = 1'b1;
+            end else begin
+              PCSrc = 1'b0;
+              IF_Flush = 1'b0;
+            end
+          end
         end
         BRANCH_BLTU: begin
-
+          if (right_operand < left_operand) begin
+            PCSrc = 1'b1;
+            IF_Flush = 1'b1;
+          end
         end
         BRANCH_BGEU: begin
-
+          if (right_operand <= left_operand) begin
+            PCSrc = 1'b1;
+            IF_Flush = 1'b1;
+          end
         end
-        default: PCSrc = 1'b0;
+        default: begin
+          PCSrc = 1'b0;
+          IF_Flush = 1'b0;
+        end
       endcase
     end else begin
       PCSrc = 1'b0;
+      IF_Flush = 1'b0;
     end
-
-
-    // data1 = data1_temp;
-    // data2 = data2_temp;
-
   end
 
 endmodule
