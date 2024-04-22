@@ -10,6 +10,7 @@ module fetch_stage (
     input PCSrc,
     input PCWrite,
     input [31:0] uart_data,  // TODO
+    input uart_active,
     output logic [31:0] pc,
     output instruction_type instruction
 );

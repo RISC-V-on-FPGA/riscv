@@ -25,6 +25,7 @@
 - [ ] Implement support for compressed instructions - Sakke
 - [ ] UART - Benjamin
 - [ ] UART Testbench - Benjamin
+- [ ] Check for latches
 
 # Checklist
 ## Shifts
