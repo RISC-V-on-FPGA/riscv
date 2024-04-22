@@ -53,12 +53,12 @@
 - [x] SLTU
 - [ ] SLTIU (Implemeted but not tested, not in Masimulator)
 ## Branches
-- [ ] BEQ
-- [ ] BNE
-- [ ] BLT
-- [ ] BGE
-- [ ] BLTU
-- [ ] BGEU
+- [x] BEQ
+- [x] BNE
+- [ ] BLT (Not tested)
+- [ ] BGE (Not tested)
+- [ ] BLTU (Not tested)
+- [ ] BGEU (Not tested)
 ## Loads and Stores
 - [x] LW
 - [x] SW
