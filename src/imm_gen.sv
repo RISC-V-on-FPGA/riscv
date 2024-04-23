@@ -36,6 +36,7 @@ always_comb begin
     end
 
     B_TYPE: begin
+      imm_gen_output[31:13] = 0;
       imm_gen_output[12] = instruction[31];
       imm_gen_output[11] = instruction[7];
       imm_gen_output[10:5] = instruction[30:25];
