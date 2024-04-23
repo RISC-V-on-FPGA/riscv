@@ -1,0 +1,21 @@
+[*]
+[*] GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
+[*] Mon Apr 22 12:56:19 2024
+[*]
+[dumpfile] "/home/modica/riscv/src/waveform.vcd"
+[dumpfile_mtime] "Mon Apr 22 12:56:05 2024"
+[dumpfile_size] 677463
+[savefile] "/home/modica/riscv/src/waveforms/uart_interface_tb.gtkw"
+[timestart] 0
+[size] 1000 600
+[pos] -1 -1
+*0.000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] uart_interface_tb.
+[sst_width] 229
+[signals_width] 170
+[sst_expanded] 1
+[sst_vpaned_height] 153
+@28
+uart_interface_tb.uut.bit_index[2:0]
+[pattern_trace] 1
+[pattern_trace] 0
