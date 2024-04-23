@@ -135,11 +135,9 @@ module top (
       .rst(rst),
       .pc_branch(pc_branch),
       .PCWrite(decode_PCWrite),
-      // .PCSrc(PCSrc),
       .uart_received(byte_received),
       .uart_data(output_byte),
       .PCSrc(decode_PCSrc),
-      .uart_data(0),
       .pc(fetch_pc),
       .instruction(fetch_instruction),
       .flash(flash)
