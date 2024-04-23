@@ -13,7 +13,15 @@ module alu (
       // Shifts (To be added)
       ALU_SLL: result = left_operand << (right_operand % 32);
       ALU_SRL: result = left_operand >> (right_operand % 32);
-      ALU_SRA: result = left_operand >>> (right_operand % 32);
+      ALU_SRA: begin
+        if (left_operand[31] == 1) begin
+          result = ~left_operand;
+          result = result >> (right_operand % 32);
+          result = ~result;
+        end else begin
+          result = left_operand >> (right_operand % 32);
+        end
+      end
 
       // Arithmetic
       ALU_ADD: result = left_operand + right_operand;

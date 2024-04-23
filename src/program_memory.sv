@@ -10,7 +10,7 @@ module program_memory (
 
   logic [31:0] ram[256];
   logic [7:0] word_address;
-  logic [7:0] word_write_address;
+  logic [7:0] word_write_addressp;
 
   assign word_address = pc[9:2];
   assign word_write_address = write_address[9:2];
