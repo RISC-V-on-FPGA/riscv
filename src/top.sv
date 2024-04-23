@@ -1,6 +1,8 @@
 module top (
     input clk,
-    input rst
+    input rst,
+    input uart_serial,
+    input flash
 );
 
   //IF_ID Registers
@@ -59,6 +61,8 @@ module top (
   logic                   decode_PCWrite;
   logic                   decode_FetchWrite;
   logic                   PCSrc;
+  logic            [ 7:0] output_byte;
+  logic                   byte_received;
 
   always_comb begin : Comb
     if (MEM_WB_CONTROL.MemtoReg == 1) begin
@@ -130,9 +134,11 @@ module top (
       .pc_branch(pc_branch),
       .PCWrite(decode_PCWrite),
       .PCSrc(PCSrc),
-      .uart_data(0),
+      .uart_received(byte_received),
+      .uart_data(output_byte),
       .pc(fetch_pc),
-      .instruction(fetch_instruction)
+      .instruction(fetch_instruction),
+      .flash(flash)
   );
 
   decode_stage decode_stage (
@@ -201,5 +207,13 @@ module top (
       .pc_out(memory_pc),
       .memory_data(EX_MEM_MEMORY_DATA)
   );
+
+  uart_interface uart_interface (
+      .clk(clk),
+      .input_serial(uart_serial),
+      .byte_received(byte_received),
+      .output_byte(output_byte)
+  );
+
 
 endmodule
