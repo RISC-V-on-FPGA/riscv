@@ -85,6 +85,7 @@ module control (
         control.ALUSrc   = 1'b0;
         control.is_branch = 1'b1;
       end
+      default: ;
     endcase
 
     if ({instruction.funct3, instruction.opcode} == ADDI_INSTRUCTION) begin

@@ -12,6 +12,7 @@ module fetch_stage (
     input [7:0] uart_data,  // TODO
     input uart_received,
     input flash,
+    input IF_Flush,
     output logic [31:0] pc,
     output instruction_type instruction
 );
@@ -20,6 +21,7 @@ module fetch_stage (
   logic [31:0] write_data;
   logic [31:0] write_address;
   logic clear_mem;
+  instruction_type instruction_temp;
 
   program_memory program_memory (
       .clk(clk),
@@ -28,7 +30,7 @@ module fetch_stage (
       .write_data(write_data),
       .write_address(write_address),
       .clear_mem(clear_mem),
-      .read_instruction(instruction)
+      .read_instruction(instruction_temp)
   );
 
   logic [31:0] pc_next;
@@ -111,6 +113,13 @@ module fetch_stage (
     end else begin
       pc_next = pc + 4;
     end
+
+    if (IF_Flush == 1) begin
+      instruction = 0;
+    end else begin
+      instruction = instruction_temp;
+    end
+
   end
 
 endmodule

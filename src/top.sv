@@ -140,7 +140,8 @@ module top (
       .PCSrc(decode_PCSrc),
       .pc(fetch_pc),
       .instruction(fetch_instruction),
-      .flash(flash)
+      .flash(flash),
+      .IF_Flush(decode_IF_Flush)
   );
 
   decode_stage decode_stage (
