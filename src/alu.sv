@@ -25,7 +25,7 @@ module alu (
       ALU_OR:  result = left_operand | right_operand;
       ALU_XOR: result = left_operand ^ right_operand;
 
-      // Compare (To be added)
+      // Compare
       ALU_SLTU: result = left_operand < right_operand;
       ALU_SLT: begin
         if (left_operand[31] == 1 && right_operand[31] == 1) begin

@@ -60,9 +60,11 @@ module top (
   logic            [31:0] memory_pc;
   logic                   decode_PCWrite;
   logic                   decode_FetchWrite;
-  logic                   PCSrc;
+  // logic                   PCSrc;
   logic            [ 7:0] output_byte;
   logic                   byte_received;
+  logic                   decode_PCSrc;
+  logic                   decode_IF_Flush;
 
   always_comb begin : Comb
     if (MEM_WB_CONTROL.MemtoReg == 1) begin
@@ -133,9 +135,11 @@ module top (
       .rst(rst),
       .pc_branch(pc_branch),
       .PCWrite(decode_PCWrite),
-      .PCSrc(PCSrc),
+      // .PCSrc(PCSrc),
       .uart_received(byte_received),
       .uart_data(output_byte),
+      .PCSrc(decode_PCSrc),
+      .uart_data(0),
       .pc(fetch_pc),
       .instruction(fetch_instruction),
       .flash(flash)
@@ -149,9 +153,13 @@ module top (
       .RegWrite(MEM_WB_CONTROL.RegWrite),
       .write_data(wb_data),
       .write_id(MEM_WB_RD),
+      .ex_mem_rd(EX_MEM_RD),
+      .mem_wb_rd(MEM_WB_RD),
+      .forward_ex_mem(EX_MEM_ALU_DATA),
+      .forward_mem_wb(wb_data),
       .id_ex_MemRead(ID_EX_CONTROL.MemRead),
-      .mem_wb_RegWrite(mem_wb_RegWrite),
-      .ex_mem_RegWrite(ex_mem_RegWrite),
+      .ex_mem_RegWrite(EX_MEM_CONTROL.RegWrite),
+      .mem_wb_RegWrite(MEM_WB_CONTROL.RegWrite),
       .id_ex_rd(ID_EX_RD),
       .data1(decode_data1),
       .data2(decode_data2),
@@ -164,7 +172,8 @@ module top (
       .pc_out(decode_pc),
       .PCWrite(decode_PCWrite),
       .FetchWrite(decode_FetchWrite),
-      .PCSrc(PCSrc)
+      .PCSrc(decode_PCSrc),
+      .IF_Flush(decode_IF_Flush)
   );
 
   execute_stage execute_stage (

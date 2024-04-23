@@ -83,7 +83,6 @@ module execute_stage (
     if (control_in.ALUSrc) begin
       right_operand = immediate_data;
     end
-
   end
 
   assign control_out = control_in;
