@@ -20,11 +20,11 @@
 - [x] Draw new forwarding unit for branches in architecture with muxes before decode equality test
 - [x] Add hazard detection for branches
 - [x] Make compare work (needs to be tested) - Benjamin
-- [ ] Make branch work - Sakke (Add Flush, through hazard detection)
-- [ ] Add forwarding for branches and muxes before decode equality test - Sakke
+- [x] Make branch work - Sakke (Add Flush, through hazard detection)
+- [x] Add forwarding for branches and muxes before decode equality test - Sakke
 - [ ] Implement support for compressed instructions - Sakke
-- [ ] UART - Benjamin
-- [ ] UART Testbench - Benjamin
+- [x] UART - Benjamin
+- [x] UART Testbench - Benjamin
 - [ ] Check for latches
 
 # Checklist
@@ -49,16 +49,16 @@
 - [x] ANDI
 ## Compare
 - [x] SLT
-- [ ] SLTI (Implemented but not tested, not in Masimulator)
+- [x] SLTI
 - [x] SLTU
-- [ ] SLTIU (Implemeted but not tested, not in Masimulator)
+- [x] SLTIU
 ## Branches
 - [x] BEQ
 - [x] BNE
-- [ ] BLT (Not tested)
-- [ ] BGE (Not tested)
-- [ ] BLTU (Not tested)
-- [ ] BGEU (Not tested)
+- [x] BLT
+- [x] BGE
+- [x] BLTU
+- [x] BGEU
 ## Loads and Stores
 - [x] LW
 - [x] SW

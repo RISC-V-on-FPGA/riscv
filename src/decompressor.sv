@@ -23,12 +23,12 @@ localparam logic [9:0] C_OR = {3'b100, 1'b0, 2'b11, 2'b10, 2'b01};
 localparam logic [9:0] C_XOR = {3'b100, 1'b0, 2'b11, 2'b01, 2'b01};
 localparam logic [5:0] C_MV = {3'b100, 1'b0, 2'b10};
 localparam logic [4:0] C_LI = {3'b010, 2'b01};
-localparam logic [4:0] C_LUI = {3'b011, 2'b011}; //FEL
+localparam logic [4:0] C_LUI = {3'b011, 2'b01}; //FEL
 
 // Shifts
-localparam logic [] C_SLLI = {3'b000, 2'b10};
-localparam logic [] C_SRAI = {3'b100, 2'b01, 2'b01};
-localparam logic [] C_SRLI = {3'b100, 2'b00, 2'b01};
+localparam logic [4:0] C_SLLI = {3'b000, 2'b10};
+localparam logic [6:0] C_SRAI = {3'b100, 2'b01, 2'b01};
+localparam logic [6:0] C_SRLI = {3'b100, 2'b00, 2'b01};
 
 // Branches
 localparam logic [4:0] C_BEQZ = {3'b110, 2'b01};
@@ -72,9 +72,5 @@ always_comb begin : blockName
         output_instruction = input_instruction;
     end
 end
-
-
-
-
 
 endmodule
