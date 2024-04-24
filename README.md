@@ -6,6 +6,64 @@ Assembler: [ripes.me](https://ripes.me/)
 
 ![alt text](image.png)
 
+# Implemented Instructions
+## Shifts
+- SLL
+- SLLI
+- SRL
+- SRLI
+- SRA
+- SRAI
+## Arithmetic
+- ADD
+- ADDI
+- SUB
+- LUI
+## Logical
+- XOR
+- XORI
+- OR
+- ORI
+- AND
+- ANDI
+## Compare
+- SLT
+- SLTI
+- SLTU
+- SLTIU
+## Branches
+- BEQ
+- BNE
+- BLT
+- BGE
+- BLTU
+- BGEU
+## Loads and Stores
+- LW
+- SW
+### Compressed (16-bit) Instruction Extension
+## Loads and Stores
+- C.LW
+- C.SW
+## Arithmetic
+- C.ADD
+- C.ADDI
+- C.SUB
+- C.AND
+- C.ANDI
+- C.OR
+- C.XOR
+- C.MV
+- C.LI
+- C.LUI
+## Shifts
+- C.SLLI
+- C.SRAI
+- C.SRLI
+## Branches
+- C.BEQZ
+- C.BNEZ
+
 # Short term plan
 - [x] Make ADDI work
 - [x] Make ADD work
@@ -30,61 +88,3 @@ Assembler: [ripes.me](https://ripes.me/)
 - [ ] Make sure branches work with compresses instructions
 - [ ] Test Test Test!
 - [ ] Check for latches
-
-# Checklist
-## Shifts
-- [x] SLL
-- [x] SLLI
-- [x] SRL
-- [x] SRLI
-- [x] SRA
-- [x] SRAI
-## Arithmetic
-- [x] ADD
-- [x] ADDI
-- [x] SUB
-- [x] LUI
-## Logical
-- [x] XOR
-- [x] XORI
-- [x] OR
-- [x] ORI
-- [x] AND
-- [x] ANDI
-## Compare
-- [x] SLT
-- [x] SLTI
-- [x] SLTU
-- [x] SLTIU
-## Branches
-- [x] BEQ
-- [x] BNE
-- [x] BLT
-- [x] BGE
-- [x] BLTU
-- [x] BGEU
-## Loads and Stores
-- [x] LW
-- [x] SW
-### Compressed (16-bit) Instruction Extension
-## Loads and Stores
-- [ ] C.LW
-- [ ] C.SW
-## Arithmetic
-- [ ] C.ADD
-- [ ] C.ADDI
-- [ ] C.SUB
-- [ ] C.AND
-- [ ] C.ANDI
-- [ ] C.OR
-- [ ] C.XOR
-- [ ] C.MV
-- [ ] C.LI
-- [ ] C.LUI
-## Shifts
-- [ ] C.SLLI
-- [ ] C.SRAI
-- [ ] C.SRLI
-## Branches
-- [ ] C.BEQZ
-- [ ] C.BNEZ
