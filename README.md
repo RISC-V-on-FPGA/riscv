@@ -43,26 +43,26 @@ Assembler: [ripes.me](https://ripes.me/)
 - SW
 ### Compressed (16-bit) Instruction Extension
 ## Loads and Stores
-- C.LW
-- C.SW
+-[x] C.LW
+-[ ] C.SW
 ## Arithmetic
-- C.ADD
-- C.ADDI
-- C.SUB
-- C.AND
-- C.ANDI
-- C.OR
-- C.XOR
-- C.MV
-- C.LI
-- C.LUI
+-[x] C.ADD
+-[x] C.ADDI
+-[ ] C.SUB
+-[ ] C.AND
+-[ ] C.ANDI
+-[ ] C.OR
+-[ ] C.XOR
+-[ ] C.MV
+-[ ] C.LI
+-[ ] C.LUI
 ## Shifts
-- C.SLLI
-- C.SRAI
-- C.SRLI
+-[ ] C.SLLI
+-[ ] C.SRAI
+-[ ] C.SRLI
 ## Branches
-- C.BEQZ
-- C.BNEZ
+-[ ] C.BEQZ
+-[ ] C.BNEZ
 
 # Short term plan
 - [x] Make ADDI work
