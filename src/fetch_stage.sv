@@ -18,10 +18,12 @@ module fetch_stage (
 );
 
   logic write_enable;
-  logic [31:0] write_data;
+  logic [7:0] write_data;
   logic [31:0] write_address;
   logic clear_mem;
   instruction_type instruction_temp;
+  instruction_type instruction_decompressed;
+  logic flag_compressed;
 
   program_memory program_memory (
       .clk(clk),
@@ -30,25 +32,26 @@ module fetch_stage (
       .write_data(write_data),
       .write_address(write_address),
       .clear_mem(clear_mem),
-      .read_instruction(instruction_temp)
+      .read_instruction(instruction_temp),
+      .flag_compressed(flag_compressed)
+  );
+
+  decompressor decompressor(
+    .input_instruction(instruction_temp),
+    .output_instruction(instruction_decompressed)
   );
 
   logic [31:0] pc_next;
   logic [31:0] pc_counter_address;
-  logic [31:0] pc_counter_instruction;
   logic [31:0] pc_instruction;
 
   typedef enum logic [3:0] {
     FLASH_CLEAR,  //Clear program memory
-    FLASH_SHIFT,  //Shift bytes to make a 32 bit instruction (4 bytes)
-    FLASH_WRITE   //Write 32 bits to program memory
+    FLASH_WRITE   //Write to memory
   } state_type;
 
   state_type state;
 
-  // Detta borde kanske bli lättare med compresses??? 
-  // Kanske kan skjuta in en byte i taget bara, utan 
-  // att behöva tänka på att den hamnar i rätt address...
   always_ff @(posedge clk) begin : ProgMemSeq
     if (flash == 1) begin
       clear_mem <= 0;
@@ -58,25 +61,17 @@ module fetch_stage (
 
         FLASH_CLEAR: begin
           clear_mem <= 1;
-          state <= FLASH_SHIFT;
-        end
-
-        FLASH_SHIFT: begin
-          if (uart_received == 1) begin
-            pc_counter_instruction <= pc_counter_instruction + 1;
-            pc_instruction <= (pc_instruction << 8) | uart_data;
-            if (pc_counter_instruction >= 3) begin
-              state <= FLASH_WRITE;
-            end
-          end
+          state <= FLASH_WRITE;
         end
 
         FLASH_WRITE: begin
-          pc_counter_instruction <= 0;
-          pc_counter_address <= pc_counter_address + 4;
-          write_address <= pc_counter_address;
-          write_enable <= 1;
-          state <= FLASH_SHIFT;
+          if (uart_received == 1) begin
+            write_enable <= 1;
+            pc_counter_address <= pc_counter_address + 1;
+            write_address <= pc_counter_address;
+          end else begin
+            write_enable <= 0;
+          end
         end
         default: begin
 
@@ -87,7 +82,7 @@ module fetch_stage (
 
   always_comb begin : ProgMemComb
     if (flash == 1) begin
-      write_data = pc_instruction;
+      write_data = uart_data;
     end
   end
 
@@ -95,12 +90,12 @@ module fetch_stage (
     if (rst == 1) begin
       pc <= 0;
       pc_counter_address <= 0;
-      pc_counter_instruction <= 0;
       clear_mem <= 0;
-      pc_instruction <= 0;
       write_enable <= 0;
+      write_address <= 0;
       write_data <= 0;
       state <= FLASH_CLEAR;
+      flag_compressed <= 0;
     end else if (flash == 1) begin
       pc <= 0;
     end else begin
@@ -113,14 +108,18 @@ module fetch_stage (
   always_comb begin : Comb
     if (PCSrc == 1) begin
       pc_next = pc_branch;
-    end else begin
+    end else if (flag_compressed == 0) begin
       pc_next = pc + 4;
+    end else begin
+      pc_next = pc + 2;
     end
 
     if (IF_Flush == 1) begin
       instruction = 0;
-    end else begin
+    end else if (flag_compressed == 0) begin
       instruction = instruction_temp;
+    end else begin
+      instruction = instruction_decompressed;
     end
 
   end
