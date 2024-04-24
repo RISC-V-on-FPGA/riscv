@@ -2,6 +2,8 @@
 
 32-bit 5-stage RISC-V processor for FPGA implementation based on the book Computer Organization and Design: (https://www.amazon.se/-/en/David-Patterson/dp/0128122757)
 
+Assembler: [ripes.me](https://ripes.me/)
+
 ![alt text](image.png)
 
 # Short term plan
@@ -22,9 +24,11 @@
 - [x] Make compare work (needs to be tested) - Benjamin
 - [x] Make branch work - Sakke (Add Flush, through hazard detection)
 - [x] Add forwarding for branches and muxes before decode equality test - Sakke
-- [ ] Implement support for compressed instructions - Sakke
+- [x] Implement support for compressed instructions - Sakke
 - [x] UART - Benjamin
 - [x] UART Testbench - Benjamin
+- [ ] Make sure branches work with compresses instructions
+- [ ] Test Test Test!
 - [ ] Check for latches
 
 # Checklist
