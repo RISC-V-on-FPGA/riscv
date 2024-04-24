@@ -16,7 +16,7 @@ module decompressor (
   localparam logic [5:0] C_ADD = {3'b100, 1'b1, 2'b10};
   localparam logic [4:0] C_ADDI = {3'b000, 2'b01};
   localparam logic [9:0] C_SUB = {3'b100, 1'b0, 2'b11, 2'b00, 2'b01};
-  localparam logic [9:0] C_AND = {3'b100, 1'b0, 2'b11, 2'b00, 2'b01};
+  localparam logic [9:0] C_AND = {3'b100, 1'b0, 2'b11, 2'b11, 2'b01};
   localparam logic [6:0] C_ANDI = {3'b100, 2'b10, 2'b01};
   localparam logic [9:0] C_OR = {3'b100, 1'b0, 2'b11, 2'b10, 2'b01};
   localparam logic [9:0] C_XOR = {3'b100, 1'b0, 2'b11, 2'b01, 2'b01};
