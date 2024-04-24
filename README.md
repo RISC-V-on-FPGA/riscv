@@ -49,10 +49,10 @@ Assembler: [ripes.me](https://ripes.me/)
 -[x] C.ADD
 -[x] C.ADDI
 -[x] C.SUB
--[ ] C.AND
--[ ] C.ANDI
--[ ] C.OR
--[ ] C.XOR
+-[x] C.AND
+-[x] C.ANDI
+-[x] C.OR
+-[x] C.XOR
 -[ ] C.MV
 -[ ] C.LI
 -[ ] C.LUI
@@ -61,8 +61,8 @@ Assembler: [ripes.me](https://ripes.me/)
 -[ ] C.SRAI
 -[ ] C.SRLI
 ## Branches
--[ ] C.BEQZ
--[ ] C.BNEZ
+-[x] C.BEQZ
+-[x] C.BNEZ
 
 # Short term plan
 - [x] Make ADDI work
