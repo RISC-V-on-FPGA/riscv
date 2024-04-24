@@ -211,7 +211,7 @@ module decompressor (
       output_instruction.rd[4:3] = input_instruction[11:10];
       output_instruction.rd[2] = input_instruction[6];
       output_instruction.rd[1:0] = 0;
-      output_instruction[6:2] = 0;
+      output_instruction.funct7[6:2] = 0;
       output_instruction.funct7[1] = input_instruction[5];
       output_instruction.funct7[0] = input_instruction[12];
 
