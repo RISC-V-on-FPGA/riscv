@@ -32,9 +32,6 @@ module fetch_stage_tb;
 
   initial begin
     
-
-    /** OLD TESTBENCH BEFORE REWRITE
-    
     // Reset
     rst = 0;
     pc_branch = 20;
@@ -74,66 +71,67 @@ module fetch_stage_tb;
     flash = 1;
     #period;
     rst = 0;
-    // First 32 bit instruction.
     #(10*period);
-    uart_data = 8'b10101010;
+    // A compressed instructoin (ADD)
+    uart_data = 8'b10001010;
     uart_received = 1;
     #(period);
     uart_received = 0;
     #(10*period);
-    uart_data = 8'b11111111;
+    uart_data = 8'b10010000;
     uart_received = 1;
     #(period);
     uart_received = 0;
     #(10*period);
-    uart_data = 8'b00010001;
+    // A 32 bit instruction
+    uart_data = 8'b10010011;
     uart_received = 1;
     #(period);
     uart_received = 0;
     #(10*period);
-    uart_data = 8'b10101010;
-    uart_received = 1;
-    #(period);
-    uart_received = 0;
-    // Second 32 bit instruction
-    #(10*period);
-    uart_data = 8'b11111111;
+    uart_data = 8'b00000000;
     uart_received = 1;
     #(period);
     uart_received = 0;
     #(10*period);
-    uart_data = 8'b11111111;
+    uart_data = 8'b10100000;
     uart_received = 1;
     #(period);
     uart_received = 0;
     #(10*period);
-    uart_data = 8'b11111111;
+    uart_data = 8'b00000000;
     uart_received = 1;
     #(period);
     uart_received = 0;
     #(10*period);
-    uart_data = 8'b11111111;
-    uart_received = 1;
-    #(period);
-    uart_received = 0;
-    // Third 32 bit instruction
-    #(10*period);
-    uart_data = 8'b00010001;
+    // A compressed instrcution (ADD)
+    uart_data = 8'b10001010;
     uart_received = 1;
     #(period);
     uart_received = 0;
     #(10*period);
-    uart_data = 8'b00010001;
+    uart_data = 8'b10010000;
     uart_received = 1;
     #(period);
     uart_received = 0;
     #(10*period);
-    uart_data = 8'b00010001;
+    // A 32 bit instruction
+    uart_data = 8'b10010011;
     uart_received = 1;
     #(period);
     uart_received = 0;
     #(10*period);
-    uart_data = 8'b00010001;
+    uart_data = 8'b00000000;
+    uart_received = 1;
+    #(period);
+    uart_received = 0;
+    #(10*period);
+    uart_data = 8'b10100000;
+    uart_received = 1;
+    #(period);
+    uart_received = 0;
+    #(10*period);
+    uart_data = 8'b00000000;
     uart_received = 1;
     #(period);
     uart_received = 0;
@@ -141,8 +139,6 @@ module fetch_stage_tb;
     #(10*period);
     flash = 0;
     // Go back to normal mode
-
-    */
 
   end
 

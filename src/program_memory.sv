@@ -2,10 +2,11 @@ module program_memory (
     input clk,
     input [31:0] pc,
     input write_enable,
-    input [31:0] write_data,
+    input [7:0] write_data,
     input [31:0] write_address,
     input clear_mem,
-    output logic [31:0] read_instruction
+    output logic [31:0] read_instruction,
+    output logic flag_compressed
 );
 
   logic [7:0] ram[1024];
@@ -15,13 +16,36 @@ module program_memory (
     $readmemb("instruction_mem.mem", ram);
   end
 
-  always_comb begin : CombMem
-    instruction_temp[7:0]   = ram[pc];
-    instruction_temp[15:8]  = ram[pc+1];
-    instruction_temp[23:16] = ram[pc+2];
-    instruction_temp[31:24] = ram[pc+3];
+  always @(posedge clk) begin
+    if (write_enable) begin
+      ram[write_address] <= write_data;
+    end
+  end
 
-    read_instruction = instruction_temp;
+  always_comb begin : CombMem
+    if (ram[pc][1:0] != 2'b11) begin
+      // Compressed instruction
+      flag_compressed = 1;
+      instruction_temp[7:0] = ram[pc];
+      instruction_temp[15:8] = ram[pc+1];
+    end else begin
+      flag_compressed = 0;
+      instruction_temp[7:0] = ram[pc];
+      instruction_temp[15:8] = ram[pc+1];
+      instruction_temp[23:16] = ram[pc+2];
+      instruction_temp[31:24] = ram[pc+3];
+
+      read_instruction = instruction_temp;
+    end
+
+  end
+
+  always_comb begin
+    if (clear_mem) begin
+      for (int i = 0; i < 256; i++) begin
+        ram[i] = 0;
+      end
+    end
   end
 
   // logic [31:0] ram[256];
