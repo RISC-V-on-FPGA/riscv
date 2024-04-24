@@ -31,6 +31,10 @@ module fetch_stage_tb;
   always #(period / 2) clk = ~clk;
 
   initial begin
+    
+
+    /** OLD TESTBENCH BEFORE REWRITE
+    
     // Reset
     rst = 0;
     pc_branch = 20;
@@ -137,6 +141,8 @@ module fetch_stage_tb;
     #(10*period);
     flash = 0;
     // Go back to normal mode
+
+    */
 
   end
 

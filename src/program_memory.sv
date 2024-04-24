@@ -8,31 +8,47 @@ module program_memory (
     output logic [31:0] read_instruction
 );
 
-  logic [31:0] ram[256];
-  logic [7:0] word_address;
-  logic [7:0] word_write_addressp;
-
-  assign word_address = pc[9:2];
-  assign word_write_address = write_address[9:2];
+  logic [7:0] ram[1024];
+  logic [31:0] instruction_temp;
 
   initial begin
     $readmemb("instruction_mem.mem", ram);
   end
 
-  always @(posedge clk) begin
-    if (write_enable) begin
-      ram[word_write_address] <= write_data;
-    end
+  always_comb begin : CombMem
+    instruction_temp[7:0]   = ram[pc];
+    instruction_temp[15:8]  = ram[pc+1];
+    instruction_temp[23:16] = ram[pc+2];
+    instruction_temp[31:24] = ram[pc+3];
+
+    read_instruction = instruction_temp;
   end
 
-  always_comb begin
-    if (clear_mem) begin
-      for (int i = 0; i < 256; i++) begin
-        ram[i] = 0;
-      end
-    end
-  end
+  // logic [31:0] ram[256];
+  // logic [7:0] word_address;
+  // logic [7:0] word_write_address;
 
-  assign read_instruction = ram[word_address];
+  // assign word_address = pc[9:2];
+  // assign word_write_address = write_address[9:2];
+
+  // initial begin
+  //   $readmemb("instruction_mem.mem", ram);
+  // end
+
+  // always @(posedge clk) begin
+  //   if (write_enable) begin
+  //     ram[word_write_address] <= write_data;
+  //   end
+  // end
+
+  // always_comb begin
+  //   if (clear_mem) begin
+  //     for (int i = 0; i < 256; i++) begin
+  //       ram[i] = 0;
+  //     end
+  //   end
+  // end
+
+  // assign read_instruction = ram[word_address];
 
 endmodule

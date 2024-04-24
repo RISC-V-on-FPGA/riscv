@@ -46,6 +46,9 @@ module fetch_stage (
 
   state_type state;
 
+  // Detta borde kanske bli lättare med compresses??? 
+  // Kanske kan skjuta in en byte i taget bara, utan 
+  // att behöva tänka på att den hamnar i rätt address...
   always_ff @(posedge clk) begin : ProgMemSeq
     if (flash == 1) begin
       clear_mem <= 0;
