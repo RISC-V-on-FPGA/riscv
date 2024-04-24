@@ -42,10 +42,33 @@ module decompressor (
       output_instruction.rs1 = input_instruction[11:7];
       output_instruction.funct3 = 0;
       output_instruction.rd = input_instruction[11:7];
+      output_instruction.opcode = 7'b0110011;
+
     end else if ({input_instruction[15:13], input_instruction[1:0]} == C_ADDI) begin
       //ADDI INSTRUCTION
+      output_instruction.rs1 = input_instruction[11:7];
+      output_instruction.rd = input_instruction[11:7];
+      output_instruction.funct3 = 0;
+      output_instruction.opcode = 7'b0010011;
+
+      //Immidiate value
+      output_instruction.rs2 = input_instruction[4:0];
+      output_instruction.funct7[0] = input_instruction[12];
+      output_instruction.funct7[6:1] = 0;
+
     end else if ({input_instruction[15:13], input_instruction[12], input_instruction[11:10], input_instruction[6:5], input_instruction[1:0]} == C_SUB) begin
       //SUB INSTRUCTION
+      output_instruction.rs1[2:0] = input_instruction[9:7];
+      output_instruction.rs1[4:3] = 0;
+      output_instruction.rd[2:0]  = input_instruction[9:7];
+      output_instruction.rd[4:3]  = 0;
+      output_instruction.rs2[2:0] = input_instruction[4:2];
+      output_instruction.rs2[4:3] = 0;
+
+      output_instruction.funct7   = 7'b0100000;
+      output_instruction.funct3   = 0;
+      output_instruction.opcode   = 7'b0110011;
+
     end else if ({input_instruction[15:13], input_instruction[12], input_instruction[11:10], input_instruction[6:5], input_instruction[1:0]} == C_AND) begin
       //AND INSTRUCTION
     end else if ({input_instruction[15:13], input_instruction[11:10], input_instruction[1:0]} == C_ANDI) begin
