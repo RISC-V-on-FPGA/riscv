@@ -124,6 +124,13 @@ module decompressor (
 
     end else if ({input_instruction[15:13], input_instruction[12], input_instruction[1:0]} == C_MV) begin
       //MV INSTRUCTION
+      output_instruction.funct7 = 0;
+      output_instruction.rs2 = input_instruction[6:2];
+      output_instruction.rs1 = 0;
+      output_instruction.funct3 = 0;
+      output_instruction.rd = input_instruction[11:7];
+      output_instruction.opcode = 7'b0110011;
+
     end else if ({input_instruction[15:13], input_instruction[11:10], input_instruction[1:0]} == C_BNEZ) begin
       //SRAI INSTRUCTION
       output_instruction.rs1 = input_instruction[11:7];
@@ -205,12 +212,41 @@ module decompressor (
 
     end else if ({input_instruction[15:13], input_instruction[1:0]} == C_BEQZ) begin
       //BEQZ INSTRUCTION
+      output_instruction.rs1[4:3] = 0;
+      output_instruction.rs1[2:0] = input_instruction[9:7];
+      output_instruction.rs2 = 0;
+      output_instruction.funct3 = 0;
+      output_instruction.opcode = 7'b1100011;
+
+      //Immidiate Value
+      output_instruction.funct7[6:4] = 0;
+      output_instruction.funct7[3] = input_instruction[12];
+      output_instruction.funct7[2:1] = input_instruction[6:5];
+      output_instruction.funct7[0] = input_instruction[2];
+      output_instruction.rd[4:3] = input_instruction[11:10];
+      output_instruction.rd[2:1] = input_instruction[4:3];
+      output_instruction.rd[0] = 0;
+
     end else if ({input_instruction[15:13], input_instruction[1:0]} == C_BNEZ) begin
       //BNEZ INSTRUCTION
+      output_instruction.rs1[4:3] = 0;
+      output_instruction.rs1[2:0] = input_instruction[9:7];
+      output_instruction.rs2 = 0;
+      output_instruction.funct3 = 3'b001;
+      output_instruction.opcode = 7'b1100011;
+
+      //Immidiate Value
+      output_instruction.funct7[6:4] = 0;
+      output_instruction.funct7[3] = input_instruction[12];
+      output_instruction.funct7[2:1] = input_instruction[6:5];
+      output_instruction.funct7[0] = input_instruction[2];
+      output_instruction.rd[4:3] = input_instruction[11:10];
+      output_instruction.rd[2:1] = input_instruction[4:3];
+      output_instruction.rd[0] = 0;
+
     end else begin
       output_instruction = input_instruction;
     end
-
   end
 
 endmodule
