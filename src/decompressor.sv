@@ -3,7 +3,7 @@
 import common::*;
 
 module decompressor (
-    input logic [15:0] input_instruction,
+    input [15:0] input_instruction,
     output instruction_type output_instruction
 );
   // Loads
