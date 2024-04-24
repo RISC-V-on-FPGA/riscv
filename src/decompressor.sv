@@ -141,7 +141,7 @@ module decompressor (
       output_instruction.opcode = 7'b0010011;
 
       //Immidiate value
-      output_instruction.rs2 = input_instruction[4:0];
+      output_instruction.rs2 = input_instruction[6:2];
       output_instruction.funct7 = 7'b0100000;
 
     end else if ({input_instruction[15:13], input_instruction[11:10], input_instruction[1:0]} == C_BNEZ) begin
@@ -166,7 +166,7 @@ module decompressor (
       output_instruction.opcode = 7'b0010011;
 
       //Immidiate value
-      output_instruction.rs2 = input_instruction[4:0];
+      output_instruction.rs2 = input_instruction[6:2];
       output_instruction.funct7[0] = input_instruction[12];
       output_instruction.funct7[6:1] = 0;
 
