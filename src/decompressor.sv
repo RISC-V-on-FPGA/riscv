@@ -52,7 +52,7 @@ module decompressor (
       output_instruction.opcode = 7'b0010011;
 
       //Immidiate value
-      output_instruction.rs2 = input_instruction[4:0];
+      output_instruction.rs2 = input_instruction[6:2];
       output_instruction.funct7[0] = input_instruction[12];
       output_instruction.funct7[6:1] = 0;
 
