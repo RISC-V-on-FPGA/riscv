@@ -28,6 +28,9 @@ module program_memory (
       flag_compressed = 1;
       instruction_temp[7:0] = ram[pc];
       instruction_temp[15:8] = ram[pc+1];
+      instruction_temp[31:16] = 0;
+
+      read_instruction = instruction_temp;
     end else begin
       flag_compressed = 0;
       instruction_temp[7:0] = ram[pc];

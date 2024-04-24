@@ -24,6 +24,7 @@ module fetch_stage (
   instruction_type instruction_temp;
   instruction_type instruction_decompressed;
   logic flag_compressed;
+  logic [15:0] instruction_compressed;
 
   program_memory program_memory (
       .clk(clk),
@@ -36,9 +37,9 @@ module fetch_stage (
       .flag_compressed(flag_compressed)
   );
 
-  decompressor decompressor(
-    .input_instruction(instruction_temp),
-    .output_instruction(instruction_decompressed)
+  decompressor decompressor (
+      .input_instruction (instruction_compressed),
+      .output_instruction(instruction_decompressed)
   );
 
   logic [31:0] pc_next;
@@ -95,19 +96,20 @@ module fetch_stage (
       write_address <= 0;
       write_data <= 0;
       state <= FLASH_CLEAR;
-      flag_compressed <= 0;
-    end else if (flash == 1) begin
-      pc <= 0;
     end else begin
-      if (PCWrite == 1) begin
+      if (PCWrite == 1 && flash == 0) begin
         pc <= pc_next;
       end
     end
   end
 
   always_comb begin : Comb
+    instruction_compressed = instruction_temp[15:0];
+
     if (PCSrc == 1) begin
       pc_next = pc_branch;
+    end else if (flash == 1) begin
+      pc_next = 0;
     end else if (flag_compressed == 0) begin
       pc_next = pc + 4;
     end else begin
