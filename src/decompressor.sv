@@ -133,8 +133,10 @@ module decompressor (
 
     end else if ({input_instruction[15:13], input_instruction[11:10], input_instruction[1:0]} == C_BNEZ) begin
       //SRAI INSTRUCTION
-      output_instruction.rs1 = input_instruction[11:7];
-      output_instruction.rd = input_instruction[11:7];
+      output_instruction.rs1[4:3] = 0;
+      output_instruction.rs1[2:0] = input_instruction[9:7];
+      output_instruction.rd[4:3] = 0;
+      output_instruction.rd[2:0] = input_instruction[9:7];
       output_instruction.funct3 = 3'b101;
       output_instruction.opcode = 7'b0010011;
 
@@ -144,8 +146,10 @@ module decompressor (
 
     end else if ({input_instruction[15:13], input_instruction[11:10], input_instruction[1:0]} == C_BNEZ) begin
       //SRLI INSTRUCTION
-      output_instruction.rs1 = input_instruction[11:7];
-      output_instruction.rd = input_instruction[11:7];
+      output_instruction.rs1[4:3] = 0;
+      output_instruction.rs1[2:0] = input_instruction[9:7];
+      output_instruction.rd[4:3] = 0;
+      output_instruction.rd[2:0] = input_instruction[9:7];
       output_instruction.funct3 = 3'b101;
       output_instruction.opcode = 7'b0010011;
 
@@ -167,8 +171,9 @@ module decompressor (
       output_instruction.funct7[6:1] = 0;
 
     end else if ({input_instruction[15:13], input_instruction[1:0]} == C_LUI) begin
-      //LUI INSTRUCTION (Kanske är fel, dubbelkolla!)
+      //LUI INSTRUCTION
       output_instruction.rd = input_instruction[11:7];
+      output_instruction.opcode = 7'b0110111;
 
       //Immidiate value
       output_instruction.funct3 = input_instruction[4:2];
@@ -176,7 +181,7 @@ module decompressor (
       output_instruction.rs1[2] = input_instruction[12];
       output_instruction.rs1[4:3] = 0;
       output_instruction.rs2 = 0;
-      output_instruction.opcode = 0;
+      output_instruction.funct7 = 0;
 
     end else if ({input_instruction[15:13], input_instruction[1:0]} == C_LW) begin
       //LW INSTRUCTION
