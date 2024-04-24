@@ -48,7 +48,7 @@ Assembler: [ripes.me](https://ripes.me/)
 ## Arithmetic
 -[x] C.ADD
 -[x] C.ADDI
--[ ] C.SUB
+-[x] C.SUB
 -[ ] C.AND
 -[ ] C.ANDI
 -[ ] C.OR
