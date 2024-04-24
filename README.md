@@ -46,8 +46,8 @@ Assembler: [ripes.me](https://ripes.me/)
 - C.LW
 - C.SW
 ## Arithmetic
-- C.ADD
-- C.ADDI
+- C.ADD - verified
+- C.ADDI - verified
 - C.SUB
 - C.AND
 - C.ANDI
