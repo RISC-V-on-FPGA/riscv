@@ -27,7 +27,8 @@ Assembler: [ripes.me](https://ripes.me/)
 - [x] Implement support for compressed instructions - Sakke
 - [x] UART - Benjamin
 - [x] UART Testbench - Benjamin
-- [ ] Test Test Test! 
+- [ ] Make sure branches work with compresses instructions
+- [ ] Test Test Test!
 - [ ] Check for latches
 
 # Checklist
