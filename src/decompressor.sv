@@ -131,7 +131,18 @@ module decompressor (
       output_instruction.rd = input_instruction[11:7];
       output_instruction.opcode = 7'b0110011;
 
-    end else if ({input_instruction[15:13], input_instruction[11:10], input_instruction[1:0]} == C_BNEZ) begin
+    end else if ({input_instruction[15:13], input_instruction[1:0]} == C_SLLI) begin
+      //SLLI INSTRUCTION
+      output_instruction.rs1 = input_instruction[11:7];
+      output_instruction.rd = input_instruction[11:7];
+      output_instruction.funct3 =3'b001;
+      output_instruction.opcode = 7'b0010011;
+      output_instruction.funct7 = 0;
+
+      //Immidiate value
+      output_instruction.rs2 = input_instruction[6:2];
+
+    end else if ({input_instruction[15:13], input_instruction[11:10], input_instruction[1:0]} == C_SRAI) begin
       //SRAI INSTRUCTION
       output_instruction.rs1[4:3] = 0;
       output_instruction.rs1[2:0] = input_instruction[9:7];
@@ -144,7 +155,7 @@ module decompressor (
       output_instruction.rs2 = input_instruction[6:2];
       output_instruction.funct7 = 7'b0100000;
 
-    end else if ({input_instruction[15:13], input_instruction[11:10], input_instruction[1:0]} == C_BNEZ) begin
+    end else if ({input_instruction[15:13], input_instruction[11:10], input_instruction[1:0]} == C_SRLI) begin
       //SRLI INSTRUCTION
       output_instruction.rs1[4:3] = 0;
       output_instruction.rs1[2:0] = input_instruction[9:7];
@@ -154,7 +165,7 @@ module decompressor (
       output_instruction.opcode = 7'b0010011;
 
       //Immidiate value
-      output_instruction.rs2 = input_instruction[4:0];
+      output_instruction.rs2 = input_instruction[6:2];
       output_instruction.funct7 = 7'b0000000;
 
     end else if ({input_instruction[15:13], input_instruction[1:0]} == C_LI) begin
