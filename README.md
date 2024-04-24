@@ -44,7 +44,7 @@ Assembler: [ripes.me](https://ripes.me/)
 ### Compressed (16-bit) Instruction Extension
 ## Loads and Stores
 -[x] C.LW
--[x] C.SW
+-[x] C.SW - does not work in ripes assembler
 ## Arithmetic
 -[x] C.ADD
 -[x] C.ADDI
@@ -53,13 +53,13 @@ Assembler: [ripes.me](https://ripes.me/)
 -[x] C.ANDI
 -[x] C.OR
 -[x] C.XOR
--[ ] C.MV
--[ ] C.LI
--[ ] C.LUI
+-[x] C.MV
+-[x] C.LI
+-[x] C.LUI - does not work in ripes assembler
 ## Shifts
--[ ] C.SLLI
--[ ] C.SRAI
--[ ] C.SRLI
+-[x] C.SLLI
+-[x] C.SRAI
+-[x] C.SRLI
 ## Branches
 -[x] C.BEQZ
 -[x] C.BNEZ

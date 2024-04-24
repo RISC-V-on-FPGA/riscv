@@ -64,7 +64,7 @@ module control (
       7'b0110111: begin
         control.encoding = U_TYPE;
         control.RegWrite = 1'b1;
-        control.ALUSrc   = 1'b0;
+        control.ALUSrc   = 1'b1;
       end
       7'b0000011: begin
         control.encoding = I_TYPE;
