@@ -44,7 +44,7 @@ Assembler: [ripes.me](https://ripes.me/)
 ### Compressed (16-bit) Instruction Extension
 ## Loads and Stores
 -[x] C.LW
--[ ] C.SW
+-[x] C.SW
 ## Arithmetic
 -[x] C.ADD
 -[x] C.ADDI
