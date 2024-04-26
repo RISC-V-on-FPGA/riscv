@@ -16,9 +16,15 @@ module program_memory (
     $readmemb("instruction_mem.mem", ram);
   end
 
-  always @(posedge clk) begin
+  always_ff @(posedge clk) begin
     if (write_enable) begin
       ram[write_address] <= write_data;
+    end
+
+    if (clear_mem) begin
+      for (int i = 0; i < 1024; i++) begin
+        ram[i] = 0;
+      end
     end
   end
 
@@ -41,18 +47,6 @@ module program_memory (
       read_instruction = instruction_temp;
     end
 
-  end
-
-  always_comb begin
-    if (clear_mem) begin
-      for (int i = 0; i < 1024; i++) begin
-        ram[i] = 0;
-      end
-    end else begin
-      for (int i = 0; i < 1024; i++) begin
-        ram[i] = ram[i];
-      end
-    end
   end
 
   // logic [31:0] ram[256];
