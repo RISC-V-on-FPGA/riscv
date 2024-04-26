@@ -55,7 +55,13 @@ module fetch_stage (
   state_type state;
 
   always_ff @(posedge clk) begin : ProgMemSeq
-    if (flash == 1) begin
+    if (rst == 1) begin
+      write_enable <= 0;
+      write_address <= 0;
+      pc_counter_address <= 0;
+      clear_mem <= 0;
+      state <= FLASH_CLEAR;
+    end else if (flash == 1) begin
       clear_mem <= 0;
       write_enable <= 0;
 
@@ -83,18 +89,12 @@ module fetch_stage (
   end
 
   always_comb begin : ProgMemComb
-      write_data = uart_data;
+    write_data = uart_data;
   end
 
   always_ff @(posedge clk) begin : Seq
     if (rst == 1) begin
       pc <= 0;
-      pc_counter_address <= 0;
-      clear_mem <= 0;
-      write_enable <= 0;
-      write_address <= 0;
-      write_data <= 0;
-      state <= FLASH_CLEAR;
     end else begin
       if (PCWrite == 1 && flash == 0) begin
         pc <= pc_next;
