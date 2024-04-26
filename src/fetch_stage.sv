@@ -1,5 +1,6 @@
-`include "common.sv"
-`include "program_memory.sv"
+// `include "common.sv"
+// `include "program_memory.sv"
+// `include "decompressor.sv"
 
 import common::*;
 

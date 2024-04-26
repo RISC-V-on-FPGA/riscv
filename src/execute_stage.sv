@@ -1,4 +1,7 @@
-`include "common.sv"
+// `include "common.sv"
+// `include "alu.sv"
+// `include "forwarding_unit.sv"
+
 import common::*;
 
 module execute_stage (

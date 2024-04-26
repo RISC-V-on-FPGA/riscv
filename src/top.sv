@@ -1,3 +1,9 @@
+// `include "fetch_stage.sv"
+// `include "decode_stage.sv"
+// `include "execute_stage.sv"
+// `include "memory_stage.sv"
+// `include "uart_interface.sv"
+
 module top (
     input clk,
     input rst,

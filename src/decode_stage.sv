@@ -1,7 +1,9 @@
-`include "common.sv"
+// `include "common.sv"
 // `include "register_file.sv"
 // `include "control.sv"
 // `include "imm_gen.sv"
+// `include "forwarding_unit.sv"
+// `include "hazard_detection_unit.sv"
 
 import common::*;
 

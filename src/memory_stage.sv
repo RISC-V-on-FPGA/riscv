@@ -1,3 +1,6 @@
+// `include "data_memory.sv"
+// `include "common.sv"
+
 import common::*;
 
 module memory_stage (
