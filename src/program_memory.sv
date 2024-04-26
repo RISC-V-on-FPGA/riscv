@@ -23,7 +23,7 @@ module program_memory (
 
     if (clear_mem) begin
       for (int i = 0; i < 1024; i++) begin
-        ram[i] = 0;
+        ram[i] <= 0;
       end
     end
   end
