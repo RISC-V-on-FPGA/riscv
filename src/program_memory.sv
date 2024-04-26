@@ -11,6 +11,10 @@ module program_memory (
 
   logic [7:0] ram[1024];
   logic [31:0] instruction_temp;
+  logic [9:0] mem_write_address, mem_pc;
+
+  assign mem_write_address = write_address[9:0];
+  assign mem_pc = pc[9:0];
 
   initial begin
     $readmemb("instruction_mem.mem", ram);
@@ -18,7 +22,7 @@ module program_memory (
 
   always_ff @(posedge clk) begin
     if (write_enable) begin
-      ram[write_address] <= write_data;
+      ram[mem_write_address] <= write_data;
     end
 
     if (clear_mem) begin
@@ -29,20 +33,20 @@ module program_memory (
   end
 
   always_comb begin : CombMem
-    if (ram[pc][1:0] != 2'b11) begin
+    if (ram[mem_pc][1:0] != 2'b11) begin
       // Compressed instruction
       flag_compressed = 1;
-      instruction_temp[7:0] = ram[pc];
-      instruction_temp[15:8] = ram[pc+1];
+      instruction_temp[7:0] = ram[mem_pc];
+      instruction_temp[15:8] = ram[mem_pc+1];
       instruction_temp[31:16] = 0;
 
       read_instruction = instruction_temp;
     end else begin
       flag_compressed = 0;
-      instruction_temp[7:0] = ram[pc];
-      instruction_temp[15:8] = ram[pc+1];
-      instruction_temp[23:16] = ram[pc+2];
-      instruction_temp[31:24] = ram[pc+3];
+      instruction_temp[7:0] = ram[mem_pc];
+      instruction_temp[15:8] = ram[mem_pc+1];
+      instruction_temp[23:16] = ram[mem_pc+2];
+      instruction_temp[31:24] = ram[mem_pc+3];
 
       read_instruction = instruction_temp;
     end

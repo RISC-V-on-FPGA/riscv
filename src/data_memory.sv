@@ -8,17 +8,17 @@ module data_memory (
     output logic [31:0] output_data
 );
 
-  logic [31:0] ram[256];
+  logic [31:0] mem[256];
   logic [7:0] word_address;
 
   always_ff @(posedge clk) begin : Seq
     if (rst == 1) begin
       for (int i = 0; i < 256; i++) begin
-        ram[i] <= 0;
+        mem[i] <= 0;
       end
     end else begin
       if (MemWrite) begin
-        ram[word_address] <= write_data;
+        mem[word_address] <= write_data;
       end
     end
   end
@@ -26,7 +26,7 @@ module data_memory (
   assign word_address = byte_address[9:2];
 
   always_comb begin : Comb
-    output_data = ram[word_address];
+    output_data = mem[word_address];
   end
 
 endmodule
