@@ -155,6 +155,7 @@ module decode_stage (
     endcase
 
     IF_Flush = 0;
+    PCSrc = 0;
     if (control.encoding == B_TYPE) begin
       case (control.BranchType)
         BRANCH_BEQ: begin

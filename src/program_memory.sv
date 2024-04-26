@@ -48,7 +48,11 @@ module program_memory (
       for (int i = 0; i < 1024; i++) begin
         ram[i] = 0;
       end
-    end 
+    end else begin
+      for (int i = 0; i < 1024; i++) begin
+        ram[i] = ram[i];
+      end
+    end
   end
 
   // logic [31:0] ram[256];
