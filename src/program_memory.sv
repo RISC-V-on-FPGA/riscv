@@ -45,10 +45,10 @@ module program_memory (
 
   always_comb begin
     if (clear_mem) begin
-      for (int i = 0; i < 256; i++) begin
+      for (int i = 0; i < 1024; i++) begin
         ram[i] = 0;
       end
-    end
+    end 
   end
 
   // logic [31:0] ram[256];
