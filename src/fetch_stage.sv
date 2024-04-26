@@ -83,9 +83,7 @@ module fetch_stage (
   end
 
   always_comb begin : ProgMemComb
-    if (flash == 1) begin
       write_data = uart_data;
-    end
   end
 
   always_ff @(posedge clk) begin : Seq
