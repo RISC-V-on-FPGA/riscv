@@ -11,14 +11,15 @@ while IFS= read -r line
 do
     hex=$(echo "obase=16;ibase=2;$line" | bc)
 
-    if [ ${#hex} -lt 2 ]; then
-        hex="0$hex"
-    fi
+    # if [ ${#hex} -lt 2 ]; then
+    #     hex="0$hex"
+    # fi
 
     # Write the line to /dev/ttyUSB1
     # echo -n "$line" > /dev/ttyUSB1
     # echo -n "$line"
     # echo -n "$hex" >/dev/ttyUSB1 
+    # echo -n "\x$hex"
     echo -n "\x$hex" >/dev/ttyUSB1 
     # echo -n "\x$hex" 
     # echo -n "$(echo -n "$line" | xxd -r -p)" > /dev/ttyUSB1
