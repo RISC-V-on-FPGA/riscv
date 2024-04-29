@@ -8,8 +8,11 @@ module top (
     input clk,
     input rst,
     input uart_serial,
-    input flash
+    input flash,
+    output logic please_dont_optimize
 );
+
+  assign please_dont_optimize = wb_data[0];
 
   //IF_ID Registers
   logic            [31:0] IF_ID_PC;

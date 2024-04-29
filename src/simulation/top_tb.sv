@@ -3,7 +3,7 @@
 module top_tb;
 
   logic clk, rst, flash;
-  logic [7:0] uart_serial;
+  logic uart_serial;
 
   top uut (
       .clk(clk),

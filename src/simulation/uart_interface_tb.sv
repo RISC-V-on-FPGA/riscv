@@ -7,8 +7,8 @@ module uart_interface_tb ();
   // 100000000 / 115200 = 868 Clocks Per Bit.
 
   // 10ns
-  parameter integer CLK_PERIOD = 10;
-  parameter integer CLKS_PER_BIT = 868;
+  parameter integer CLK_PERIOD = 20;
+  parameter integer CLKS_PER_BIT = 434;
   parameter integer BIT_PERIOD = 8600;
 
   logic clk = 0;
