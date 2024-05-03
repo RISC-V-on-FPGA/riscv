@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Make sure the assembly code is moved to instruction_mem.mem
+python3 ripes_to_bytes.py
+
 # Specify the text file to read from
 text_file="instruction_mem.mem"
 
@@ -11,18 +14,7 @@ while IFS= read -r line
 do
     hex=$(echo "obase=16;ibase=2;$line" | bc)
 
-    # if [ ${#hex} -lt 2 ]; then
-    #     hex="0$hex"
-    # fi
-
     # Write the line to /dev/ttyUSB1
-    # echo -n "$line" > /dev/ttyUSB1
-    # echo -n "$line"
-    # echo -n "$hex" >/dev/ttyUSB1 
-    # echo -n "\x$hex"
     echo -n "\x$hex" >/dev/ttyUSB1 
-    # echo -n "\x$hex" 
-    # echo -n "$(echo -n "$line" | xxd -r -p)" > /dev/ttyUSB1
-    #echo -n "$(echo -n "$line" | xxd -r -p)"
-    #printf "%b" "$(echo -n "$line" | xxd -r -p)" > /dev/ttyUSB1
+
 done < "$text_file"

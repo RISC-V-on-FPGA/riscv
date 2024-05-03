@@ -66,7 +66,7 @@ Assembler: [ripes.me](https://ripes.me/)
 
 # Short term plan
 - [x] Check for latches
-- [ ] Synth
+- [x] Synth
   - [ ] Make sure every register is reset on rst
 - [ ] Integrate logic analyzer IP for the FPGA to view registers
 - [ ] Verify a program with memory file
