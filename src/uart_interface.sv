@@ -1,8 +1,8 @@
 module uart_interface #(
     // CLKS_PER_BIT = (Frequency of clk)/(Frequency of UART)
     // parameter CLKS_PER_BIT = 434  // For 50 MHz and 115200 Baud rate.
-    // parameter CLKS_PER_BIT = 868  // For 100 MHz and 115200 Baud rate.
-    parameter CLKS_PER_BIT = 651  // For 75 MHz and 115200 Baud rate.
+    parameter CLKS_PER_BIT = 868  // For 100 MHz and 115200 Baud rate.
+    // parameter CLKS_PER_BIT = 651  // For 75 MHz and 115200 Baud rate.
 ) (
     input              clk,
     input              input_serial,
