@@ -2,7 +2,7 @@
 
 32-bit 5-stage RISC-V processor for FPGA implementation based on the book Computer Organization and Design: (https://www.amazon.se/-/en/David-Patterson/dp/0128122757).
 
-Assembler: [ripes.me](https://ripes.me/)
+Assembler used: [ripes.me](https://ripes.me/). Then the script `ripes_to_bytes.py` converts into mem file. 
 
 ![alt text](image.png)
 
@@ -74,4 +74,8 @@ Assembler: [ripes.me](https://ripes.me/)
   - [ ] Branches
   - [x] Load
   - [x] Store
+- [ ] Create testcases for implemented improvements
+  - [ ] Forwarding: From EX/MEM, MEM/WB and register file forwarding
+  - [ ] Hazard on loads (bubble from hazard detection unit)
+  - [ ] Hazard on branch (bubble from hazard detection unit)
 - [ ] Create Branch for sim (MAIN FPGA)
