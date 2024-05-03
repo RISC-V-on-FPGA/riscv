@@ -7,40 +7,44 @@ Assembler used: [ripes.me](https://ripes.me/). Then the script `ripes_to_bytes.p
 ![alt text](image.png)
 
 # Implemented Instructions
-## Shifts
-- SLL
-- SLLI
-- SRL
-- SRLI
-- SRA
-- SRAI
-## Arithmetic
-- ADD
-- ADDI
-- SUB
-- LUI
-## Logical
-- XOR
-- XORI
-- OR
-- ORI
-- AND
-- ANDI
-## Compare
-- SLT
-- SLTI
-- SLTU
-- SLTIU
-## Branches
-- BEQ
-- BNE
-- BLT
-- BGE
-- BLTU
-- BGEU
-## Loads and Stores
-- LW
-- SW
+| Category   | Name                    | RV32I Base        |
+| ---------- | ----------------------- | ----------------- |
+| Shifts     | Shift Left Logical      | SLL  rd,rs1,rs2   |
+|            | Shift Left Log. Imm.    | SLLI rd,rs1,shamt |
+|            | Shift Right Logical     | SRL rd,rs1,rs2    |
+|            | Shift Right Log. Imm.   | SRLI rd,rs1,shamt |
+|            | Shift Right Arithmetic  | SRA rd,rs1,rs2    |
+|            | Shift Right Arith. Imm. | SRAI rd,rs1,shamt |
+| ---------- | ----------------------- | ----------------- |
+| Arithmetic | ADD                     | ADD rd,rs1,rs2    |
+|            | ADD Imm.                | ADDI rd,rs1,rs2   |
+|            | SUBtract                | SUB rd,rs1,rs2    |
+|            | Load Upper imm.         | LUI rd, imm       |
+| ---------- | ----------------------- | ----------------- |
+| Logical    | XOR                     | XOR rd,rs1,rs2    |
+|            | XOR imm.                | XORI rd,rs1,imm   |
+|            | OR                      | OR rd,rs1,rs2     |
+|            | OR imm.                 | ORI rd,rs1,imm    |
+|            | AND                     | AND rd,rs1,rs2    |
+|            | AND imm.                | ANDI rd,rs1,imm   |
+| ---------- | ----------------------- | ----------------- |
+| Compare    | Set <                   | SLT rd,rs1,rs2    |
+|            | Set < imm.              | SLTI rd,rs1,imm   |
+|            | Set < unsigned          | SLTU rd,rs1,rs2   |
+|            | Set < imm. unsigned     | SLTIU rd,rs1,imm  |
+| ---------- | ----------------------- | ----------------- |
+| Branches   | Branch =                | BEQ rs1,rs2,imm   |
+|            | Branch $\neq$           | BNE rs1,rs2,imm   |
+|            | Branch <                | BLT rs1,rs2,imm   |
+|            | Branch $\ge$            | BGE rs1,rs2,imm   |
+|            | Branch < unsigned       | BLTU rs1,rs2,imm  |
+|            | Branch $\ge$ unsigned   | BGEU rs1,rs2,imm  |
+| ---------- | ----------------------- | ----------------- |
+| Loads      | Load Word               | LW rd,rs1,imm     |
+| ---------- | ----------------------- | ----------------- |
+| Stores     | Store Word              | SW rs1,rs2,imm    |
+| ---------- | ----------------------- | ----------------- |
+
 ### Compressed (16-bit) Instruction Extension
 ## Loads and Stores
 - C.LW
