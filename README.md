@@ -44,9 +44,11 @@ Assembler used: [ripes.me](https://ripes.me/). Then the script `ripes_to_bytes.p
 
 # Short term plan
 - [x] Make sure every register is reset on rst
+- [ ] Improve flash and rst? So that it is enough to raise flash to update program memory
 - [ ] Create Testcases for every Category of instructions
-  - [ ] Arithmetic
-  - [ ] Compare
+  - [x] Arithmetic
+    - c.lui needs to be tested manually
+  - [x] Compare
   - [ ] Logical
   - [ ] Shifts
   - [ ] Branches

@@ -1,0 +1,9 @@
+addi x1, x0, 4
+sw x1, 0(x0)
+lw x2, 0(x0)
+nop
+nop
+nop
+nop
+stop:
+    beq x0, x0, stop

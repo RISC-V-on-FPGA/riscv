@@ -13,4 +13,4 @@ def process_bits_from_file_to_file(input_filename, output_filename):
                 output_file.write(section + '\n')
 
 # Example usage
-process_bits_from_file_to_file('instruction_mem.txt', 'instruction_mem.mem')
+process_bits_from_file_to_file('../instruction_mem.txt', '../instruction_mem.mem')
