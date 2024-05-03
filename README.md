@@ -71,7 +71,7 @@ Assembler used: [ripes.me](https://ripes.me/). Then the script `ripes_to_bytes.p
   - [ ] Compare
   - [ ] Logical
   - [ ] Shifts
-  - [ ] Branches
+  - [x] Branches
   - [x] Load
   - [x] Store
 - [ ] Create testcases for implemented improvements
