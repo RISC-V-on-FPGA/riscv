@@ -65,9 +65,13 @@ Assembler: [ripes.me](https://ripes.me/)
 - C.BNEZ
 
 # Short term plan
-- [x] Check for latches
-- [x] Synth
-  - [ ] Make sure every register is reset on rst
-- [ ] Integrate logic analyzer IP for the FPGA to view registers
-- [ ] Verify a program with memory file
-- [ ] Verify a program flashed with uart
+- [ ] Make sure every register is reset on rst
+- [ ] Create Testcases for every Category of instructions
+  - [ ] Arithmetic
+  - [ ] Compare
+  - [ ] Logical
+  - [ ] Shifts
+  - [ ] Branches
+  - [x] Load
+  - [x] Store
+- [ ] Create Branch for sim (MAIN FPGA)
