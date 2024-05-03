@@ -1,10 +1,8 @@
-# Test BNE -> 10 should be stored in x2
 addi x1, x0, 10 
 loop1:
 addi x2, x2, 1
 addi x1, x1, -1
 bne x1, x0, loop1
-# Test BEQ -> 10 should be stored in x3
 addi x1, x0, 10
 loop2:
 addi x1, x1, -1
@@ -12,7 +10,6 @@ addi x3, x3, 1
 beq x1, x0, loop2done
 beq x0, x0, loop2
 loop2done:
-# Test BLT -> 10 should be stored in x4
 addi x1, x0, -9
 loop3:
 addi x1, x1, 1
@@ -20,13 +17,11 @@ addi x4, x4, 1
 blt x0, x1, loop3done
 beq x0, x0, loop3
 loop3done:
-# Test BGE -> 10 should be stored in x5
 addi x1, x0, -10
 loop4:
 addi x1, x1, 1
 addi x5, x5, 1
 bge x0, x1, loop4
-# Test BLTU -> 10 should be stored in x6
 addi x1, x0, -9
 loop5:
 addi x1, x1, 1
@@ -34,7 +29,6 @@ addi x6, x6, 1
 bltu x1, x0, loop5done
 beq x0, x0, loop5
 loop5done:
-# Test BGEU -> 10 should be stored in x7
 addi x1, x0, -10
 loop6:
 addi x1, x1, 1

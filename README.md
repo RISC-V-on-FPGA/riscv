@@ -67,7 +67,8 @@ Assembler used: [ripes.me](https://ripes.me/). Then the script `ripes_to_bytes.p
 # Short term plan
 - [ ] Make sure every register is reset on rst
 - [ ] Create Testcases for every Category of instructions
-  - [ ] Arithmetic
+  - [x] Arithmetic
+    - c.lui needs to be tested manually
   - [ ] Compare
   - [ ] Logical
   - [ ] Shifts
