@@ -10,7 +10,7 @@ module fetch_stage (
     input [31:0] pc_branch,
     input PCSrc,
     input PCWrite,
-    input [7:0] uart_data,  // TODO
+    input [7:0] uart_data,
     input uart_received,
     input flash,
     input IF_Flush,
