@@ -62,13 +62,13 @@ Assembler used: [ripes.me](https://ripes.me/). Then the script `ripes_to_bytes.p
 - C.BNEZ
 
 # Short term plan
-- [ ] Make sure every register is reset on rst
+- [x] Make sure every register is reset on rst
 - [ ] Create Testcases for every Category of instructions
   - [ ] Arithmetic
   - [ ] Compare
   - [ ] Logical
   - [ ] Shifts
-  - [x] Branches
+  - [ ] Branches
   - [x] Load
   - [x] Store
 - [ ] Create testcases for implemented improvements
