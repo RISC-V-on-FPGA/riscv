@@ -225,11 +225,19 @@ module top (
       .memory_data(EX_MEM_MEMORY_DATA)
   );
 
-  uart_interface uart_interface (
+  // uart_interface uart_interface (
+  // .clk(clk),
+  // .input_serial(uart_serial),
+  // .byte_received(byte_received),
+  // .output_byte(output_byte)
+  // );
+
+  uart uart (
       .clk(clk),
-      .input_serial(uart_serial),
-      .byte_received(byte_received),
-      .output_byte(output_byte)
+      .rst(rst),
+      .io_rx(uart_serial),
+      .io_data_valid(byte_received),
+      .io_data_packet(output_byte)
   );
 
   clk_wiz_0 clk_wiz_0 (

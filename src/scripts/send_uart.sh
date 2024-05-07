@@ -13,7 +13,7 @@ python3 ripes_to_bytes.py
 text_file="../instruction_mem.mem"
 
 stty -F /dev/ttyUSB1 4800
-stty -F /dev/ttyUSB1 -crtscts
+# stty -F /dev/ttyUSB1 -crtscts
 
 # Loop through each line in the text file
 while IFS= read -r line
@@ -22,5 +22,6 @@ do
 
     # Write the line to /dev/ttyUSB1
     echo -n "\x$hex" >/dev/ttyUSB1 
+    sleep 0.001
 
 done < "$text_file"
