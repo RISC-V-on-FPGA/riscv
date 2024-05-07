@@ -20,7 +20,8 @@ while IFS= read -r line
 do
     hex=$(echo "obase=16;ibase=2;$line" | bc)
 
-    # Write the line to /dev/ttyUSB1
+    binary=$(echo "obase=2; ibase=16; $hex" | bc)
+    printf "%08d\n" "$binary"
     echo -n "\x$hex" >/dev/ttyUSB1 
     sleep 0.001
 
