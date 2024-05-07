@@ -21,7 +21,7 @@ module fetch_stage (
   logic write_enable;
   logic [7:0] write_data;
   logic [31:0] write_address;
-  logic clear_mem;
+  // logic clear_mem;
   instruction_type instruction_temp;
   instruction_type instruction_decompressed;
   logic flag_compressed;
@@ -33,7 +33,7 @@ module fetch_stage (
       .write_enable(write_enable),
       .write_data(write_data),
       .write_address(write_address),
-      .clear_mem(clear_mem),
+      //.clear_mem(clear_mem),
       .read_instruction(instruction_temp),
       .flag_compressed(flag_compressed)
   );
@@ -47,44 +47,19 @@ module fetch_stage (
   logic [31:0] pc_counter_address;
   logic [31:0] pc_instruction;
 
-  typedef enum logic [3:0] {
-    FLASH_CLEAR,  //Clear program memory
-    FLASH_WRITE   //Write to memory
-  } state_type;
-
-  state_type state;
-
   always_ff @(posedge clk) begin : ProgMemSeq
-    if (rst == 1) begin
+    if (flash == 0) begin
       write_enable <= 0;
       write_address <= 0;
       pc_counter_address <= 0;
-      clear_mem <= 0;
-      state <= FLASH_CLEAR;
-    end else if (flash == 1) begin
-      clear_mem <= 0;
-      write_enable <= 0;
-
-      case (state)
-
-        FLASH_CLEAR: begin
-          clear_mem <= 1;
-          state <= FLASH_WRITE;
-        end
-
-        FLASH_WRITE: begin
-          if (uart_received == 1) begin
-            write_enable <= 1;
-            pc_counter_address <= pc_counter_address + 1;
-            write_address <= pc_counter_address;
-          end else begin
-            write_enable <= 0;
-          end
-        end
-        default: begin
-
-        end
-      endcase
+    end else begin
+      if (uart_received == 1) begin
+        write_enable <= 1;
+        pc_counter_address <= pc_counter_address + 1;
+        write_address <= pc_counter_address;
+      end else begin
+        write_enable <= 0;
+      end
     end
   end
 

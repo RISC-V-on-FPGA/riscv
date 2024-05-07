@@ -12,7 +12,7 @@ python3 ripes_to_bytes.py
 # Specify the text file to read from
 text_file="../instruction_mem.mem"
 
-stty -F /dev/ttyUSB1 115200
+stty -F /dev/ttyUSB1 4800
 stty -F /dev/ttyUSB1 -crtscts
 
 # Loop through each line in the text file

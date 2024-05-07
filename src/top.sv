@@ -233,7 +233,7 @@ module top (
   );
 
   clk_wiz_0 clk_wiz_0 (
-      // Clock out ports  
+      // Clock out ports
       .clk_out1(clk),
       // Clock in ports
       .clk_in1 (clk_in)

@@ -4,7 +4,7 @@ module program_memory (
     input write_enable,
     input [7:0] write_data,
     input [31:0] write_address,
-    input clear_mem,
+    // input clear_mem,
     output logic [31:0] read_instruction,
     output logic flag_compressed
 );
@@ -16,20 +16,20 @@ module program_memory (
   assign mem_write_address = write_address[9:0];
   assign mem_pc = pc[9:0];
 
-  initial begin
-    $readmemb("instruction_mem.mem", ram);
-  end
+  // initial begin
+  //   $readmemb("instruction_mem.mem", ram);
+  // end
 
   always_ff @(posedge clk) begin
     if (write_enable) begin
       ram[mem_write_address] <= write_data;
     end
 
-    if (clear_mem) begin
-      for (int i = 0; i < 1024; i++) begin
-        ram[i] <= 0;
-      end
-    end
+    // if (clear_mem) begin
+      // for (int i = 0; i < 1024; i++) begin
+        // ram[i] <= 0;
+      // end
+    // end
   end
 
   always_comb begin : CombMem
