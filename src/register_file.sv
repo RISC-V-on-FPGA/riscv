@@ -13,14 +13,9 @@ module register_file (
   logic [31:0] registers[0:31];
 
   always_ff @(posedge clk) begin : Seq
-    if (rst == 1) begin
-      for (int i = 0; i < 32 ; i++) begin
-        registers[i] <= 0;
-      end
-    end else begin
-      if (write_en) begin
-        registers[write_id] <= write_data;
-      end
+
+    if (write_en) begin
+      registers[write_id] <= write_data;
     end
   end
 

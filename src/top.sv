@@ -5,7 +5,7 @@
 // `include "uart_interface.sv"
 
 module top (
-    input clk_in,
+    input clk,
     input rst,
     input uart_serial,
     input flash,
@@ -113,6 +113,9 @@ module top (
       if (decode_FetchWrite == 1) begin
         IF_ID_PC          <= fetch_pc;
         IF_ID_INSTRUCTION <= fetch_instruction;
+      end else begin
+        IF_ID_PC          <= IF_ID_PC;
+        IF_ID_INSTRUCTION <= IF_ID_INSTRUCTION;
       end
 
       ID_EX_CONTROL      <= decode_control;
@@ -230,13 +233,6 @@ module top (
       .input_serial(uart_serial),
       .byte_received(byte_received),
       .output_byte(output_byte)
-  );
-
-  clk_wiz_0 clk_wiz_0 (
-      // Clock out ports
-      .clk_out1(clk),
-      // Clock in ports
-      .clk_in1 (clk_in)
   );
 
 
