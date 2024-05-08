@@ -2,7 +2,8 @@
 
 32-bit 5-stage RISC-V processor for FPGA implementation based on the book Computer Organization and Design: (https://www.amazon.se/-/en/David-Patterson/dp/0128122757).
 
-Assembler used: [ripes.me](https://ripes.me/). Then the script `ripes_to_bytes.py` converts into mem file. 
+Assembler: [ripes.me](https://ripes.me/). 
+The script `ripes_to_bytes.py` converts into mem file. Then `send_uart.sh` can be used to upload to program memory on the cpu via uart.
 
 ![alt text](image.png)
 
