@@ -1,12 +1,28 @@
-addi x10, x0, 1
-addi x11, x0, 2
-addi x12, x0, 3
+addi x31, x0, 0
 addi x13, x0, 5
-addi x14, x0, 6
-addi x15, x0, 7
-addi x16, x0, 10
 addi x17, x0, 15
 addi x18, x0, 13
 xor x1, x13, x16        # x1 = b1111 = 15
 xor x2, x17, x17        # x2 = 0
 xor x3, x18, x15        # x3 = b1010 = 10
+add x31, x31, x1
+add x31, x31, x2
+add x31, x31, x3        # x31 = 25
+xori x4, x13, 10        # x4 = b1111 = 15
+xori x4, x17, 15        # x5 = b
+xori x4, x18, 13        # x6 = b1010 = 10
+add x31, x31, x4
+add x31, x31, x5
+add x31, x31, x6        # x31 = 50
+c.xor x13, x16
+c.xor x17, x17
+c.xor x18, x15
+add x31, x31, x1
+add x31, x31, x2
+add x31, x31, x3        # x31 = 75
+nop
+nop
+nop
+nop
+HALT:
+    beq x0,x0, HALT
