@@ -1,0 +1,18 @@
+addi x1, x0, 0
+addi x2, x0, 4
+addi x3, x0, 5
+addi x4, x0, 6
+addi x5, x0, -5
+addi x6, x0, -12
+addi x7, x0, -1000
+sub x1, x3, x4
+sub x1, x1, x5        # x1 = 4
+c.sub x2, x6          # x2 = 16
+c.sub x3, x7          # x3 = 1005
+c.sub x4, x4          # x4 = 0
+nop
+nop
+nop
+nop
+HALT:
+    beq x0,x0,HALT
