@@ -5,7 +5,7 @@
 // `include "uart_interface.sv"
 
 module top (
-    input clk,
+    input clk_in,
     input rst,
     input uart_serial,
     input flash,
@@ -254,6 +254,11 @@ module top (
       .io_rx(uart_serial),
       .io_data_valid(byte_received),
       .io_data_packet(output_byte)
+  );
+
+  clk_wiz_0 clk_wiz_0 (
+      .clk_in1 (clk_in),
+      .clk_out1(clk)
   );
 
 

@@ -52,9 +52,13 @@ module decompressor (
       output_instruction.opcode = 7'b0010011;
 
       //Immidiate value
-      output_instruction.rs2 = input_instruction[6:2];
-      output_instruction.funct7[0] = input_instruction[12];
-      output_instruction.funct7[6:1] = 0;
+      if (input_instruction[12] == 0) begin
+        output_instruction.rs2 = input_instruction[6:2];
+        output_instruction.funct7 = 0;
+      end else begin
+        output_instruction.rs2 = input_instruction[6:2];
+        output_instruction.funct7 = 7'b1111111;
+      end
 
     end else if ({input_instruction[15:13], input_instruction[12], input_instruction[11:10], input_instruction[6:5], input_instruction[1:0]} == C_SUB) begin
       //SUB INSTRUCTION
@@ -135,7 +139,7 @@ module decompressor (
       //SLLI INSTRUCTION
       output_instruction.rs1 = input_instruction[11:7];
       output_instruction.rd = input_instruction[11:7];
-      output_instruction.funct3 =3'b001;
+      output_instruction.funct3 = 3'b001;
       output_instruction.opcode = 7'b0010011;
       output_instruction.funct7 = 0;
 

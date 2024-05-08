@@ -55,8 +55,8 @@ The script `ripes_to_bytes.py` converts into mem file. Then `send_uart.sh` can b
   - [x] Branches
   - [x] Load
   - [x] Store
-- [ ] Create testcases for implemented improvements
-  - [ ] Forwarding: From EX/MEM, MEM/WB and register file forwarding
-  - [ ] Hazard on loads (bubble from hazard detection unit)
-  - [ ] Hazard on branch (bubble from hazard detection unit)
+- [x] Create testcases for implemented improvements
+  - [x] Forwarding: From EX/MEM, MEM/WB and register file forwarding
+  - [x] Hazard on loads (bubble from hazard detection unit)
+  - [x] Hazard on branch (bubble from hazard detection unit)
 - [x] Create Branch for sim (MAIN FPGA)
