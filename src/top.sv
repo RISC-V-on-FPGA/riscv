@@ -5,11 +5,12 @@
 // `include "uart_interface.sv"
 
 module top (
-    input clk_in,
+    input clk,
     input rst,
     input uart_serial,
     input flash,
-    input [2:0] led_address,
+    input [4:0] led_address,
+    input led_upper,
     output logic [15:0] led
 );
 
@@ -114,6 +115,9 @@ module top (
       if (decode_FetchWrite == 1) begin
         IF_ID_PC          <= fetch_pc;
         IF_ID_INSTRUCTION <= fetch_instruction;
+      end else begin
+        IF_ID_PC          <= IF_ID_PC;
+        IF_ID_INSTRUCTION <= IF_ID_INSTRUCTION;
       end
 
       ID_EX_CONTROL      <= decode_control;
@@ -240,6 +244,7 @@ module top (
       .write_id(MEM_WB_RD),
       .write_enable(MEM_WB_CONTROL.RegWrite),
       .led_address(led_address),
+      .led_upper(led_upper),
       .led_output(led)
   );
 
@@ -249,13 +254,6 @@ module top (
       .io_rx(uart_serial),
       .io_data_valid(byte_received),
       .io_data_packet(output_byte)
-  );
-
-  clk_wiz_0 clk_wiz_0 (
-      // Clock out ports
-      .clk_out1(clk),
-      // Clock in ports
-      .clk_in1 (clk_in)
   );
 
 
