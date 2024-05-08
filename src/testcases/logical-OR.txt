@@ -1,28 +1,27 @@
-addi x31, x0, 0
-addi x11, x0, 3
-addi x12, x0, 2
-addi x13, x0, 5
-addi x15, x0, 7
-addi x16, x0, 10
-addi x17, x0, 15
-or x1, x13, x16        # x1 = b1111 = 15
-or x2, x17, x17        # x2 = b1111 = 15
-or x3, x11, x12        # x3 = b0011 = 3
-add x31, x31, x1
-add x31, x31, x2
-add x31, x31, x3        # x31 = 33
-ori x4, x13, 10        # x4 = b1111 = 15
-ori x5, x17, 15        # x5 = b1111 = 15
-ori x6, x11, 2        # x6 = b0011 = 3
-add x31, x31, x4
-add x31, x31, x5
-add x31, x31, x6        # x31 = 66
-c.or x13, x16
-c.or x17, x17
-c.or x11, x12
-add x31, x31, x13
-add x31, x31, x17
-add x31, x31, x11        # x31 = 99, ripes says 89
+addi x1, x0, 0
+addi x4, x0, 3
+addi x3, x0, 2
+addi x5, x0, 5
+addi x6, x0, 10
+addi x2, x0, 15
+or x10, x5, x6        # x1 = b1111 = 15
+or x20, x2, x2        # x2 = b1111 = 15
+or x21, x4, x3        # x3 = b0011 = 3
+add x1, x1, x10
+add x1, x1, x20
+add x1, x1, x21        # x31 = 33
+ori x14, x5, 10        # x4 = b1111 = 15
+ori x15, x2, 15        # x5 = b1111 = 15
+ori x16, x4, 2        # x6 = b0011 = 3
+add x1, x1, x14
+add x1, x1, x15
+add x1, x1, x16        # x31 = 66
+c.or x5, x6
+c.or x2, x2
+c.or x4, x3
+add x1, x1, x5
+add x1, x1, x2
+add x1, x1, x4        # x31 = 99, ripes says 89
 nop
 nop
 nop
