@@ -1,0 +1,30 @@
+addi x1, x0, 0
+addi x4, x0, 3
+addi x3, x0, 2
+addi x5, x0, 5
+addi x6, x0, 10
+addi x2, x0, 15
+and x10, x5, x6        
+and x20, x2, x2        
+and x21, x4, x3        
+add x1, x1, x10
+add x1, x1, x20
+add x1, x1, x21        
+andi x14, x5, 10        
+andi x15, x2, 15
+andi x16, x4, 2        
+add x1, x1, x14
+add x1, x1, x15
+add x1, x1, x16        
+c.and x5, x6
+c.and x2, x2
+c.and x4, x3
+add x1, x1, x5
+add x1, x1, x2
+add x1, x1, x4        # x1 = 51
+nop
+nop
+nop
+nop
+HALT:
+    beq x0,x0, HALT
