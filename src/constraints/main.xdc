@@ -54,66 +54,66 @@ set_property IOSTANDARD LVCMOS33 [get_ports flash]
 #set_property PACKAGE_PIN T1 [get_ports {sw[12]}]
 #set_property IOSTANDARD LVCMOS33 [get_ports {sw[12]}]
 ##Bank = 34, Pin name = IO_L11P_T1_SRCC_34,					Sch name = SW13
-#set_property PACKAGE_PIN R3 [get_ports {sw[13]}]
-#set_property IOSTANDARD LVCMOS33 [get_ports {sw[13]}]
+set_property PACKAGE_PIN R3 [get_ports {led_address[0]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {led_address[0]}]
 ##Bank = 34, Pin name = IO_L14N_T2_SRCC_34,					Sch name = SW14
-#set_property PACKAGE_PIN P3 [get_ports {sw[14]}]
-#set_property IOSTANDARD LVCMOS33 [get_ports {sw[14]}]
+set_property PACKAGE_PIN P3 [get_ports {led_address[1]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {led_address[1]}]
 ##Bank = 34, Pin name = IO_L14P_T2_SRCC_34,					Sch name = SW15
-#set_property PACKAGE_PIN P4 [get_ports {sw[15]}]
-#set_property IOSTANDARD LVCMOS33 [get_ports {sw[15]}]
+set_property PACKAGE_PIN P4 [get_ports {led_address[2]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {led_address[2]}]
 
 
 
 ## LEDs
 ##Bank = 34, Pin name = IO_L24N_T3_34,						Sch name = LED0
-set_property PACKAGE_PIN T8 [get_ports please_dont_optimize]
-set_property IOSTANDARD LVCMOS33 [get_ports please_dont_optimize]
+set_property PACKAGE_PIN T8 [get_ports {led[0]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {led[0]}]
 ##Bank = 34, Pin name = IO_L21N_T3_DQS_34,					Sch name = LED1
-#set_property PACKAGE_PIN V9 [get_ports {led[1]}]
-#set_property IOSTANDARD LVCMOS33 [get_ports {led[1]}]
+set_property PACKAGE_PIN V9 [get_ports {led[1]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {led[1]}]
 ##Bank = 34, Pin name = IO_L24P_T3_34,						Sch name = LED2
-#set_property PACKAGE_PIN R8 [get_ports {led[2]}]
-#set_property IOSTANDARD LVCMOS33 [get_ports {led[2]}]
+set_property PACKAGE_PIN R8 [get_ports {led[2]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {led[2]}]
 ##Bank = 34, Pin name = IO_L23N_T3_34,						Sch name = LED3
-#set_property PACKAGE_PIN T6 [get_ports {led[3]}]
-#set_property IOSTANDARD LVCMOS33 [get_ports {led[3]}]
+set_property PACKAGE_PIN T6 [get_ports {led[3]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {led[3]}]
 ##Bank = 34, Pin name = IO_L12P_T1_MRCC_34,					Sch name = LED4
-#set_property PACKAGE_PIN T5 [get_ports {led[4]}]
-#set_property IOSTANDARD LVCMOS33 [get_ports {led[4]}]
+set_property PACKAGE_PIN T5 [get_ports {led[4]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {led[4]}]
 ##Bank = 34, Pin name = IO_L12N_T1_MRCC_34,					Sch	name = LED5
-#set_property PACKAGE_PIN T4 [get_ports {led[5]}]
-#set_property IOSTANDARD LVCMOS33 [get_ports {led[5]}]
+set_property PACKAGE_PIN T4 [get_ports {led[5]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {led[5]}]
 ##Bank = 34, Pin name = IO_L22P_T3_34,						Sch name = LED6
-#set_property PACKAGE_PIN U7 [get_ports {led[6]}]
-#set_property IOSTANDARD LVCMOS33 [get_ports {led[6]}]
+set_property PACKAGE_PIN U7 [get_ports {led[6]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {led[6]}]
 ##Bank = 34, Pin name = IO_L22N_T3_34,						Sch name = LED7
-#set_property PACKAGE_PIN U6 [get_ports {led[7]}]
-#set_property IOSTANDARD LVCMOS33 [get_ports {led[7]}]
+set_property PACKAGE_PIN U6 [get_ports {led[7]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {led[7]}]
 ##Bank = 34, Pin name = IO_L10N_T1_34,						Sch name = LED8
-#set_property PACKAGE_PIN V4 [get_ports {led[8]}]
-#set_property IOSTANDARD LVCMOS33 [get_ports {led[8]}]
+set_property PACKAGE_PIN V4 [get_ports {led[8]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {led[8]}]
 ##Bank = 34, Pin name = IO_L8N_T1_34,						Sch name = LED9
-#set_property PACKAGE_PIN U3 [get_ports {led[9]}]
-#set_property IOSTANDARD LVCMOS33 [get_ports {led[9]}]
+set_property PACKAGE_PIN U3 [get_ports {led[9]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {led[9]}]
 ##Bank = 34, Pin name = IO_L7N_T1_34,						Sch name = LED10
-#set_property PACKAGE_PIN V1 [get_ports {led[10]}]
-#set_property IOSTANDARD LVCMOS33 [get_ports {led[10]}]
+set_property PACKAGE_PIN V1 [get_ports {led[10]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {led[10]}]
 ##Bank = 34, Pin name = IO_L17P_T2_34,						Sch name = LED11
-#set_property PACKAGE_PIN R1 [get_ports {led[11]}]
-#set_property IOSTANDARD LVCMOS33 [get_ports {led[11]}]
+set_property PACKAGE_PIN R1 [get_ports {led[11]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {led[11]}]
 ##Bank = 34, Pin name = IO_L13N_T2_MRCC_34,					Sch name = LED12
-#set_property PACKAGE_PIN P5 [get_ports {led[12]}]
-#set_property IOSTANDARD LVCMOS33 [get_ports {led[12]}]
+set_property PACKAGE_PIN P5 [get_ports {led[12]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {led[12]}]
 ##Bank = 34, Pin name = IO_L7P_T1_34,						Sch name = LED13
-#set_property PACKAGE_PIN U1 [get_ports {led[13]}]
-#set_property IOSTANDARD LVCMOS33 [get_ports {led[13]}]
+set_property PACKAGE_PIN U1 [get_ports {led[13]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {led[13]}]
 ##Bank = 34, Pin name = IO_L15N_T2_DQS_34,					Sch name = LED14
-#set_property PACKAGE_PIN R2 [get_ports {led[14]}]
-#set_property IOSTANDARD LVCMOS33 [get_ports {led[14]}]
+set_property PACKAGE_PIN R2 [get_ports {led[14]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {led[14]}]
 ##Bank = 34, Pin name = IO_L15P_T2_DQS_34,					Sch name = LED15
-#set_property PACKAGE_PIN P2 [get_ports {led[15]}]
-#set_property IOSTANDARD LVCMOS33 [get_ports {led[15]}]
+set_property PACKAGE_PIN P2 [get_ports {led[15]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {led[15]}]
 
 ##Bank = 34, Pin name = IO_L5P_T0_34,						Sch name = LED16_R
 #set_property PACKAGE_PIN K5 [get_ports RGB1_Red]
@@ -723,3 +723,101 @@ set_property IOSTANDARD LVCMOS33 [get_ports uart_serial]
 ##Bank = 14, Pin name = IO_L23N_T3_A02_D18_14,				Sch name = CRAM_A22
 #set_property PACKAGE_PIN U13 [get_ports {MemAdr[22]}]
 #set_property IOSTANDARD LVCMOS33 [get_ports {MemAdr[22]}]
+
+
+connect_debug_port u_ila_0/probe1 [get_nets [list {decode_stage/register_file/registers_reg[1]_0[0]} {decode_stage/register_file/registers_reg[1]_0[1]} {decode_stage/register_file/registers_reg[1]_0[2]} {decode_stage/register_file/registers_reg[1]_0[3]} {decode_stage/register_file/registers_reg[1]_0[4]} {decode_stage/register_file/registers_reg[1]_0[5]} {decode_stage/register_file/registers_reg[1]_0[6]} {decode_stage/register_file/registers_reg[1]_0[7]} {decode_stage/register_file/registers_reg[1]_0[8]} {decode_stage/register_file/registers_reg[1]_0[9]} {decode_stage/register_file/registers_reg[1]_0[10]} {decode_stage/register_file/registers_reg[1]_0[11]} {decode_stage/register_file/registers_reg[1]_0[12]} {decode_stage/register_file/registers_reg[1]_0[13]} {decode_stage/register_file/registers_reg[1]_0[14]} {decode_stage/register_file/registers_reg[1]_0[15]} {decode_stage/register_file/registers_reg[1]_0[16]} {decode_stage/register_file/registers_reg[1]_0[17]} {decode_stage/register_file/registers_reg[1]_0[18]} {decode_stage/register_file/registers_reg[1]_0[19]} {decode_stage/register_file/registers_reg[1]_0[20]} {decode_stage/register_file/registers_reg[1]_0[21]} {decode_stage/register_file/registers_reg[1]_0[22]} {decode_stage/register_file/registers_reg[1]_0[23]} {decode_stage/register_file/registers_reg[1]_0[24]} {decode_stage/register_file/registers_reg[1]_0[25]} {decode_stage/register_file/registers_reg[1]_0[26]} {decode_stage/register_file/registers_reg[1]_0[27]} {decode_stage/register_file/registers_reg[1]_0[28]} {decode_stage/register_file/registers_reg[1]_0[29]} {decode_stage/register_file/registers_reg[1]_0[30]} {decode_stage/register_file/registers_reg[1]_0[31]}]]
+connect_debug_port u_ila_0/probe2 [get_nets [list {decode_stage/register_file/registers_reg[2]_1[0]} {decode_stage/register_file/registers_reg[2]_1[1]} {decode_stage/register_file/registers_reg[2]_1[2]} {decode_stage/register_file/registers_reg[2]_1[3]} {decode_stage/register_file/registers_reg[2]_1[4]} {decode_stage/register_file/registers_reg[2]_1[5]} {decode_stage/register_file/registers_reg[2]_1[6]} {decode_stage/register_file/registers_reg[2]_1[7]} {decode_stage/register_file/registers_reg[2]_1[8]} {decode_stage/register_file/registers_reg[2]_1[9]} {decode_stage/register_file/registers_reg[2]_1[10]} {decode_stage/register_file/registers_reg[2]_1[11]} {decode_stage/register_file/registers_reg[2]_1[12]} {decode_stage/register_file/registers_reg[2]_1[13]} {decode_stage/register_file/registers_reg[2]_1[14]} {decode_stage/register_file/registers_reg[2]_1[15]} {decode_stage/register_file/registers_reg[2]_1[16]} {decode_stage/register_file/registers_reg[2]_1[17]} {decode_stage/register_file/registers_reg[2]_1[18]} {decode_stage/register_file/registers_reg[2]_1[19]} {decode_stage/register_file/registers_reg[2]_1[20]} {decode_stage/register_file/registers_reg[2]_1[21]} {decode_stage/register_file/registers_reg[2]_1[22]} {decode_stage/register_file/registers_reg[2]_1[23]} {decode_stage/register_file/registers_reg[2]_1[24]} {decode_stage/register_file/registers_reg[2]_1[25]} {decode_stage/register_file/registers_reg[2]_1[26]} {decode_stage/register_file/registers_reg[2]_1[27]} {decode_stage/register_file/registers_reg[2]_1[28]} {decode_stage/register_file/registers_reg[2]_1[29]} {decode_stage/register_file/registers_reg[2]_1[30]} {decode_stage/register_file/registers_reg[2]_1[31]}]]
+connect_debug_port u_ila_0/probe3 [get_nets [list {decode_stage/register_file/registers_reg[3]_2[0]} {decode_stage/register_file/registers_reg[3]_2[1]} {decode_stage/register_file/registers_reg[3]_2[2]} {decode_stage/register_file/registers_reg[3]_2[3]} {decode_stage/register_file/registers_reg[3]_2[4]} {decode_stage/register_file/registers_reg[3]_2[5]} {decode_stage/register_file/registers_reg[3]_2[6]} {decode_stage/register_file/registers_reg[3]_2[7]} {decode_stage/register_file/registers_reg[3]_2[8]} {decode_stage/register_file/registers_reg[3]_2[9]} {decode_stage/register_file/registers_reg[3]_2[10]} {decode_stage/register_file/registers_reg[3]_2[11]} {decode_stage/register_file/registers_reg[3]_2[12]} {decode_stage/register_file/registers_reg[3]_2[13]} {decode_stage/register_file/registers_reg[3]_2[14]} {decode_stage/register_file/registers_reg[3]_2[15]} {decode_stage/register_file/registers_reg[3]_2[16]} {decode_stage/register_file/registers_reg[3]_2[17]} {decode_stage/register_file/registers_reg[3]_2[18]} {decode_stage/register_file/registers_reg[3]_2[19]} {decode_stage/register_file/registers_reg[3]_2[20]} {decode_stage/register_file/registers_reg[3]_2[21]} {decode_stage/register_file/registers_reg[3]_2[22]} {decode_stage/register_file/registers_reg[3]_2[23]} {decode_stage/register_file/registers_reg[3]_2[24]} {decode_stage/register_file/registers_reg[3]_2[25]} {decode_stage/register_file/registers_reg[3]_2[26]} {decode_stage/register_file/registers_reg[3]_2[27]} {decode_stage/register_file/registers_reg[3]_2[28]} {decode_stage/register_file/registers_reg[3]_2[29]} {decode_stage/register_file/registers_reg[3]_2[30]} {decode_stage/register_file/registers_reg[3]_2[31]}]]
+connect_debug_port u_ila_0/probe4 [get_nets [list {decode_stage/register_file/registers_reg[4]_3[0]} {decode_stage/register_file/registers_reg[4]_3[1]} {decode_stage/register_file/registers_reg[4]_3[2]} {decode_stage/register_file/registers_reg[4]_3[3]} {decode_stage/register_file/registers_reg[4]_3[4]} {decode_stage/register_file/registers_reg[4]_3[5]} {decode_stage/register_file/registers_reg[4]_3[6]} {decode_stage/register_file/registers_reg[4]_3[7]} {decode_stage/register_file/registers_reg[4]_3[8]} {decode_stage/register_file/registers_reg[4]_3[9]} {decode_stage/register_file/registers_reg[4]_3[10]} {decode_stage/register_file/registers_reg[4]_3[11]} {decode_stage/register_file/registers_reg[4]_3[12]} {decode_stage/register_file/registers_reg[4]_3[13]} {decode_stage/register_file/registers_reg[4]_3[14]} {decode_stage/register_file/registers_reg[4]_3[15]} {decode_stage/register_file/registers_reg[4]_3[16]} {decode_stage/register_file/registers_reg[4]_3[17]} {decode_stage/register_file/registers_reg[4]_3[18]} {decode_stage/register_file/registers_reg[4]_3[19]} {decode_stage/register_file/registers_reg[4]_3[20]} {decode_stage/register_file/registers_reg[4]_3[21]} {decode_stage/register_file/registers_reg[4]_3[22]} {decode_stage/register_file/registers_reg[4]_3[23]} {decode_stage/register_file/registers_reg[4]_3[24]} {decode_stage/register_file/registers_reg[4]_3[25]} {decode_stage/register_file/registers_reg[4]_3[26]} {decode_stage/register_file/registers_reg[4]_3[27]} {decode_stage/register_file/registers_reg[4]_3[28]} {decode_stage/register_file/registers_reg[4]_3[29]} {decode_stage/register_file/registers_reg[4]_3[30]} {decode_stage/register_file/registers_reg[4]_3[31]}]]
+connect_debug_port u_ila_0/probe5 [get_nets [list {decode_stage/register_file/registers_reg[5]_4[0]} {decode_stage/register_file/registers_reg[5]_4[1]} {decode_stage/register_file/registers_reg[5]_4[2]} {decode_stage/register_file/registers_reg[5]_4[3]} {decode_stage/register_file/registers_reg[5]_4[4]} {decode_stage/register_file/registers_reg[5]_4[5]} {decode_stage/register_file/registers_reg[5]_4[6]} {decode_stage/register_file/registers_reg[5]_4[7]} {decode_stage/register_file/registers_reg[5]_4[8]} {decode_stage/register_file/registers_reg[5]_4[9]} {decode_stage/register_file/registers_reg[5]_4[10]} {decode_stage/register_file/registers_reg[5]_4[11]} {decode_stage/register_file/registers_reg[5]_4[12]} {decode_stage/register_file/registers_reg[5]_4[13]} {decode_stage/register_file/registers_reg[5]_4[14]} {decode_stage/register_file/registers_reg[5]_4[15]} {decode_stage/register_file/registers_reg[5]_4[16]} {decode_stage/register_file/registers_reg[5]_4[17]} {decode_stage/register_file/registers_reg[5]_4[18]} {decode_stage/register_file/registers_reg[5]_4[19]} {decode_stage/register_file/registers_reg[5]_4[20]} {decode_stage/register_file/registers_reg[5]_4[21]} {decode_stage/register_file/registers_reg[5]_4[22]} {decode_stage/register_file/registers_reg[5]_4[23]} {decode_stage/register_file/registers_reg[5]_4[24]} {decode_stage/register_file/registers_reg[5]_4[25]} {decode_stage/register_file/registers_reg[5]_4[26]} {decode_stage/register_file/registers_reg[5]_4[27]} {decode_stage/register_file/registers_reg[5]_4[28]} {decode_stage/register_file/registers_reg[5]_4[29]} {decode_stage/register_file/registers_reg[5]_4[30]} {decode_stage/register_file/registers_reg[5]_4[31]}]]
+connect_debug_port u_ila_0/probe9 [get_nets [list {fetch_stage/rx_byte[0]} {fetch_stage/rx_byte[1]} {fetch_stage/rx_byte[2]} {fetch_stage/rx_byte[3]} {fetch_stage/rx_byte[4]} {fetch_stage/rx_byte[5]} {fetch_stage/rx_byte[6]} {fetch_stage/rx_byte[7]}]]
+connect_debug_port u_ila_0/probe10 [get_nets [list {decode_stage/IF_ID_INSTRUCTION_reg[rs1][4][0]} {decode_stage/IF_ID_INSTRUCTION_reg[rs1][4][1]} {decode_stage/IF_ID_INSTRUCTION_reg[rs1][4][2]} {decode_stage/IF_ID_INSTRUCTION_reg[rs1][4][3]} {decode_stage/IF_ID_INSTRUCTION_reg[rs1][4][4]}]]
+
+connect_debug_port u_ila_0/probe4 [get_nets [list {decode_stage/IF_ID_INSTRUCTION_reg[rs2][4][0]} {decode_stage/IF_ID_INSTRUCTION_reg[rs2][4][1]} {decode_stage/IF_ID_INSTRUCTION_reg[rs2][4][2]} {decode_stage/IF_ID_INSTRUCTION_reg[rs2][4][3]} {decode_stage/IF_ID_INSTRUCTION_reg[rs2][4][4]}]]
+
+create_debug_core u_ila_0 ila
+set_property ALL_PROBE_SAME_MU true [get_debug_cores u_ila_0]
+set_property ALL_PROBE_SAME_MU_CNT 1 [get_debug_cores u_ila_0]
+set_property C_ADV_TRIGGER false [get_debug_cores u_ila_0]
+set_property C_DATA_DEPTH 1024 [get_debug_cores u_ila_0]
+set_property C_EN_STRG_QUAL false [get_debug_cores u_ila_0]
+set_property C_INPUT_PIPE_STAGES 0 [get_debug_cores u_ila_0]
+set_property C_TRIGIN_EN false [get_debug_cores u_ila_0]
+set_property C_TRIGOUT_EN false [get_debug_cores u_ila_0]
+set_property port_width 1 [get_debug_ports u_ila_0/clk]
+connect_debug_port u_ila_0/clk [get_nets [list clk_wiz_0/inst/clk_out1]]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe0]
+set_property port_width 3 [get_debug_ports u_ila_0/probe0]
+connect_debug_port u_ila_0/probe0 [get_nets [list {fetch_stage/IF_ID_INSTRUCTION_reg[funct3][2][0]} {fetch_stage/IF_ID_INSTRUCTION_reg[funct3][2][1]} {fetch_stage/IF_ID_INSTRUCTION_reg[funct3][2][2]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe1]
+set_property port_width 10 [get_debug_ports u_ila_0/probe1]
+connect_debug_port u_ila_0/probe1 [get_nets [list {IF_ID_PC[0]} {IF_ID_PC[1]} {IF_ID_PC[2]} {IF_ID_PC[3]} {IF_ID_PC[4]} {IF_ID_PC[5]} {IF_ID_PC[6]} {IF_ID_PC[7]} {IF_ID_PC[8]} {IF_ID_PC[9]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe2]
+set_property port_width 32 [get_debug_ports u_ila_0/probe2]
+connect_debug_port u_ila_0/probe2 [get_nets [list {MEM_WB_MEM_BYPASS[0]} {MEM_WB_MEM_BYPASS[1]} {MEM_WB_MEM_BYPASS[2]} {MEM_WB_MEM_BYPASS[3]} {MEM_WB_MEM_BYPASS[4]} {MEM_WB_MEM_BYPASS[5]} {MEM_WB_MEM_BYPASS[6]} {MEM_WB_MEM_BYPASS[7]} {MEM_WB_MEM_BYPASS[8]} {MEM_WB_MEM_BYPASS[9]} {MEM_WB_MEM_BYPASS[10]} {MEM_WB_MEM_BYPASS[11]} {MEM_WB_MEM_BYPASS[12]} {MEM_WB_MEM_BYPASS[13]} {MEM_WB_MEM_BYPASS[14]} {MEM_WB_MEM_BYPASS[15]} {MEM_WB_MEM_BYPASS[16]} {MEM_WB_MEM_BYPASS[17]} {MEM_WB_MEM_BYPASS[18]} {MEM_WB_MEM_BYPASS[19]} {MEM_WB_MEM_BYPASS[20]} {MEM_WB_MEM_BYPASS[21]} {MEM_WB_MEM_BYPASS[22]} {MEM_WB_MEM_BYPASS[23]} {MEM_WB_MEM_BYPASS[24]} {MEM_WB_MEM_BYPASS[25]} {MEM_WB_MEM_BYPASS[26]} {MEM_WB_MEM_BYPASS[27]} {MEM_WB_MEM_BYPASS[28]} {MEM_WB_MEM_BYPASS[29]} {MEM_WB_MEM_BYPASS[30]} {MEM_WB_MEM_BYPASS[31]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe3]
+set_property port_width 32 [get_debug_ports u_ila_0/probe3]
+connect_debug_port u_ila_0/probe3 [get_nets [list {MEM_WB_MEM_OUTPUT[0]} {MEM_WB_MEM_OUTPUT[1]} {MEM_WB_MEM_OUTPUT[2]} {MEM_WB_MEM_OUTPUT[3]} {MEM_WB_MEM_OUTPUT[4]} {MEM_WB_MEM_OUTPUT[5]} {MEM_WB_MEM_OUTPUT[6]} {MEM_WB_MEM_OUTPUT[7]} {MEM_WB_MEM_OUTPUT[8]} {MEM_WB_MEM_OUTPUT[9]} {MEM_WB_MEM_OUTPUT[10]} {MEM_WB_MEM_OUTPUT[11]} {MEM_WB_MEM_OUTPUT[12]} {MEM_WB_MEM_OUTPUT[13]} {MEM_WB_MEM_OUTPUT[14]} {MEM_WB_MEM_OUTPUT[15]} {MEM_WB_MEM_OUTPUT[16]} {MEM_WB_MEM_OUTPUT[17]} {MEM_WB_MEM_OUTPUT[18]} {MEM_WB_MEM_OUTPUT[19]} {MEM_WB_MEM_OUTPUT[20]} {MEM_WB_MEM_OUTPUT[21]} {MEM_WB_MEM_OUTPUT[22]} {MEM_WB_MEM_OUTPUT[23]} {MEM_WB_MEM_OUTPUT[24]} {MEM_WB_MEM_OUTPUT[25]} {MEM_WB_MEM_OUTPUT[26]} {MEM_WB_MEM_OUTPUT[27]} {MEM_WB_MEM_OUTPUT[28]} {MEM_WB_MEM_OUTPUT[29]} {MEM_WB_MEM_OUTPUT[30]} {MEM_WB_MEM_OUTPUT[31]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe4]
+set_property port_width 8 [get_debug_ports u_ila_0/probe4]
+connect_debug_port u_ila_0/probe4 [get_nets [list {data_packet_reg[0]} {data_packet_reg[1]} {data_packet_reg[2]} {data_packet_reg[3]} {data_packet_reg[4]} {data_packet_reg[5]} {data_packet_reg[6]} {data_packet_reg[7]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe5]
+set_property port_width 16 [get_debug_ports u_ila_0/probe5]
+connect_debug_port u_ila_0/probe5 [get_nets [list {register_capture/reg_7[0]} {register_capture/reg_7[1]} {register_capture/reg_7[2]} {register_capture/reg_7[3]} {register_capture/reg_7[4]} {register_capture/reg_7[5]} {register_capture/reg_7[6]} {register_capture/reg_7[7]} {register_capture/reg_7[8]} {register_capture/reg_7[9]} {register_capture/reg_7[10]} {register_capture/reg_7[11]} {register_capture/reg_7[12]} {register_capture/reg_7[13]} {register_capture/reg_7[14]} {register_capture/reg_7[15]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe6]
+set_property port_width 7 [get_debug_ports u_ila_0/probe6]
+connect_debug_port u_ila_0/probe6 [get_nets [list {fetch_stage/IF_ID_INSTRUCTION_reg[opcode][6][0]} {fetch_stage/IF_ID_INSTRUCTION_reg[opcode][6][1]} {fetch_stage/IF_ID_INSTRUCTION_reg[opcode][6][2]} {fetch_stage/IF_ID_INSTRUCTION_reg[opcode][6][3]} {fetch_stage/IF_ID_INSTRUCTION_reg[opcode][6][4]} {fetch_stage/IF_ID_INSTRUCTION_reg[opcode][6][5]} {fetch_stage/IF_ID_INSTRUCTION_reg[opcode][6][6]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe7]
+set_property port_width 3 [get_debug_ports u_ila_0/probe7]
+connect_debug_port u_ila_0/probe7 [get_nets [list {fetch_stage/IF_ID_INSTRUCTION_reg[funct7][6][0]} {fetch_stage/IF_ID_INSTRUCTION_reg[funct7][6][1]} {fetch_stage/IF_ID_INSTRUCTION_reg[funct7][6][2]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe8]
+set_property port_width 16 [get_debug_ports u_ila_0/probe8]
+connect_debug_port u_ila_0/probe8 [get_nets [list {register_capture/reg_2[0]} {register_capture/reg_2[1]} {register_capture/reg_2[2]} {register_capture/reg_2[3]} {register_capture/reg_2[4]} {register_capture/reg_2[5]} {register_capture/reg_2[6]} {register_capture/reg_2[7]} {register_capture/reg_2[8]} {register_capture/reg_2[9]} {register_capture/reg_2[10]} {register_capture/reg_2[11]} {register_capture/reg_2[12]} {register_capture/reg_2[13]} {register_capture/reg_2[14]} {register_capture/reg_2[15]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe9]
+set_property port_width 16 [get_debug_ports u_ila_0/probe9]
+connect_debug_port u_ila_0/probe9 [get_nets [list {register_capture/reg_4[0]} {register_capture/reg_4[1]} {register_capture/reg_4[2]} {register_capture/reg_4[3]} {register_capture/reg_4[4]} {register_capture/reg_4[5]} {register_capture/reg_4[6]} {register_capture/reg_4[7]} {register_capture/reg_4[8]} {register_capture/reg_4[9]} {register_capture/reg_4[10]} {register_capture/reg_4[11]} {register_capture/reg_4[12]} {register_capture/reg_4[13]} {register_capture/reg_4[14]} {register_capture/reg_4[15]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe10]
+set_property port_width 16 [get_debug_ports u_ila_0/probe10]
+connect_debug_port u_ila_0/probe10 [get_nets [list {register_capture/reg_3[0]} {register_capture/reg_3[1]} {register_capture/reg_3[2]} {register_capture/reg_3[3]} {register_capture/reg_3[4]} {register_capture/reg_3[5]} {register_capture/reg_3[6]} {register_capture/reg_3[7]} {register_capture/reg_3[8]} {register_capture/reg_3[9]} {register_capture/reg_3[10]} {register_capture/reg_3[11]} {register_capture/reg_3[12]} {register_capture/reg_3[13]} {register_capture/reg_3[14]} {register_capture/reg_3[15]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe11]
+set_property port_width 16 [get_debug_ports u_ila_0/probe11]
+connect_debug_port u_ila_0/probe11 [get_nets [list {register_capture/reg_5[0]} {register_capture/reg_5[1]} {register_capture/reg_5[2]} {register_capture/reg_5[3]} {register_capture/reg_5[4]} {register_capture/reg_5[5]} {register_capture/reg_5[6]} {register_capture/reg_5[7]} {register_capture/reg_5[8]} {register_capture/reg_5[9]} {register_capture/reg_5[10]} {register_capture/reg_5[11]} {register_capture/reg_5[12]} {register_capture/reg_5[13]} {register_capture/reg_5[14]} {register_capture/reg_5[15]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe12]
+set_property port_width 16 [get_debug_ports u_ila_0/probe12]
+connect_debug_port u_ila_0/probe12 [get_nets [list {register_capture/reg_6[0]} {register_capture/reg_6[1]} {register_capture/reg_6[2]} {register_capture/reg_6[3]} {register_capture/reg_6[4]} {register_capture/reg_6[5]} {register_capture/reg_6[6]} {register_capture/reg_6[7]} {register_capture/reg_6[8]} {register_capture/reg_6[9]} {register_capture/reg_6[10]} {register_capture/reg_6[11]} {register_capture/reg_6[12]} {register_capture/reg_6[13]} {register_capture/reg_6[14]} {register_capture/reg_6[15]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe13]
+set_property port_width 16 [get_debug_ports u_ila_0/probe13]
+connect_debug_port u_ila_0/probe13 [get_nets [list {register_capture/reg_1[0]} {register_capture/reg_1[1]} {register_capture/reg_1[2]} {register_capture/reg_1[3]} {register_capture/reg_1[4]} {register_capture/reg_1[5]} {register_capture/reg_1[6]} {register_capture/reg_1[7]} {register_capture/reg_1[8]} {register_capture/reg_1[9]} {register_capture/reg_1[10]} {register_capture/reg_1[11]} {register_capture/reg_1[12]} {register_capture/reg_1[13]} {register_capture/reg_1[14]} {register_capture/reg_1[15]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe14]
+set_property port_width 1 [get_debug_ports u_ila_0/probe14]
+connect_debug_port u_ila_0/probe14 [get_nets [list flash_IBUF]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe15]
+set_property port_width 1 [get_debug_ports u_ila_0/probe15]
+connect_debug_port u_ila_0/probe15 [get_nets [list {MEM_WB_CONTROL_reg[RegWrite_n_0_]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe16]
+set_property port_width 1 [get_debug_ports u_ila_0/probe16]
+connect_debug_port u_ila_0/probe16 [get_nets [list rst_IBUF]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe17]
+set_property port_width 1 [get_debug_ports u_ila_0/probe17]
+connect_debug_port u_ila_0/probe17 [get_nets [list fetch_stage/write_enable]]
+set_property C_CLK_INPUT_FREQ_HZ 300000000 [get_debug_cores dbg_hub]
+set_property C_ENABLE_CLK_DIVIDER false [get_debug_cores dbg_hub]
+set_property C_USER_SCAN_CHAIN 1 [get_debug_cores dbg_hub]
+connect_debug_port dbg_hub/clk [get_nets clk]

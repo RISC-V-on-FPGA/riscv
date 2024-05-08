@@ -13,9 +13,9 @@ module data_memory (
 
   always_ff @(posedge clk) begin : Seq
     if (rst == 1) begin
-      for (int i = 0; i < 256; i++) begin
-        mem[i] <= 0;
-      end
+      // for (int i = 0; i < 256; i++) begin
+      //   mem[i] <= 0;
+      // end
     end else begin
       if (MemWrite) begin
         mem[word_address] <= write_data;

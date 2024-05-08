@@ -2,7 +2,8 @@
 
 32-bit 5-stage RISC-V processor for FPGA implementation based on the book Computer Organization and Design: (https://www.amazon.se/-/en/David-Patterson/dp/0128122757).
 
-Assembler used: [ripes.me](https://ripes.me/). Then the script `ripes_to_bytes.py` converts into mem file. 
+Assembler: [ripes.me](https://ripes.me/). 
+The script `ripes_to_bytes.py` converts into mem file. Then `send_uart.sh` can be used to upload to program memory on the cpu via uart.
 
 ![alt text](image.png)
 
@@ -46,14 +47,13 @@ Assembler used: [ripes.me](https://ripes.me/). Then the script `ripes_to_bytes.p
 - [x] Make sure every register is reset on rst
 - [x] Improve flash and rst? So that it is enough to raise flash to update program memory
 - [ ] Create Testcases for every Category of instructions
-  - [x] Arithmetic
-    - c.lui needs to be tested manually
-  - [x] Compare
+  - [ ] Arithmetic
+  - [ ] Compare
   - [ ] Logical
   - [ ] Shifts
   - [ ] Branches
-  - [x] Load
-  - [x] Store
+  - [ ] Load
+  - [ ] Store
 - [ ] Create testcases for implemented improvements
   - [ ] Forwarding: From EX/MEM, MEM/WB and register file forwarding
   - [ ] Hazard on loads (bubble from hazard detection unit)

@@ -9,10 +9,11 @@ module top (
     input rst,
     input uart_serial,
     input flash,
-    output logic please_dont_optimize
+    input [2:0] led_address,
+    output logic [15:0] led
 );
 
-  assign please_dont_optimize = wb_data[0];
+  //assign please_dont_optimize = wb_data[0];
 
   //IF_ID Registers
   logic            [31:0] IF_ID_PC;
@@ -228,11 +229,29 @@ module top (
       .memory_data(EX_MEM_MEMORY_DATA)
   );
 
-  uart_interface uart_interface (
+  // uart_interface uart_interface (
+  // .clk(clk),
+  // .input_serial(uart_serial),
+  // .byte_received(byte_received),
+  // .output_byte(output_byte)
+  // );
+
+  register_capture register_capture (
       .clk(clk),
-      .input_serial(uart_serial),
-      .byte_received(byte_received),
-      .output_byte(output_byte)
+      .rst(rst),
+      .write_data(wb_data),
+      .write_id(MEM_WB_RD),
+      .write_enable(MEM_WB_CONTROL.RegWrite),
+      .led_address(led_address),
+      .led_output(led)
+  );
+
+  uart uart (
+      .clk(clk),
+      .rst(rst),
+      .io_rx(uart_serial),
+      .io_data_valid(byte_received),
+      .io_data_packet(output_byte)
   );
 
 

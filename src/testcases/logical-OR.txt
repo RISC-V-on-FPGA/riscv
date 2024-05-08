@@ -1,0 +1,31 @@
+addi x31, x0, 0
+addi x11, x0, 3
+addi x12, x0, 2
+addi x13, x0, 5
+addi x15, x0, 7
+addi x16, x0, 10
+addi x17, x0, 15
+or x1, x13, x16        # x1 = b1111 = 15
+or x2, x17, x17        # x2 = b1111 = 15
+or x3, x11, x12        # x3 = b0011 = 3
+add x31, x31, x1
+add x31, x31, x2
+add x31, x31, x3        # x31 = 33
+ori x4, x13, 10        # x4 = b1111 = 15
+ori x5, x17, 15        # x5 = b1111 = 15
+ori x6, x11, 2        # x6 = b0011 = 3
+add x31, x31, x4
+add x31, x31, x5
+add x31, x31, x6        # x31 = 66
+c.or x13, x16
+c.or x17, x17
+c.or x11, x12
+add x31, x31, x13
+add x31, x31, x17
+add x31, x31, x11        # x31 = 99, ripes says 89
+nop
+nop
+nop
+nop
+HALT:
+    beq x0,x0, HALT
