@@ -18,11 +18,17 @@ stty -F /dev/ttyUSB1 4800
 # Loop through each line in the text file
 while IFS= read -r line
 do
+    line=$(echo "$line" | tr -d '\n')
+    line=$(echo "$line" | tr -d '\r')
+
     hex=$(echo "obase=16;ibase=2;$line" | bc)
+
+    hex=$(echo "$hex" | tr -d '\n')
+    hex=$(echo "$hex" | tr -d '\r')
 
     binary=$(echo "obase=2; ibase=16; $hex" | bc)
     printf "%08d\n" "$binary"
     echo -n "\x$hex" >/dev/ttyUSB1 
-    sleep 0.001
+    sleep 0.01
 
 done < "$text_file"
