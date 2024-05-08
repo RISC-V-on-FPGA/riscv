@@ -47,13 +47,14 @@ The script `ripes_to_bytes.py` converts into mem file. Then `send_uart.sh` can b
 - [x] Make sure every register is reset on rst
 - [x] Improve flash and rst? So that it is enough to raise flash to update program memory
 - [ ] Create Testcases for every Category of instructions
-  - [ ] Arithmetic
-  - [ ] Compare
-  - [ ] Logical
+  - [x] Arithmetic
+    - [ ] Compressed Arithmetic
+  - [x] Compare
+  - [x] Logical
   - [ ] Shifts
-  - [ ] Branches
-  - [ ] Load
-  - [ ] Store
+  - [x] Branches
+  - [x] Load
+  - [x] Store
 - [ ] Create testcases for implemented improvements
   - [ ] Forwarding: From EX/MEM, MEM/WB and register file forwarding
   - [ ] Hazard on loads (bubble from hazard detection unit)
