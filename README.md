@@ -48,7 +48,6 @@ The script `ripes_to_bytes.py` converts into mem file. Then `send_uart.sh` can b
 - [x] Improve flash and rst? So that it is enough to raise flash to update program memory
 - [ ] Create Testcases for every Category of instructions
   - [x] Arithmetic
-    - [ ] Compressed Arithmetic
   - [x] Compare
   - [x] Logical
   - [ ] Shifts
