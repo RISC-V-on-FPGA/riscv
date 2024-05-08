@@ -1,5 +1,7 @@
 addi x31, x0, 0
 addi x13, x0, 5
+addi x15, x0, 7
+addi x16, x0, 10
 addi x17, x0, 15
 addi x18, x0, 13
 xor x1, x13, x16        # x1 = b1111 = 15
@@ -9,17 +11,17 @@ add x31, x31, x1
 add x31, x31, x2
 add x31, x31, x3        # x31 = 25
 xori x4, x13, 10        # x4 = b1111 = 15
-xori x4, x17, 15        # x5 = b
-xori x4, x18, 13        # x6 = b1010 = 10
+xori x5, x17, 15        # x5 = b
+xori x6, x18, 7        # x6 = b1010 = 10
 add x31, x31, x4
 add x31, x31, x5
 add x31, x31, x6        # x31 = 50
 c.xor x13, x16
 c.xor x17, x17
 c.xor x18, x15
-add x31, x31, x1
-add x31, x31, x2
-add x31, x31, x3        # x31 = 75
+add x31, x31, x13
+add x31, x31, x17
+add x31, x31, x18        # x31 = 75, ripes gives 83
 nop
 nop
 nop
