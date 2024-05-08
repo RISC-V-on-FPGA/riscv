@@ -9,7 +9,8 @@ module top (
     input rst,
     input uart_serial,
     input flash,
-    input [2:0] led_address,
+    input [4:0] led_address,
+    input led_upper,
     output logic [15:0] led
 );
 
@@ -243,6 +244,7 @@ module top (
       .write_id(MEM_WB_RD),
       .write_enable(MEM_WB_CONTROL.RegWrite),
       .led_address(led_address),
+      .led_upper(led_upper),
       .led_output(led)
   );
 
