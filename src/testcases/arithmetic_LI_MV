@@ -1,0 +1,13 @@
+lui x1, 7
+c.lui x2, 0x7000    # x2 = x1
+lui x3, 9
+c.lui x4, 0x9000    # x4 = x3
+c.li x5, 7
+c.li x6, 9
+c.mv x6, x7
+nop
+nop
+nop
+nop
+halt:
+    beq x0, x0, halt
