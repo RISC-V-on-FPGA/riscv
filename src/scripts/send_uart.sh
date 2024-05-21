@@ -28,7 +28,7 @@ do
 
     binary=$(echo "obase=2; ibase=16; $hex" | bc)
     printf "%08d\n" "$binary"
-    echo -n "\x$hex" >/dev/ttyUSB1 
+    echo -n "\x$hex" >/dev/ttyUSB1
     sleep 0.01
 
 done < "$text_file"
