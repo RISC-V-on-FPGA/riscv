@@ -722,4 +722,8 @@ set_property IOSTANDARD LVCMOS33 [get_ports uart_serial]
 #set_property IOSTANDARD LVCMOS33 [get_ports {MemAdr[21]}]
 ##Bank = 14, Pin name = IO_L23N_T3_A02_D18_14,				Sch name = CRAM_A22
 #set_property PACKAGE_PIN U13 [get_ports {MemAdr[22]}]
+<<<<<<< HEAD
 #set_property IOSTANDARD LVCMOS33 [get_ports {MemAdr[22]}]
+=======
+#set_property IOSTANDARD LVCMOS33 [get_ports {MemAdr[22]}]
+>>>>>>> 8df91aac4cdadd092f927ff83d0d82cd49339cda
