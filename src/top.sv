@@ -76,6 +76,38 @@ module top (
   logic                   byte_received;
   logic                   decode_PCSrc;
   logic                   decode_IF_Flush;
+  // Registers to ILA
+  logic            [31:0] reg_1;
+  logic            [31:0] reg_2;
+  logic            [31:0] reg_3;
+  logic            [31:0] reg_4;
+  logic            [31:0] reg_5;
+  logic            [31:0] reg_6;
+  logic            [31:0] reg_7;
+  logic            [31:0] reg_8;
+  logic            [31:0] reg_9;
+  logic            [31:0] reg_10;
+  logic            [31:0] reg_11;
+  logic            [31:0] reg_12;
+  logic            [31:0] reg_13;
+  logic            [31:0] reg_14;
+  logic            [31:0] reg_15;
+  logic            [31:0] reg_16;
+  logic            [31:0] reg_17;
+  logic            [31:0] reg_18;
+  logic            [31:0] reg_19;
+  logic            [31:0] reg_20;
+  logic            [31:0] reg_21;
+  logic            [31:0] reg_22;
+  logic            [31:0] reg_23;
+  logic            [31:0] reg_24;
+  logic            [31:0] reg_25;
+  logic            [31:0] reg_26;
+  logic            [31:0] reg_27;
+  logic            [31:0] reg_28;
+  logic            [31:0] reg_29;
+  logic            [31:0] reg_30;
+  logic            [31:0] reg_31;
 
   always_comb begin : Comb
     if (MEM_WB_CONTROL.MemtoReg == 1) begin
@@ -245,7 +277,38 @@ module top (
       .write_enable(MEM_WB_CONTROL.RegWrite),
       .led_address(led_address),
       .led_upper(led_upper),
-      .led_output(led)
+      .led_output(led),
+      .out_reg_1(reg_1),
+      .out_reg_2(reg_2),
+      .out_reg_3(reg_3),
+      .out_reg_4(reg_4),
+      .out_reg_5(reg_5),
+      .out_reg_6(reg_6),
+      .out_reg_7(reg_7),
+      .out_reg_8(reg_8),
+      .out_reg_9(reg_9),
+      .out_reg_10(reg_10),
+      .out_reg_11(reg_11),
+      .out_reg_12(reg_12),
+      .out_reg_13(reg_13),
+      .out_reg_14(reg_14),
+      .out_reg_15(reg_15),
+      .out_reg_16(reg_16),
+      .out_reg_17(reg_17),
+      .out_reg_18(reg_18),
+      .out_reg_19(reg_19),
+      .out_reg_20(reg_20),
+      .out_reg_21(reg_21),
+      .out_reg_22(reg_22),
+      .out_reg_23(reg_23),
+      .out_reg_24(reg_24),
+      .out_reg_25(reg_25),
+      .out_reg_26(reg_26),
+      .out_reg_27(reg_27),
+      .out_reg_28(reg_28),
+      .out_reg_29(reg_29),
+      .out_reg_30(reg_30),
+      .out_reg_31(reg_31)
   );
 
   uart uart (
@@ -259,6 +322,43 @@ module top (
   clk_wiz_0 clk_wiz_0 (
       .clk_in1 (clk_in),
       .clk_out1(clk)
+  );
+
+  ila_0 ila_0 (
+      .clk(clk),
+      .probe0(rst),
+      .probe1(reg_1),
+      .probe2(reg_2),
+      .probe3(reg_3),
+      .probe4(reg_4),
+      .probe5(reg_5),
+      .probe6(reg_6),
+      .probe7(reg_7),
+      .probe8(reg_8),
+      .probe9(reg_9),
+      .probe10(reg_10),
+      .probe11(reg_11),
+      .probe12(reg_12),
+      .probe13(reg_13),
+      .probe14(reg_14),
+      .probe15(reg_15),
+      .probe16(reg_16),
+      .probe17(reg_17),
+      .probe18(reg_18),
+      .probe19(reg_19),
+      .probe20(reg_20),
+      .probe21(reg_21),
+      .probe22(reg_22),
+      .probe23(reg_23),
+      .probe24(reg_24),
+      .probe25(reg_25),
+      .probe26(reg_26),
+      .probe27(reg_27),
+      .probe28(reg_28),
+      .probe29(reg_29),
+      .probe30(reg_30),
+      .probe31(reg_31),
+      .probe32(0)
   );
 
 
