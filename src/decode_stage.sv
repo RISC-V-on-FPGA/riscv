@@ -197,7 +197,7 @@ module decode_stage (
         end
         BRANCH_BGE: begin
           if (left_operand[31] == 1 && right_operand[31] == 1) begin
-            if(((~left_operand) + 1) < ((~right_operand) + 1)) begin
+            if(((~left_operand) + 1) <= ((~right_operand) + 1)) begin
               PCSrc = 1'b1;
               IF_Flush = 1'b1;
             end else begin
@@ -211,7 +211,7 @@ module decode_stage (
             PCSrc = 1'b1;
             IF_Flush = 1'b1;
           end else begin
-            if (left_operand > right_operand) begin
+            if (left_operand >= right_operand) begin
               PCSrc = 1'b1;
               IF_Flush = 1'b1;
             end else begin
