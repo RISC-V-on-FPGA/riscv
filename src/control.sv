@@ -139,9 +139,9 @@ module control (
     end else if ({instruction.funct3, instruction.opcode} == BLT_INSTRUCTION) begin
       control.BranchType = BRANCH_BLT;
     end else if ({instruction.funct3, instruction.opcode} == BGE_INSTRUCTION) begin
-      control.BranchType = BRANCH_BNE;
-    end else if ({instruction.funct3, instruction.opcode} == BLTU_INSTRUCTION) begin
       control.BranchType = BRANCH_BGE;
+    end else if ({instruction.funct3, instruction.opcode} == BLTU_INSTRUCTION) begin
+      control.BranchType = BRANCH_BLTU;
     end else if ({instruction.funct3, instruction.opcode} == BGEU_INSTRUCTION) begin
       control.BranchType = BRANCH_BGEU;
     end

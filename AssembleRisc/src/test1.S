@@ -13,5 +13,5 @@
     nop
     nop
     nop
-halt:
+    halt:
     beq x0, x0, halt

@@ -1,39 +1,39 @@
 .globl main
 main:
 
-    addi x1, x0, 0
 
-    c.li x8, 5
-    c.li x9, 3
-    c.add x9, x8
-    c.addi x9, -2
 
-    c.li x10, 15
-    c.sub x9, x10
+    addi x12, x0, 0
+    addi x13, x0, 20
+    addi x14, x0, 0
+    li x15, 1
+    addi x16, x0, 1
 
-    c.slli x10, 1
-    c.srli x9, 1
+stroe_loop:
+    addi x12, x12, 1
+    sw x15, 0(x14)
+    sll x15, x15, x16
+    addi x14, x14, 4
+    blt x12, x13, stroe_loop
 
-    c.li x15, 0
-    c.sw x10, 0(x15)
-    c.sw x9, 4(x15)
 
-    c.addi x15, 4
-    c.lw x11, 0(x15)
-    lw x12, -4(x15)
+    addi x12, x0, 0
+    addi x14, x0, 0
+    addi x8, x0, 0
+    addi x13, x13, -1
 
-    c.mv x13, x10
-    c.sub x13, x12
-    c.beqz x13, l
-    addi x1, x1, 1
-    addi x1, x1, 1
-    addi x1, x1, 1
-
-l:
-    addi x1, x1, 0x123
+load_loop:
+    addi x12, x12, 1
+    lw x15, 0(x14)
+    addi x14, x14, 4
+    xor x8, x8, x15
+    bge x13, x12, load_loop
 
     nop
     nop
 
 
+
+    
+    
 .end
