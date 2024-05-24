@@ -180,8 +180,7 @@ module decompressor (
     end else if ({input_instruction[15:13], input_instruction[1:0]} == C_LI) begin
       //LI INSTUCTION (ADDI rd, x0, imm)
       output_instruction.rs1 = 0;
-      output_instruction.rd[2:0] = input_instruction[11:7];
-      output_instruction.rd[4:3] = 2'b01;
+      output_instruction.rd = input_instruction[11:7];
       output_instruction.funct3 = 0;
       output_instruction.opcode = 7'b0010011;
 
