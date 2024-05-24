@@ -98,7 +98,12 @@ module decompressor (
       //Immidiate value
       output_instruction.rs2 = input_instruction[6:2];
       output_instruction.funct7[0] = input_instruction[12];
-      output_instruction.funct7[6:1] = 0;
+
+      if (input_instruction[12]==1) begin
+        output_instruction.funct7[6:1] = 6'b111111;
+      end else begin
+        output_instruction.funct7[6:1] = 0;
+      end
 
     end else if ({input_instruction[15:13], input_instruction[12], input_instruction[11:10], input_instruction[6:5], input_instruction[1:0]} == C_OR) begin
       //OR INSTRUCTION
@@ -183,7 +188,12 @@ module decompressor (
       //Immidiate value
       output_instruction.rs2 = input_instruction[6:2];
       output_instruction.funct7[0] = input_instruction[12];
-      output_instruction.funct7[6:1] = 0;
+
+      if (input_instruction[12] == 1) begin
+        output_instruction.funct7[6:1] = 6'b111111;
+      end else begin
+        output_instruction.funct7[6:1] = 0;
+      end
 
     end else if ({input_instruction[15:13], input_instruction[1:0]} == C_LUI) begin
       //LUI INSTRUCTION
@@ -197,6 +207,16 @@ module decompressor (
       output_instruction.rs1[4:3] = 0;
       output_instruction.rs2 = 0;
       output_instruction.funct7 = 0;
+
+      if (input_instruction[12] == 1) begin
+        output_instruction.funct7 = 7'b1111111;
+        output_instruction.rs2 = 5'b11111;
+        output_instruction.rs1[4:3] = 2'b11;
+      end else begin
+        output_instruction.rs1[4:3] = 0;
+        output_instruction.rs2 = 0;
+        output_instruction.funct7 = 0;
+      end
 
     end else if ({input_instruction[15:13], input_instruction[1:0]} == C_LW) begin
       //LW INSTRUCTION
@@ -239,13 +259,19 @@ module decompressor (
       output_instruction.opcode = 7'b1100011;
 
       //Immidiate Value
-      output_instruction.funct7[6:4] = 0;
       output_instruction.funct7[3] = input_instruction[12];
       output_instruction.funct7[2:1] = input_instruction[6:5];
       output_instruction.funct7[0] = input_instruction[2];
       output_instruction.rd[4:3] = input_instruction[11:10];
       output_instruction.rd[2:1] = input_instruction[4:3];
-      output_instruction.rd[0] = 0;
+
+      if (input_instruction[12] == 1) begin
+        output_instruction.funct7[6:4] = 3'b111;
+        output_instruction.rd[0] = 1;
+      end else begin
+        output_instruction.rd[0] = 0;
+        output_instruction.funct7[6:4] = 0;
+      end
 
     end else if ({input_instruction[15:13], input_instruction[1:0]} == C_BNEZ) begin
       //BNEZ INSTRUCTION
@@ -256,13 +282,20 @@ module decompressor (
       output_instruction.opcode = 7'b1100011;
 
       //Immidiate Value
-      output_instruction.funct7[6:4] = 0;
       output_instruction.funct7[3] = input_instruction[12];
       output_instruction.funct7[2:1] = input_instruction[6:5];
       output_instruction.funct7[0] = input_instruction[2];
       output_instruction.rd[4:3] = input_instruction[11:10];
       output_instruction.rd[2:1] = input_instruction[4:3];
       output_instruction.rd[0] = 0;
+
+      if (input_instruction[12] == 1) begin
+        output_instruction.funct7[6:4] = 3'b111;
+        output_instruction.rd[0] = 1;
+      end else begin
+        output_instruction.rd[0] = 0;
+        output_instruction.funct7[6:4] = 0;
+      end
 
     end else begin
       output_instruction = input_instruction;
