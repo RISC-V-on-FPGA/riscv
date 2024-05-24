@@ -358,7 +358,9 @@ module top (
       .probe29(reg_29),
       .probe30(reg_30),
       .probe31(reg_31),
-      .probe32(0)
+      .probe32(0),
+      .probe33(byte_received),
+      .probe34(output_byte)
   );
 
 

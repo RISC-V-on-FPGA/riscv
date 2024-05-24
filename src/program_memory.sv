@@ -16,9 +16,9 @@ module program_memory (
   assign mem_write_address = write_address[9:0];
   assign mem_pc = pc[9:0];
 
-  initial begin
-    $readmemb("instruction_mem.mem", ram);
-  end
+  // initial begin
+    // $readmemb("instruction_mem.mem", ram);
+  // end
 
   always_ff @(posedge clk) begin
     if (write_enable) begin
