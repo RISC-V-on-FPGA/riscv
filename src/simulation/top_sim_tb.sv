@@ -1,11 +1,11 @@
 `timescale 1ps / 1ps
 
-module top_tb;
+module top_sim_tb;
 
   logic clk, rst, flash;
   logic uart_serial;
 
-  top uut (
+  top_sim uut (
       .clk(clk),
       .rst(rst),
       .uart_serial(uart_serial),
@@ -26,7 +26,7 @@ module top_tb;
 
   initial begin
     $dumpfile("waveform.vcd");
-    $dumpvars(0, top_tb);
+    $dumpvars(0, top_sim_tb);
     clk = 1;
 
     #(100 * period);
