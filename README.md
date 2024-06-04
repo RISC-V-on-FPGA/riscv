@@ -2,8 +2,8 @@
 
 32-bit 5-stage RISC-V processor for FPGA implementation based on the book Computer Organization and Design: (https://www.amazon.se/-/en/David-Patterson/dp/0128122757).
 
-Assembler: [ripes.me](https://ripes.me/). 
-The script `ripes_to_bytes.py` converts into mem file. Then `send_uart.sh` can be used to upload to program memory on the cpu via uart.
+Assembler: [ripes.me](https://ripes.me/) or [AssembleRisc](https://github.com/masoud-ata/AssembleRisc).  
+The scripts `*_to_bytes.py` converts into mem file. Then `send_uart.py` can be used to upload to program memory on the cpu via uart.
 
 ![alt text](image.png)
 
@@ -42,20 +42,3 @@ The script `ripes_to_bytes.py` converts into mem file. Then `send_uart.sh` can b
 |            | Branch $\ne$ 0          |                   | C.BNEZ rs1',imm.     |
 | Loads      | Load Word               | LW rd,rs1,imm     | C.LW rd',rs1',imm.   |
 | Stores     | Store Word              | SW rs1,rs2,imm    | C.SW rs1',rs2', imm. |
-
-# Short term plan
-- [x] Make sure every register is reset on rst
-- [x] Improve flash and rst? So that it is enough to raise flash to update program memory
-- [ ] Create Testcases for every Category of instructions
-  - [x] Arithmetic
-  - [x] Compare
-  - [x] Logical
-  - [ ] Shifts
-  - [x] Branches
-  - [x] Load
-  - [x] Store
-- [x] Create testcases for implemented improvements
-  - [x] Forwarding: From EX/MEM, MEM/WB and register file forwarding
-  - [x] Hazard on loads (bubble from hazard detection unit)
-  - [x] Hazard on branch (bubble from hazard detection unit)
-- [x] Create Branch for sim (MAIN FPGA)
